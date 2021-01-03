@@ -8,7 +8,7 @@
    * 《群论》 韩其智，孙洪洲，北京大学出版社 [豆瓣link](https://book.douban.com/subject/3584574//)
    * 《群论讲义》 王宏利，未出版
    * 《群论及其在固体物理中的应用》 徐婉棠，喀兴林，高等教育出版社
-   * 《Group Theory: Application to the Phsycics of Condensed Matter》 M. S. Dresselhaus, G. Dresselhaus, A. Jorio, Springer
+   * 《Group Theory: Application to the Phsycics of Condensed Matter》 M. S. Dresselhaus, G. Dresselhaus, A. Jorio, [Springer](https://www.springer.com/gp/book/9783540328971)
    * 《Group Theory for Physicists》 Zhongqi Ma（马中骐）, World Scientific
    * 《Group Theory in a Nutshell for Physicists》 Anthony Zee
 2. 重要人物
