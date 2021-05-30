@@ -12,6 +12,8 @@
    * 《Group Theory for Physicists》 Zhongqi Ma（马中骐）, World Scientific
    * 《[Group Theory in a Nutshell for Physicists](https://press.princeton.edu/books/hardcover/9780691162690/group-theory-in-a-nutshell-for-physicists)》 Anthony Zee
    * GTPack: A Mathematica group theory package for application in solid-state physics and photonics, [arxiv](https://arxiv.org/abs/1807.01245), [frontiersin](https://www.frontiersin.org/articles/10.3389/fphy.2018.00086/full), [website](https://gtpack.org/)
+   * proofwiki, [website](https://proofwiki.org/wiki/Main_Page)
+   * [wiki/小群列表](https://zh.wikipedia.org/wiki/%E5%B0%8F%E7%BE%A4%E5%88%97%E8%A1%A8)
 2. 重要人物
    * Emmy Noether (1882-1935, 德国犹太人)：理体系的对称性与守恒量之间得关系
    * Eugene Paul Wigner（1902-1995，匈牙利人，后加入美国籍）
@@ -113,7 +115,9 @@
    * 一维恒等表示/显然表示/平凡表示 (trivial representation)
 3. 等价表示：相似变换，但表示空间可以不一样
 4. 可约表示，不变的真子空间
+   * 区别于不变子群；不变子群的元素是群G中元素（矩阵），而不变真子空间是线性空间中元素（矢量）
    * 直和，完全可约
+   * 任何群表示最终都可以化为不可约表示的直和，重复度
    * 对于有限群，表示可约则完全可约
 5. 酉表示：酉变换群，酉矩阵群
    * 酉表示可约则完全可约
@@ -129,3 +133,48 @@
 10. 左正则表示：抽象群G与线性变换群`{L(g_i)}`的同态映射关系（同构）
     * 左正则表示是群表示的忠实表示
     * 右正则表示
+11. Schur's Lemma舒尔引理1：群G在有限维向量空间$V_A$和$V_B$有不可约表示$A$和$B$，若对任意G中元素g，存在线性变换M满足$B(g)M=MA(g)$，则当M不为零时，A与B必等价
+    * 两个不等价不可约表示，不能通过一个非零线性变换M联系起来$MA(g)=B(g)M$
+12. 舒尔引理2：群G在有限维复空间V上的不可约表示A，对于任意G中元素g，若V上线性变换M满足$MA(g)=A(g)M$，则$M=\lambda E$（常数矩阵）
+    * 任意复数域上方阵至少有一个特征值 [math-stackoverflow](https://math.stackexchange.com/q/655634)
+13. 有限群在内积空间的每一个表示都有等价的酉表示
+14. 群函数，群函数空间
+
+pass 正交性与完备性没有理解，暂且先跳过
+
+1. 特征标：群G的表示A，其特征标定义为`{tr(A(g))}`
+   * 特征标是群函数，特征标是类函数
+   * 等价的两个表示的特征标相同
+   * 共轭元素的特征标相同：不共轭元素的特征标可以相同也可以不同
+2. 特征标第一正交定理：有限群不可约表示的特征标满足
+   * $(\chi^p,\chi^r)=\frac{1}{n}\sum_{i=1}^{n}\chi^{p*}(g_i)\chi^r(g_i)=\delta_{pr}$
+   * 不可约表示与自身的特征标内积是1
+3. 类函数
+   * 类函数空间的维度是群中类的个数
+   * 有限群的所有不等价不可约表示的特征标在类函数空间是完备的
+   * 群的不等价不可约表示个数是群中类的个数
+
+## 点群与空间群
+
+1. 点群基础，晶体点群，晶体点阵，空间群（旋转轴，滑移面），三维实正交群（母体）
+2. 对称操作，对称元素
+3. $O_h$群
+4. 正交变换，保内积，实正交群，$O(3)$群，$SO(3)$群（不变子群，保手性），空间反演群，
+5. 行列式性质：`det(AB)=det(A)det(B)`, `det(A)=det(A^t)`
+6. 点群：第一类点群，第二类点群
+
+## MISC
+
+1. 矩阵直积
+   * $(A_1\otimes B_1)(A_2\otimes B_2)=(A_1A_2)\otimes (B_1B_2)$
+   * 单位/对角/酉矩阵的直积仍是单位/对角/酉矩阵
+   * $tr(A\otimes B)=tr(A)tr(B)$
+
+4阶循环群的特征标表如下，其中$A^p(a)=exp(2\pi i(p-1)/4)$
+
+| - | $1\{e\}$ | $1\{a\}$ | $1\{a^2\}$ | $1\{a^3\}$ |
+| :-: | :-: | :-: | :-: | :-: |
+| $A^1$ | $1$ | $1$ | $1$ | $1$ |
+| $A^2$ | $1$ | $i$ | $-1$ | $-i$ |
+| $A^3$ | $1$ | $-1$ | $1$ | $-1$ |
+| $A^4$ | $1$ | $-i$ | $-1$ | $i$ |
