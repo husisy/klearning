@@ -42,3 +42,22 @@ sudo apt udpate
 sudo apt upgrade
 sudo apt install qemu-system git build-essential
 ```
+
+## The Missing Semester of Your CS Education
+
+TODO: 转移至`learning/linux/shell`
+
+1. link
+   * [course-website](https://missing.csail.mit.edu/)
+   * [course/chinese-version](https://missing-semester-cn.github.io/)
+   * [GNU-bash-documentation](https://www.gnu.org/software/bash/manual/html_node/index.html#SEC_Contents)
+   * GPU
+   * [wiki/shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))
+2. lecturer: Anish, Jon, Jose
+3. 总时长`11x1 hour`
+
+## 操作系统-蒋炎岩
+
+1. link
+   * [Yanyan-操作系统](http://jyywiki.cn/ICS/2020/)
+   * [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)
