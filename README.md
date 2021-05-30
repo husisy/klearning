@@ -35,7 +35,7 @@ knowledge-learning预计包含如下四个方面
 
 TODO
 
-1. [ ] 建立雏形，切入点包括课程笔记，算法CPA/RGF
+1. [ ] 建立雏形，切入点包括课程笔记，算法CPA/RGF/FastMultipleMethod
 2. [ ] github organization
 
 其他
