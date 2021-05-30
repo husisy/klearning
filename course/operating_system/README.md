@@ -5,6 +5,7 @@
    * [清华大学计算机系统操作系统系列课程主页](http://os.cs.tsinghua.edu.cn/oscourse)
    * [github-ucore-os-lab](https://github.com/chyyuu/ucore_os_lab)
    * ucore, ucore+
+   * [@book/Operating-Systems-Three-Easy-Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
 2. concept: 操作系统结构，中断及系统调用，内存管理，进程与线程，处理机调度，同步互斥，文件系统，IO子系统
 3. 并发，共享，虚拟，异步
 4. x86-32
@@ -51,7 +52,6 @@ TODO: 转移至`learning/linux/shell`
    * [course-website](https://missing.csail.mit.edu/)
    * [course/chinese-version](https://missing-semester-cn.github.io/)
    * [GNU-bash-documentation](https://www.gnu.org/software/bash/manual/html_node/index.html#SEC_Contents)
-   * GPU
    * [wiki/shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))
 2. lecturer: Anish, Jon, Jose
 3. 总时长`11x1 hour`
