@@ -37,6 +37,8 @@ TODO
 
 1. [ ] 建立雏形，切入点包括课程笔记，算法CPA/RGF/FastMultipleMethod
 2. [ ] github organization
+3. [ ] axmath还是lyx，前者一定没法做git管理，那修改记录就没法查看，后者使用还不熟练
+4. [ ] 流程图如何整合，processon还是用python代码写
 
 其他
 
