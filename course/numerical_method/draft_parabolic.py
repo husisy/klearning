@@ -1,11 +1,14 @@
 import numpy as np
 import scipy.linalg
+import scipy.fft
 import scipy.sparse
 import scipy.sparse.linalg
 import scipy.special
 import matplotlib
 import matplotlib.pyplot as plt
 import mpl_toolkits
+
+hfe = lambda x,y:np.max(np.abs(x-y)/(np.abs(x)+np.abs(y)+1e-3))
 
 plt.ion()
 
@@ -233,3 +236,72 @@ def demo_heat_diffusion_radial():
         ax.set_ylabel('t')
     ax0.set_title('analytical')
     ax1.set_title(f'theta={theta} scheme')
+
+
+def demo_heat_diffusion_bc00():
+    # u_t=D u_xx
+    # u(x,0)=0
+    # u(0,t)=0, u(1,t)=0
+    diffusion_coeff = 1
+    x_length = 10
+    num_x = 50
+    t_length = 0.05
+    num_t = 500
+    ux0 = 0 #must be 1 for analytical solution
+    ux1 = 0 #must be 0 for analytical solution
+    hf0 = lambda x: np.sin(np.pi*4*(x/x_length)**2) #ux0=ux1=0
+
+    xspan = np.linspace(0, x_length, num_x)
+    tspan = np.linspace(0, t_length, num_t)
+    ut0 = hf0(xspan)
+
+    Ak = scipy.fft.dst(ut0[1:-1], type=1)/(num_x-1)
+    tmp0 = diffusion_coeff*(np.arange(1,num_x-1)*np.pi/x_length)**2
+    tmp1 = Ak[:,np.newaxis]*np.exp(-tmp0[:,np.newaxis]*tspan)
+    ret_analytical = sum([y[:,np.newaxis]*np.sin(x*np.pi*xspan/x_length) for x,y in enumerate(tmp1,start=1)])
+    assert hfe(ret_analytical[0], ut0) < 1e-7
+
+    ret_FTCS = _heat_diffusion_hf_FTCS(diffusion_coeff, x_length, num_x, t_length, num_t, ux0, ux1, ut0)
+
+    xdata,ydata = np.meshgrid(xspan, tspan)
+    fig,(ax0,ax1,ax2) = plt_subplots_3d(nrols=1, ncols=3, figsize=(10,4))
+    ax0.plot_surface(xdata, ydata, ret_analytical, rstride=1, cstride=1, cmap=matplotlib.cm.coolwarm, linewidth=0, antialiased=True)
+    ax1.plot_surface(xdata, ydata, ret_FTCS, rstride=1, cstride=1, cmap=matplotlib.cm.coolwarm, linewidth=0, antialiased=True)
+    ax2.plot_surface(xdata, ydata, ret_analytical-ret_FTCS, rstride=1, cstride=1, cmap=matplotlib.cm.coolwarm, linewidth=0, antialiased=True)
+    for ax,title in zip([ax0,ax1,ax2],['analytical','finite-difference', 'error']):
+        ax.set_xlabel('x')
+        ax.set_ylabel('t')
+        ax.set_title(title)
+
+
+def demo_parabolic_instability():
+    # u_t=D u_xx
+    # u(x,0)=0
+    # u(0,t)=0, u(1,t)=0
+    diffusion_coeff = 1
+    x_length = 10
+    num_x = 100
+    t_length = 1
+    num_t0 = 188
+    num_t1 = 200
+    ux0 = 0 #must be 1 for analytical solution
+    ux1 = 0 #must be 0 for analytical solution
+    hf0 = lambda x: np.sin(np.pi*4*(x/x_length)**2) #ux0=ux1=0
+
+    xspan = np.linspace(0, x_length, num_x)
+    ut0 = hf0(xspan)
+
+    ret_FTCS0 = _heat_diffusion_hf_FTCS(diffusion_coeff, x_length, num_x, t_length, num_t0, ux0, ux1, ut0)
+    ret_FTCS1 = _heat_diffusion_hf_FTCS(diffusion_coeff, x_length, num_x, t_length, num_t1, ux0, ux1, ut0)
+
+    fig,(ax0,ax1) = plt_subplots_3d(nrols=1, ncols=2, figsize=(8,4))
+    xdata,ydata = np.meshgrid(xspan, np.linspace(0, t_length, num_t0))
+    ax0.plot_surface(xdata, ydata, ret_FTCS0, rstride=1, cstride=1, cmap=matplotlib.cm.coolwarm, linewidth=0, antialiased=True)
+    xdata,ydata = np.meshgrid(xspan, np.linspace(0, t_length, num_t1))
+    ax1.plot_surface(xdata, ydata, ret_FTCS1, rstride=1, cstride=1, cmap=matplotlib.cm.coolwarm, linewidth=0, antialiased=True)
+    stable_factor0 = diffusion_coeff*(t_length/(num_t0-1))/(x_length/(num_x-1))**2
+    stable_factor1 = diffusion_coeff*(t_length/(num_t1-1))/(x_length/(num_x-1))**2
+    for ax,tmp0 in zip([ax0,ax1], [stable_factor0,stable_factor1]):
+        ax.set_xlabel('x')
+        ax.set_ylabel('t')
+        ax.set_title(f'stable-factor: {tmp0:.5f}')
