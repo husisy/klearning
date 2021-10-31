@@ -58,6 +58,28 @@ def _heat_diffusion_hf_FTCS(diffusion_coeff, x_length, num_x, t_length, num_t, u
     return u
 
 
+def _heat_diffusion_theta_scheme(diffusion_coeff, x_length, num_x, t_length, num_t, ux0, ux1, ut0, theta=0.5):
+    #Crank-Nicolson scheme, theta-scheme
+    u = np.zeros((num_t,num_x), dtype=np.float64)
+    u[0] = ut0
+    u[:,0] = ux0
+    u[:,-1] = ux1
+    tmp0 = diffusion_coeff*(t_length/(num_t-1))*((num_x-1)/x_length)**2
+    matA = scipy.sparse.lil_matrix((num_x-2,num_x-2), dtype=np.float64)
+    matA.setdiag(1+2*theta*tmp0, k=0)
+    matA.setdiag(-theta*tmp0, k=1)
+    matA.setdiag(-theta*tmp0, k=-1)
+    matA = matA.tocsr()
+    for n in range(1,num_t):
+        matB = (1-2*(1-theta)*tmp0)*u[n-1,1:-1]
+        matB[1:] += (1-theta)*tmp0*u[n-1,1:-2]
+        matB[:-1] += (1-theta)*tmp0*u[n-1,2:-1]
+        matB[0] += tmp0*ux0
+        matB[-1] += tmp0*ux1
+        u[n,1:-1] = scipy.sparse.linalg.spsolve(matA, matB)
+    return u
+
+
 def demo_heat_diffusion():
     # u_t=D u_xx
     # u(x,0)=0
@@ -71,6 +93,7 @@ def demo_heat_diffusion():
     ux0 = 1 #must be 1 for analytical solution
     ux1 = 0 #must be 0 for analytical solution
     ut0 = np.zeros(num_x)
+    theta = 0.5
 
     dx = x_length/(num_x-1)
     dt = t_length/(num_t-1)
@@ -83,25 +106,7 @@ def demo_heat_diffusion():
 
     ret_ = _heat_diffusion_hf_analytical(diffusion_coeff, x_length, num_x, t_length, num_t, num_order=100)
     ret0 = _heat_diffusion_hf_FTCS(diffusion_coeff, x_length, num_x, t_length, num_t, ux0, ux1, ut0)
-
-    #Crank-Nicolson scheme, theta-scheme
-    # TODO non-ignorable error
-    # https://folk.ntnu.no/leifh/teaching/tkt4140/._main065.html
-    u = np.zeros((num_t,num_x), dtype=np.float64)
-    theta = 0.5
-    u[0] = ut0
-    u[:,0] = ux0
-    u[:,-1] = ux1
-    matA = scipy.sparse.lil_matrix((num_x-2,num_x-2), dtype=np.float64)
-    matA.setdiag(-2*theta-1/numerical_diffusion_number, k=0)
-    matA.setdiag(theta, k=1)
-    matA.setdiag(theta, k=-1)
-    matA = matA.tocsr()
-    tmp0 = 2-2*theta-1/numerical_diffusion_number
-    for n in range(1,num_t):
-        matB = -(1-theta)*(u[n-1,2:]+u[n-1,:-2]) + tmp0*u[n-1,1:-1]
-        u[n,1:-1] = scipy.sparse.linalg.spsolve(matA, matB)
-    ret1 = u
+    ret1 = _heat_diffusion_theta_scheme(diffusion_coeff, x_length, num_x, t_length, num_t, ux0, ux1, ut0, theta=0.5)
 
     xdata,ydata = np.meshgrid(xspan, tspan)
     fig,((ax0,ax1),(ax2,ax3)) = plt_subplots_3d(nrols=2, ncols=2)
@@ -114,7 +119,8 @@ def demo_heat_diffusion():
         ax.set_ylabel('t')
     ax0.set_title('analytical')
     ax1.set_title('FTCS')
-    ax1.set_title('theta')
+    ax2.set_title('theta')
+    ax3.axis('off')
 
     # fig = plt.figure(figsize=(5, 4))
     # tmp0 = min(ret0.min(), ret_.min()), max(ret0.max(), ret_.max())
