@@ -8,9 +8,11 @@ matrix
 │   ├── normal 正规矩阵
 │   │   ├── unitary 幺正矩阵
 │   │   ├── hermitian 厄米矩阵
+│   │   └── circulant 循环矩阵
 │   │   └── other
 │   └── diagonalizable but unnormal 可对角但非正规矩阵
-└── Jordan标准型
+└── defective matrix
+    └──Jordan norm form
 
 matrix
 ├── invertible 可逆矩阵
