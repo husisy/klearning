@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import scipy.linalg
 import scipy.sparse
@@ -7,6 +8,10 @@ import matplotlib
 import matplotlib.pyplot as plt
 # import matplotlib.animation
 import mpl_toolkits
+
+hf_file = lambda *x: os.path.join('data',*x)
+if not os.path.exists(hf_file()):
+    os.makedirs(hf_file())
 
 plt.ion()
 
@@ -59,9 +64,6 @@ def plt_line_animation(data_dict, xdata=None, frame_interval_ms=100):
     return fig,ax,ani
 
 
-import scipy.interpolate #TODO
-
-
 def pde_forward_time_backward_space(wave_speed, xspan, tspan, ut0):
     num_x = xspan.shape[0]
     num_t = tspan.shape[0]
@@ -81,6 +83,46 @@ def ftbs(u): # forward time backward space
     u[1:-1] = (1-c)*u[1:-1] + c*u[:-2]
     return u[1:-1]
 
+
+def pde_upwind(wave_speed, xspan, tspan, ut0):
+    # periodict BC
+    num_x = xspan.shape[0]
+    num_t = tspan.shape[0]
+    dx = xspan[1] - xspan[0]
+    dt = tspan[1] - tspan[0]
+    u = np.zeros((num_t, num_x), dtype=np.float64)
+    u[0] = ut0
+    c = wave_speed*dt/dx #courant_number
+    coeff0 = (abs(c)+c)/2
+    coeff1 = 1 - abs(c)
+    coeff2 = (abs(c)-c)/2
+    for i in range(1,num_t):
+        u0 = u[i-1]
+        u[i,1:-1] = coeff0*u0[:-2] + coeff1*u0[1:-1] + coeff2*u0[2:]
+        u[i,0] = coeff0*u0[-1] + coeff1*u0[0] + coeff2*u0[1]
+        u[i,-1] = coeff0*u0[-2] + coeff1*u0[-1] + coeff2*u0[0]
+    return u
+
+def pde_forward_time_central_space(wave_speed, xspan, tspan, ut0):
+    # periodict BC
+    num_x = xspan.shape[0]
+    num_t = tspan.shape[0]
+    dx = xspan[1] - xspan[0]
+    dt = tspan[1] - tspan[0]
+    c = wave_speed*dt/dx #courant_number
+    u = np.zeros((num_t, num_x), dtype=np.float64)
+    u[0] = ut0
+    coeff = -wave_speed*dt/(2*dx)
+    coeff0 = c/2
+    coeff1 = 1
+    coeff2 = -c/2
+    for i in range(1,num_t):
+        u0 = u[i-1]
+        u[i,1:-1] = coeff0*u0[:-2] + coeff1*u0[1:-1] + coeff2*u0[2:]
+        u[i,0] = coeff0*u0[-1] + coeff1*u0[0] + coeff2*u0[1]
+        u[i,-1] = coeff0*u0[-2] + coeff1*u0[-1] + coeff2*u0[0]
+    return u
+
 def pde_lax_wendroff(wave_speed, xspan, tspan, ut0):
     num_x = xspan.shape[0]
     num_t = tspan.shape[0]
@@ -89,15 +131,19 @@ def pde_lax_wendroff(wave_speed, xspan, tspan, ut0):
     c = wave_speed*dt/dx #courant_number
     u = np.zeros((num_t, num_x), dtype=np.float64)
     u[0] = ut0
+    coeff0 = (c**2+c)/2
+    coeff1 = (1-c**2)
+    coeff2 = (c**2-c)/2
     for i in range(1,num_t):
-        ulast = u[i-1]
-        u[i,1:-1] = c/2*(1+c)*ulast[:-2] + (1-c**2)*ulast[1:-1] - c/2*(1-c)*ulast[2:]
-        u[i,0] = ulast[0]
-        u[i,-1] = np.interp(xspan[-1]-wave_speed*dt, xspan[-2:], ulast[-2:])
+        u0 = u[i-1]
+        u[i,1:-1] = coeff0*u0[:-2] + coeff1*u0[1:-1] + coeff2*u0[2:]
+        u[i,0] = coeff0*u0[-1] + coeff1*u0[0] + coeff2*u0[1]
+        u[i,-1] = coeff0*u0[-2] + coeff1*u0[-1] + coeff2*u0[0]
     return u
 
 
 def pde_lax_friedrich(wave_speed, xspan, tspan, ut0):
+    # periodict BC
     num_x = xspan.shape[0]
     num_t = tspan.shape[0]
     dx = xspan[1] - xspan[0]
@@ -105,12 +151,16 @@ def pde_lax_friedrich(wave_speed, xspan, tspan, ut0):
     c = wave_speed*dt/dx #courant_number
     u = np.zeros((num_t, num_x), dtype=np.float64)
     u[0] = ut0
+    coeff0 = (1+c)/2
+    coeff1 = 0
+    coeff2 = (1-c)/2
     for i in range(1,num_t):
-        ulast = u[i-1]
-        u[i,1:-1] = (ulast[:-2]+ulast[2:])/2 - c*(ulast[2:]-ulast[:-2])/2
-        u[i,0] = ulast[0]
-        u[i,-1] = np.interp(xspan[-1]-wave_speed*dt, xspan[-2:], ulast[-2:])
+        u0 = u[i-1]
+        u[i,1:-1] = coeff0*u0[:-2] + coeff1*u0[1:-1] + coeff2*u0[2:]
+        u[i,0] = coeff0*u0[-1] + coeff1*u0[0] + coeff2*u0[1]
+        u[i,-1] = coeff0*u0[-2] + coeff1*u0[-1] + coeff2*u0[0]
     return u
+
 
 def pde_macCormack(wave_speed, xspan, tspan, ut0):
     num_x = xspan.shape[0]
@@ -173,3 +223,74 @@ def demo_hyperbolic_pde():
     }
     fig,ax,ani = plt_line_animation(data_dict, xdata=xspan, frame_interval_ms=100)
     return ani #otherwise animation will not work
+
+def demo_figure_73_75_76():
+    # upwind/LxW/LxF scheme fail to converge if not satisfy CFL condition
+    # LxW is 2nd order accuracy in time and 2nd order in space
+    # LxF is 1nd order accuracy in time and 1nd order in space
+    # LxF is more diffusive and smoother
+    wave_speed = 1
+    t0 = 0
+    t1 = 0.5
+    x0 = 0
+    x1 = 1
+    # num_x_t_list = [(50,26),(50,25),(100,51),(100,50)]
+    num_x_t_list = [(76,39),(76,38),(151,77),(151,75)]
+    hf_ut0 = lambda x: np.logical_and(x<0.3, x>=0.2).astype(np.float64)
+    cfl_list = [wave_speed*(t1-t0)/(y-1)*(x-1)/(x1-x0) for x,y in num_x_t_list]
+
+    tmp0 = [
+        ('figure_7_3.png',pde_upwind),
+        ('figure_7_5.png',pde_lax_wendroff),
+        ('figure_7_6.png',pde_lax_friedrich),
+    ]
+    for filename,hf_scheme in tmp0:
+        ret = []
+        for num_x,num_t in num_x_t_list:
+            xspan = np.linspace(x0, x1, num_x)
+            tspan = np.linspace(t0, t1, num_t)
+            ut0 = hf_ut0(xspan)
+            ut1 = hf_scheme(wave_speed, xspan, tspan, ut0)[-1]
+            ret.append((xspan,ut0,ut1))
+        fig,tmp0 = plt.subplots(2,2)
+        ax_list = [tmp0[0][0],tmp0[0][1],tmp0[1][0],tmp0[1][1]]
+        for ax,data,cfl in zip(ax_list,ret,cfl_list):
+            xspan, ut0, ut1 = data
+            ax.plot(xspan, ut0)
+            ax.plot(xspan, ut1, '.-')
+            ax.set_title(f'CFL={cfl:.3f}')
+            ax.set_xlim(x0, x1)
+            ax.set_ylim(-1, 2)
+        fig.tight_layout()
+        fig.savefig(hf_file(filename))
+
+def demo_figure_7_4():
+    # FTCS is unconditional unstable
+    wave_speed = 1
+    t0 = 0
+    t1 = 0.5
+    x0 = 0
+    x1 = 1
+    num_x_t_list = [(50,2450),(50,1226),(100,4950),(100,2475)]
+    hf_ut0 = lambda x: np.logical_and(x<0.3, x>=0.2).astype(np.float64)
+    cfl_list = [wave_speed*(t1-t0)/(y-1)*(x-1)/(x1-x0) for x,y in num_x_t_list]
+
+    ret = []
+    for num_x,num_t in num_x_t_list:
+        xspan = np.linspace(x0, x1, num_x)
+        tspan = np.linspace(t0, t1, num_t)
+        ut0 = hf_ut0(xspan)
+        ut1 = pde_forward_time_central_space(wave_speed, xspan, tspan, ut0)[-1]
+        ret.append((xspan,ut0,ut1))
+
+    fig,tmp0 = plt.subplots(2,2)
+    ax_list = [tmp0[0][0],tmp0[0][1],tmp0[1][0],tmp0[1][1]]
+    for ax,data,cfl in zip(ax_list,ret,cfl_list):
+        xspan, ut0, ut1 = data
+        ax.plot(xspan, ut0)
+        ax.plot(xspan, ut1, '.-')
+        ax.set_title(f'CFL={cfl:.3f}')
+        ax.set_xlim(x0, x1)
+        ax.set_ylim(-1, 2)
+    fig.tight_layout()
+    fig.savefig(hf_file('figure_7_4.png'))
