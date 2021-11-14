@@ -192,7 +192,18 @@ taichi
    * discretization (build the stiffness matrix and right-hand side)
    * solve linear system
 2. Cauchy momentum equation
-3. topology optimization: solid isotropic material with penalization (SIMP), optimility criterion (OC)
+3. 三角形网格
+   * 方便贴合边界
+   * 方便网格密度渐变
+4. `Ku=f`
+   * `K`: stiffness matrix
+   * `u`: degree of freedoms, solution vector
+   * `f`: load vector
+5. linear elasticity, Cauchy momentum equation
+   * strain tensor, Cauchy stress tensor
+6. topology optimization: solid isotropic material with penalization (SIMP), optimility criterion (OC)
+   * minimal compiance
+7. 2D方格点上的FEM $\phi _{ij}=\left( 1-\left| x \right| \right) \left( 1-\left| y \right| \right)$ 详细推导见`draft00.afx`
 
 ## lec7 混合欧拉-拉格朗日视角
 
@@ -246,3 +257,11 @@ todo
 
 1. 是否要绑定数组，还是走全局变量
 2. 接触tensor allocation
+
+layout设计
+
+```text
+np.array(shape=[], layout=[])
+[3,4j,[i32,f32,i32]]
+shape=[128,128,128], layout=[(0,0,32),(1,0,32),(2,0,32),(0,1,4),(1,1,4),(2,1,4)]
+```
