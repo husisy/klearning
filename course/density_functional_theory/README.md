@@ -9,6 +9,8 @@
 
 ## 代码实现
 
+DFT is in shell, let's pull it out
+
 不太大的代码仓库
 
 1. link
@@ -16,6 +18,33 @@
    * [github/tinydft](https://github.com/theochem/tinydft)
    * [github/dqc](https://github.com/diffqc/dqc)
    * [github/lfdft](https://github.com/brandongc/lfdft)
+   * jax-dft @paper-PRL [link](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.036401) [github](https://github.com/google-research/google-research/tree/master/jax_dft)
+   * @youtube DFT code in one hour with matlab [link](https://youtu.be/bW44gCulrvI)
+   * [sisl](https://sisl.readthedocs.io/en/latest/introduction.html)
+
+DFT design
+
+1. read input
+   * [ ] Poseudopotential
+   * [ ] Control parameters
+   * [ ] Basis (if LCAO or similar type)
+   * [ ] k-space reader and generator
+   * [ ] Atomic coordinates and lattice reader and generator
+2. save output
+   * [ ] logger
+   * [ ] save density at least
+3. main scf loop
+   * [ ] Hamiltonian generator
+   * [ ] Momentum oprator (laplacian, derivation)
+   * [ ] Generate local potential from density
+   * [ ] Generate non-local potential from density
+   * [ ] generate XC potential and energy from density
+   * [ ] Generate Hartree potential from density (poisson equation)
+   * [ ] eigenvalue solver
+   * [ ] Generate density from wave function
+   * [ ] total energy (could be skipped for simple DFT code)
+   * [ ] mixer: Linear at least, pulay or broyden
+   * [ ] Check if converge
 
 ## YouTube course: TMP Chem computational chemistry (HF)
 
