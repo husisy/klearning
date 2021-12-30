@@ -5,3 +5,4 @@
 *.log
 *.synctex.gz
 tbd*/
+__pycache__/

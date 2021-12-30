@@ -63,3 +63,46 @@
 3. 3D topological insulator, 2D topological insulator
 4. semiconductor: low electron density
 5. $\mu\to \mu-2t$, $\mu\ll t$, $\Delta\ll t$
+6. s-wave pairing: no momentum dependence, `Al,Nb,Pb,Sn`, spin-singlet
+7. p-wave pairing: Kitaev chain
+8. d-wave or a more exotic $s\pm$ wave: high temperature superconductor, cuprates, pnictides
+9. BdG hamiltonian, two basis
+   * particle-hole symmetry $H=-\tau_x H^*\tau_x$
+   * apply time-reversal symmetry to the holes: s-wave pairing is a unit matrix
+10. Majoranas are their own particle-hole partners, and that means that they cannot have any spin (energy, charge, or any other observable property at all)
+11. spin-orbit interaction $\alpha \sigma_y k$: invariant under time reversal symmetry (both $\sigma_y$ and $k$ change sign)
+12. parameters
+    * chemical potential $\mu$: the ovverall electron density
+    * induced superconducting gap $\Delta$: particle-hole symmetry
+    * spin-orbit coupling $\alpha$: break spin conservation
+    * Zeeman field $B$: break kramers degeneracy
+13. ferromagnetic atomic chains on superconductor
+14. edges of topological insulator in proximity to superconductor
+15. zero bias peak: Majorana? others?
+
+how to detect Majoranas
+
+1. topological superconductivity
+2. 4-pi periodic Josephson effect, Majorana zero mode, resonant conduction
+3. Joosephson junction: superconducting ring, phase difference, flux, excitation spectrum
+   * Josephson current: the expectation value of the derivative of the energy operator $I(\Phi)=\frac{1}{2}\frac{dE_{tot}}{d\Phi}$
+   * absence of the reservior of electrons
+   * fermion parity swith/conservation
+   * superconducting phase
+4. Andreew reflection
+   * normal metal, superconductor interface (NS interface)
+   * barrier, energy gap iin superconductor $eV<\Delta$
+   * normal and Andreew reflection
+   * double barrier transmission, resonant peak
+5. topological invariant $Q=det(r_0)=\pm 1$
+   * either perfect normal reflection, perfect Andreev reflection
+6. tight binding models in a magnetic field: Peierls substitution
+7. superconducting flux quantum $\Phi_0=2e/h$
+8. electron poisoning, quasiparticle poisoning
+   * to avoid electron poisoning, one should quickly tune the phase
+   * if too quick, electron may tunnel through a gap, Landau-Zener tunneling
+
+braiding of Majoranas
+
+1. non-Abelian statistics, anyons: Majorana zero modes
+2. quantum statistics is not really well-defined in one-dimension

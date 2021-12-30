@@ -6,30 +6,7 @@ plt.ion()
 
 tableau_colorblind = [x['color'] for x in plt.style.library['tableau-colorblind10']['axes.prop_cycle']]
 
-pauli = types.SimpleNamespace(
-    s0=np.array([[1.0, 0.0], [0.0, 1.0]]),
-    sx=np.array([[0.0, 1.0], [1.0, 0.0]]),
-    sy=np.array([[0.0, -1j], [1j, 0.0]]),
-    sz=np.array([[1.0, 0.0], [0.0, -1.0]]),
-)
-
-pauli.s0s0 = np.kron(pauli.s0, pauli.s0)
-pauli.s0sx = np.kron(pauli.s0, pauli.sx)
-pauli.s0sy = np.kron(pauli.s0, pauli.sy)
-pauli.s0sz = np.kron(pauli.s0, pauli.sz)
-pauli.sxs0 = np.kron(pauli.sx, pauli.s0)
-pauli.sxsx = np.kron(pauli.sx, pauli.sx)
-pauli.sxsy = np.kron(pauli.sx, pauli.sy)
-pauli.sxsz = np.kron(pauli.sx, pauli.sz)
-pauli.sys0 = np.kron(pauli.sy, pauli.s0)
-pauli.sysx = np.kron(pauli.sy, pauli.sx)
-pauli.sysy = np.kron(pauli.sy, pauli.sy)
-pauli.sysz = np.kron(pauli.sy, pauli.sz)
-pauli.szs0 = np.kron(pauli.sz, pauli.s0)
-pauli.szsx = np.kron(pauli.sz, pauli.sx)
-pauli.szsy = np.kron(pauli.sz, pauli.sy)
-pauli.szsz = np.kron(pauli.sz, pauli.sz)
-
+from utils import pauli
 
 def rand_hermite_matrix(N, tag_complex=True, np_rng=None):
     if np_rng is None:
@@ -103,7 +80,6 @@ H0 = rand_hermite_matrix(10, tag_complex=False)
 H1 = rand_hermite_matrix(10, tag_complex=False)
 spectrum = H0_to_H1_spectrum(H0, H1)
 plot_spectrum(spectrum, title='time-reversal symmetry')
-
 
 
 H0 = rand_symplectic_matrix(10)

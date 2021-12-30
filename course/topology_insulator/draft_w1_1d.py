@@ -10,13 +10,7 @@ import kwant
 
 tableau_colorblind = [x['color'] for x in plt.style.library['tableau-colorblind10']['axes.prop_cycle']]
 
-
-pauli = types.SimpleNamespace(
-    s0=np.array([[1.0, 0.0], [0.0, 1.0]]),
-    sx=np.array([[0.0, 1.0], [1.0, 0.0]]),
-    sy=np.array([[0.0, -1j], [1j, 0.0]]),
-    sz=np.array([[1.0, 0.0], [0.0, -1.0]]),
-)
+from utils import pauli
 
 def plt_animation_finite_chain(xdata, ydata, density0, density1):
     # xdata = mus
@@ -116,20 +110,22 @@ chain_length  =25
 finite_chain = kwant.Builder()
 finite_chain.fill(kitaev_chain_infinite, shape=(lambda site: 0 <= site.pos[0] < chain_length), start=[0])
 
+
+
 # At mu=0 the first excited state is not well-defined due to the massive degeneracy.
 mus = np.arange(0, 4, 0.2) + 1e-5
 finite_chain_f = finite_chain.finalized()
 tmp0 = ({'mu':x,'t':1,'delta':1} for x in mus)
 hamiltonians = np.stack([finite_chain_f.hamiltonian_submatrix(params=x) for x in tmp0], axis=0)
-energies,EVC = np.linalg.eigh(hamiltonians)
-ind0 = np.argsort(np.abs(energies), axis=1)[:,:4]
+energy,EVC = np.linalg.eigh(hamiltonians)
+ind0 = np.argsort(np.abs(energy), axis=1)[:,:4]
 hf0 = lambda x: (np.abs(EVC[np.arange(EVC.shape[0]),:,x])**2).reshape(EVC.shape[0],-1,2).sum(axis=2)
 density0 = hf0(ind0[:,0]) + hf0(ind0[:,1])
 density1 = hf0(ind0[:,2]) + hf0(ind0[:,3])
-ani = plt_animation_finite_chain(mus, energies, density0, density1)
+ani = plt_animation_finite_chain(mus, energy, density0, density1)
 
 
-
+mus = np.arange(0, 4, 0.2) + 1e-5
 def find_pfaffian(H):
     U = np.array([[1.0, 1.0], [1.0j, -1.0j]]) / np.sqrt(2)
     return np.sign(np.real(pfapack.pfaffian.pfaffian(1j * U @ H @ U.T.conj())))
