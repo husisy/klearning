@@ -3,25 +3,33 @@
 TODO 放到`course/linear_algebra`中去
 
 ```text
-matrix
+matrix (svd)
 ├── diagonalizable 可对角矩阵
 │   ├── normal 正规矩阵
 │   │   ├── unitary 幺正矩阵
+│   │   ├── special unitary
 │   │   ├── hermitian 厄米矩阵
+│   │   ├── skew-hermitian 斜厄米矩阵
 │   │   └── circulant 循环矩阵
 │   │   └── other
 │   └── diagonalizable but unnormal 可对角但非正规矩阵
 └── defective matrix
     └──Jordan norm form
 
-matrix
+matrix (svd)
 ├── invertible 可逆矩阵
 └── non-invertible 不可逆矩阵
 ```
 
 1. link
    * eigendecomposition [wiki](https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix)
+   * skew-hermitian matrix [wiki](https://en.wikipedia.org/wiki/Skew-Hermitian_matrix)
+   * unitary matrix [wiki](https://en.wikipedia.org/wiki/Unitary_matrix)
+   * special unitary matrix [wiki](https://en.wikipedia.org/wiki/Special_unitary_group)
+   * singular value decomposition
+   * polar decomposition
 2. invertible matrix: $det(A)\ne 0$
+   * `min(svd)=0`
 3. 可逆矩阵和可对角化没有包含或者被包含关系
    * 可逆但不可对角化：约当矩阵Jordan matrix
    * 可对角化但不可逆：`diag{1,0}`
@@ -38,8 +46,14 @@ matrix
    * 特征值分解$A=USU^{-1}$中的$U$不是幺正矩阵，即特征向量不正交
    * （猜想）normal matrix选取部分行部分列可以构成unnormal matrix，即其特征矢量在子空间的投影是不正交的。但并非一定unnormal matrix
    * （猜想）unnormal matrix总是可以拓展高维空间编程normal matrix，pseudo-inverse?
-7. 厄米矩阵hermitian matrix: $A=A^\dagger$
+7. hermitian matrix: $A=A^\dagger$
    * 特征值恒实数
-8. 幺正矩阵unitary matrix: $UU^\dagger=I$
+8. skew-hermitian $A^\dagger=-A$
+   * 特征值纯虚（包含0）
+   * 与hermitian matrix同构`A=iB`
+9. unitary matrix: $UU^\dagger=I$
    * 等价定义：列向量正交归一，行向量正交归一
    * 特征值模为1
+10. special unitary matrix $det(A)=1$
+11. TODO
+    * Symplectic matrix [wiki](https://en.wikipedia.org/wiki/Symplectic_matrix)
