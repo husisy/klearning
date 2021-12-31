@@ -1,5 +1,6 @@
 import types
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 s0=np.array([[1.0, 0.0], [0.0, 1.0]])
@@ -29,3 +30,5 @@ pauli = types.SimpleNamespace(
     szsz = np.kron(sz, sz),
 )
 
+
+tableau_colorblind = [x['color'] for x in plt.style.library['tableau-colorblind10']['axes.prop_cycle']]

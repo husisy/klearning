@@ -56,7 +56,7 @@
     * k-space, particle-hole symmetry in k-space
 14. domain wall
 
-## chap2
+## chap2 Majoranas I
 
 1. topological superconductors
 2. fractional particles
@@ -104,5 +104,27 @@ how to detect Majoranas
 
 braiding of Majoranas
 
-1. non-Abelian statistics, anyons: Majorana zero modes
+1. non-Abelian statistics, anyons, braiding: Majorana zero modes
 2. quantum statistics is not really well-defined in one-dimension
+3. T-shaped nanowire network
+4. ground state manifold
+5. fermion parity operator
+6. basic definition
+   * $(\gamma_1\gamma_2)(\gamma_3\gamma_4)=(\gamma_3\gamma_4)(\gamma_1\gamma_2)$
+   * $(\gamma_1\gamma_2)(\gamma_2\gamma_3)=-(\gamma_2\gamma_3)(\gamma_1\gamma_2)$
+   * $(\gamma_i\gamma_j)^2=-1$
+   * $\gamma_i^2=1$
+   * $U=exp(\pi\gamma_i\gamma_j/4)$
+7. linear combinations of states with different total parity are forbidden
+8. the network of nanowires drawn in the figures only allows to exchange neighbouring Majoranas
+9. quantum computing [arxiv-9708022](https://arxiv.org/abs/quant-ph/9708022)
+
+## chap3 more parameters: charge pumping
+
+1. parameter: confining potential, magnetic flux
+2. Thouless pump (quantum pumps)
+   * phase: geometrical, dynamical, topological
+3. periodicity of time evolution, the space of parameter values is compact
+4. the number of charges pumped in an adiabatic pumping cycle is an integer (possibly 0), independent of the strength $A$, as long as the wire (the bulk of the pump) is gapped
+5. Chern number, TKNN number
+6. $dq=\frac{d\log(\det(r))}{2\pi i}=Tr\frac{r^\dagger dr}{2\pi i}$
