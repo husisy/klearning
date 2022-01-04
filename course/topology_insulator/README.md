@@ -2,6 +2,8 @@
 
 1. link
    * kwant [gitlab](https://gitlab.kwant-project.org/kwant/kwant) [official-site](https://kwant-project.org/)
+2. seminar
+   * [quantum290](https://math290.com/)
 
 ## Topology in Condensed Matter: Tying Quantum Knots
 
@@ -128,3 +130,63 @@ braiding of Majoranas
 4. the number of charges pumped in an adiabatic pumping cycle is an integer (possibly 0), independent of the strength $A$, as long as the wire (the bulk of the pump) is gapped
 5. Chern number, TKNN number
 6. $dq=\frac{d\log(\det(r))}{2\pi i}=Tr\frac{r^\dagger dr}{2\pi i}$
+
+quantum Hall effect
+
+1. quantum Hall effect
+   * integer quantum Hall effect
+   * fractional quantum Hall effect
+2. quantum conductivity $\frac{e^2}{h}$
+   * Hall resistivity, longitudinal resistivity
+3. temperature dependence $exp(-T_0/T)$, gapped state
+4. annular geometry
+5. Hall current is special in that it is dissipationless. any system with a Hall effect must somehow break time-reversal symmetry
+6. Hall bar (2D)
+   * current density $j$
+   * electric field $E$
+   * $j_\alpha=\sigma_{\alpha\beta}E_\beta$
+   * conductivity tensor $\sigma_{\alpha\beta}$
+   * resistivity tensor $\rho_{\alpha\beta}$
+   * $\alpha\beta\in\{x,y\}$
+   * rotational invariance: $\sigma_{xx}=\sigma_{yy}=\sigma_L$, $\sigma_{xy}=-\sigma_{yx}=\sigma_H$
+7. classical Hall effect
+   * Streda relation: $\sigma_H=\frac{ne}{B}$
+   * filling factor $\nu=\frac{nh}{eB}$, $\sigma_H=\nu\frac{e^2}{h}$
+   * when the density $n$ is high, $\sigma_H$ scales linearly with gate voltage. when the density $n$ is low, due to the disorder/interactions, $\sigma_H$ varies sample to sample
+8. no real difference between conductance and conductivity in 2D: same physical units
+9. quantum Hall effect
+   * $\sigma_H$ apears to form plateaus at integer filling factors. The longitudinal resistivity apears to vanish except at the transition points between plateaus
+   * Numerical systems are so good that the longitudinal conductivity always stays low even at the transition
+10. Laughlin argument
+    * Lauphlin pumps
+    * Corbino disk, Corbino geometry
+    * flux quantum $\Phi_0=\frac{h}{e}$
+    * Hall cylinder
+11. Landau levels
+    * classical electrons $r_c=\frac{mv}{eB}$, angular momentum $L=mvr_c=eBr_c^2$
+    * quantized $L=n\hbar$, $r_c=\sqrt{n}l_B$, magnetic length $l_B=\sqrt{\hbar/eB}$
+    * angular frequency $\omega_c=eB/m$
+    * Landau level $E=L\omega_c=(n+\frac{1}{2})\hbar\omega_c$
+    * huge degeneracy, proportional to the area of the sample
+12. the nonzero longitudinal conducitivity
+    * when stop turning the flux on, the accumulated charge relaxes and energy is dissipated in the bulk
+    * the closure of the bulk energy gap at the transition of the integer
+
+$$
+j_x = \sigma_L E_x + \sigma_H E_y\\
+j_y = \sigma_L E_y - \sigma_H E_x\\
+\sigma_L = \frac{j_x E_x + j_y E_y}{E_x^2+E_y^2} = \frac{j_xE_x}{E_x^2+E_y^2}\\
+\sigma_H = \frac{j_x E_y - j_y E_x}{E_x^2+E_y^2} = \frac{j_xE_y}{E_x^2+E_y^2}
+$$
+
+edge state
+
+1. chiral edge states
+   * skipping orbits
+   * confining electrostatic potential
+   * $E=\hbar v(k-k_F)$, $k_F=2\pi N/L$, the number of electrons in the system $N$, **WHY**
+   * local electric field $\varepsilon_y=-\partial_y V$
+   * drift velocity of the skipping state $v=\varepsilon_y/B$
+   * the edge state closer to the edge, its drift velocity is faster, because the local electric field there is stronger
+2. local density of states
+3. chiral anomaly

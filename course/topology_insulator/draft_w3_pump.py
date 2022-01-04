@@ -1,6 +1,5 @@
 # https://topocondmat.org/w2_majorana/signatures.html
 import numpy as np
-import itertools
 import matplotlib
 import matplotlib.pyplot as plt
 from tqdm import tqdm
@@ -8,7 +7,7 @@ plt.ion()
 
 import kwant
 
-from utils import pauli, tableau_colorblind
+from utils import tableau_colorblind
 
 
 def plt_animation_band(kx, p_list, energy, name='', ylim=None):
