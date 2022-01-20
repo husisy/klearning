@@ -21,6 +21,7 @@ DFT is in shell, let's pull it out
    * jax-dft @paper-PRL [link](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.036401) [github](https://github.com/google-research/google-research/tree/master/jax_dft)
    * @youtube DFT code in one hour with matlab [link](https://youtu.be/bW44gCulrvI)
    * [sisl](https://sisl.readthedocs.io/en/latest/introduction.html)
+   * [poisson-summation](https://en.wikipedia.org/wiki/Poisson_summation_formula)
 
 DFT design
 
