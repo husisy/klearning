@@ -48,39 +48,44 @@
     * $H = H_{ij}c_i^\dagger c_j + \frac{1}{2}\Delta_{ij}c_i^\dagger c_j^\dagger + \frac{1}{2}\Delta_{ij}^{*} c_j c_i$
     * $\Delta_{ij}=-\Delta_{ji}$
     * the Bogoliubov-de Gennes Hamiltonian
-    * antiunitary operator $P=\sigma_xK$
-    * $PH_{BdG}P^{-1}=-H_{BdG}$
+    * $H_{BdG}=\frac{1}{2}[[H,\Delta],[-\Delta^*,-H^*]]$, the factor $\frac{1}{2}$ is omitted mostly
+    * Particle-hole symmetry, antiunitary operator $P=\sigma_xK$, $PH_{BdG}P^{-1}=-H_{BdG}$
+    * conserve the parity of the number of electrons: even or odd
     * Fermion parity switches
-    * the Pfaffian invariant
+    * the Pfaffian invariant: antisymmetric matrices (even dimension)
+    * $A=\frac{1}{\sqrt{2}}[[1,1],[i,-i]]$, $\tilde{H}_{BdG}=AH_{BdG}A^\dagger$: antisymmetric, pure-imaginary, hermitian
 11. bulk edge correspondance
 12. Majorana operators, unpaired Majorana mode
 13. Kitaev chain model
     * k-space, particle-hole symmetry in k-space
 14. domain wall
+15. bulk topological invariant
 
 ## chap2 Majoranas I
 
-1. topological superconductors
-2. fractional particles
-3. 3D topological insulator, 2D topological insulator
-4. semiconductor: low electron density
-5. $\mu\to \mu-2t$, $\mu\ll t$, $\Delta\ll t$
-6. s-wave pairing: no momentum dependence, `Al,Nb,Pb,Sn`, spin-singlet
-7. p-wave pairing: Kitaev chain
-8. d-wave or a more exotic $s\pm$ wave: high temperature superconductor, cuprates, pnictides
-9. BdG hamiltonian, two basis
+1. concept
+   * topological superconductors
+   * fractional particles
+   * 3D topological insulator
+   * 2D topological insulator
+2. semiconductor: low electron density
+3. $\mu\to \mu-2t$, $\mu\ll t$, $\Delta\ll t$
+4. s-wave pairing: no momentum dependence, `Al,Nb,Pb,Sn`, spin-singlet
+5. p-wave pairing: Kitaev chain
+6. d-wave or a more exotic $s\pm$ wave: high temperature superconductor, cuprates, pnictides
+7. BdG hamiltonian, two basis
    * particle-hole symmetry $H=-\tau_x H^*\tau_x$
    * apply time-reversal symmetry to the holes: s-wave pairing is a unit matrix
-10. Majoranas are their own particle-hole partners, and that means that they cannot have any spin (energy, charge, or any other observable property at all)
-11. spin-orbit interaction $\alpha \sigma_y k$: invariant under time reversal symmetry (both $\sigma_y$ and $k$ change sign)
-12. parameters
+8. Majoranas are their own particle-hole partners, and that means that they cannot have any spin (energy, charge, or any other observable property at all)
+9. spin-orbit interaction $\alpha \sigma_y k$: invariant under time reversal symmetry (both $\sigma_y$ and $k$ change sign)
+10. parameters
     * chemical potential $\mu$: the ovverall electron density
     * induced superconducting gap $\Delta$: particle-hole symmetry
     * spin-orbit coupling $\alpha$: break spin conservation
     * Zeeman field $B$: break kramers degeneracy
-13. ferromagnetic atomic chains on superconductor
-14. edges of topological insulator in proximity to superconductor
-15. zero bias peak: Majorana? others?
+11. ferromagnetic atomic chains on superconductor
+12. edges of topological insulator in proximity to superconductor
+13. zero bias peak: Majorana? others?
 
 how to detect Majoranas
 

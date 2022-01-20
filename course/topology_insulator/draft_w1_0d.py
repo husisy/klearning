@@ -1,5 +1,4 @@
 import numpy as np
-import types
 import pfapack.pfaffian
 import matplotlib.pyplot as plt
 plt.ion()
@@ -9,8 +8,7 @@ tableau_colorblind = [x['color'] for x in plt.style.library['tableau-colorblind1
 from utils import pauli
 
 def rand_hermite_matrix(N, tag_complex=True, np_rng=None):
-    if np_rng is None:
-        np_rng = np.random.default_rng()
+    np_rng = np.random.default_rng() if np_rng is None else np_rng
     if tag_complex:
         tmp0 = np_rng.normal(size=(N,N)) + 1j*np_rng.normal(size=(N,N))
     else:
@@ -21,7 +19,7 @@ def rand_hermite_matrix(N, tag_complex=True, np_rng=None):
 
 def rand_symplectic_matrix(N, np_rng=None):
     assert N%2==0
-    sy = np.kron(np.eye(N//2), np.array([[0,-1j], [1j,0]]))
+    sy = np.kron(np.eye(N//2), pauli.sy)
     tmp0 = rand_hermite_matrix(N, tag_complex=True, np_rng=np_rng)
     tmp1 = sy @ tmp0.conj() @ sy
     ret = (tmp0 + tmp1) / 2
@@ -30,18 +28,19 @@ def rand_symplectic_matrix(N, np_rng=None):
 
 def rand_chiral_ham(N, np_rng=None):
     assert N%2==0
-    if np_rng is None:
-        np_rng = np.random.default_rng()
+    np_rng = np.random.default_rng() if np_rng is None else np_rng
     tmp0 = np_rng.normal(size=(N//2,N//2)) + 1j*np_rng.normal(size=(N//2,N//2))
     tmp1 = np.zeros_like(tmp0)
     ret = np.block([[tmp1,tmp0],[tmp0.T.conj(),tmp1]])
+    # sublattice symmetry sigma_z*H*sigma_z=-H
+    tmp0 = np.kron(pauli.sz, np.eye(N//2))
+    assert np.abs(tmp0 @ ret @ tmp0 + ret).max() < 1e-10
     return ret
 
 
 def rand_BdG_ham(N, np_rng=None):
     # antisymmetric hermitian matrix
-    if np_rng is None:
-        np_rng = np.random.default_rng()
+    np_rng = np.random.default_rng() if np_rng is None else np_rng
     tmp0 = np_rng.normal(size=(N,N))
     ret = 1j*(tmp0 - tmp0.T)
     return ret
@@ -76,18 +75,21 @@ def plot_spectrum(ydata, ydata1=None, title=''):
     return fig
 
 
+# nothing special
 H0 = rand_hermite_matrix(10, tag_complex=False)
 H1 = rand_hermite_matrix(10, tag_complex=False)
 spectrum = H0_to_H1_spectrum(H0, H1)
-plot_spectrum(spectrum, title='time-reversal symmetry')
+plot_spectrum(spectrum, title='time-reversal symmetry + spinless = real')
 
-
+# Krammer degeneracy
 H0 = rand_symplectic_matrix(10)
 H1 = rand_symplectic_matrix(10)
 spectrum = H0_to_H1_spectrum(H0, H1)
 plot_spectrum(spectrum, title='time-reversal spin-1/2 symmetry')
 
 
+# sigma_z @ H @ sigma_z = -H
+# (E,-E) and no cross zero
 H0 = rand_chiral_ham(10)
 H1 = rand_chiral_ham(10)
 spectrum = H0_to_H1_spectrum(H0, H1)
