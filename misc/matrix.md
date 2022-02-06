@@ -44,6 +44,7 @@ matrix (svd)
    * **强调**正规矩阵对于矩阵加法不封闭
    * **强调**正规矩阵对于矩阵乘积不封闭
 6. diagonalizable but unnormal matrix
+   * 简单谐振子中的产生湮灭算符
    * 特征值分解$A=USU^{-1}$中的$U$不是幺正矩阵，即特征向量不正交
    * （猜想）normal matrix选取部分行部分列可以构成unnormal matrix，即其特征矢量在子空间的投影是不正交的。但并非一定unnormal matrix
    * （猜想）unnormal matrix总是可以拓展高维空间编程normal matrix，pseudo-inverse?
