@@ -370,8 +370,133 @@ week7 Grover's quantum search algorithm
 6. quantum simulation
    * generate goal Hamiltonian from QC Hamiltonian
    * analog deformation
-   * what to measure
+   * what to measure: precision issue
    * quantum-inspired simulation: density matrix renormalization group (DMRG), PEPS, MERA
 7. Lie product formula, Trotterization, Trotter-Suzuki formula
 8. simulation of Grover's algorithm
    * Hamiltonian
+9. [@paper2016](https://arxiv.org/abs/1605.03590) elucidating reation mechan isms on quantum computers
+10. Trotter expansion, simplectic integrators
+11. quantum chemistry, VQE
+    * phase estimation: ground state, required long coherence time
+    * variational quantum eigensolver
+12. Jordan-Wigner transformation, Bravyi-Kitaev transformation
+
+week8 error correction
+
+1. history
+   * determine longitude: three chronometers (take majority)
+   * 1948 Shannon information theory, capacity
+   * 1950 Hamming code
+2. binary symmetric channel
+   * binary: two inputs and two outputs `0,1`
+   * symmetric: readout error matrix is symmetry
+3. capacity of a channel
+   * `0.9/0.1` with capacity `0.531` bit per channel bits
+   * block encoding
+4. Hamming code `(7,4)`
+   * linear code, generating matrix
+   * message, parity check
+   * codeword length `7`, data bits `4`
+   * Hamming weight: number of `1`
+   * Hamming distance
+   * fact: the minimum Hamming weight of a non-zero codeword not equal to zero is `3`
+   * Hamming code correct `1` error
+   * syndrome
+   * (useful for quantum Hamming code) the dual code of Hamming code is a subset of Hamming code
+5. general linear code `GH=0`
+6. dual code, self-dual
+7. noisy quantum state
+   * density matrix
+   * ensemble of quantum state
+8. project measurement
+9. density matrix
+   * ensemble of quantum states
+   * throw away half of a pure state
+   * bloch sphere
+10. partial trace on A measures A in canonical basis get a probability distribution of pure state of B
+11. 环 [wiki](https://zh.wikipedia.org/wiki/%E7%8E%AF_(%E4%BB%A3%E6%95%B0))
+
+coding theory
+
+1. link
+   * [wiki/linear-code](https://en.wikipedia.org/wiki/Linear_code)
+   * [wiki/Hamming-code](https://en.wikipedia.org/wiki/Hamming_code)
+
+week9 quantum channel
+
+1. probability mixture of simple channel
+2. dephasing channel
+   * $(1-p)\rho + p\sigma_z\rho\sigma_z$
+   * shrink the bloch sphere
+3. deplorizing channel
+   * $(1-3p)\rho + p\sigma_x\rho\sigma_x + p\sigma_y\rho\sigma_y + p\sigma_z\rho\sigma_z$
+   * $(1-4p)\rho+2pI$
+   * $A+\sigma_x A\sigma_x + \sigma_y A\sigma_y + \sigma_z A\sigma_z=2I$
+4. quantum version of repitition code, 3 qubit bit error correction
+   * $\alpha |0\rangle + \beta|1\rangle \to \alpha |000\rangle + \beta|111\rangle$
+5. quantum channel: positive space-preserving maps
+6. bit flip error $\sigma_x$
+   * error correct: measure which bit is different
+7. 3-qubit bit-flip code
+8. theorem: if you can correct $\sigma_x,\sigma_y,\sigma_z$ error on any single qubit, than you can correct any one-qubit error
+9. classical `[n,k,d]` code: a set of $2^k$ $n-$bit string with minimum Hamming distance $d$
+   * Hamming weight $w(x)$: number of `1` in $x$
+   * Hamming distance $d(x,y)=w(x\oplus y)$, bitwise xor
+   * example: linear code
+10. analog signals don't really have error correction
+11. 1995 three major objections to the existence of quantum error correction
+    * states collapse when measured
+    * errors are continuuous
+    * no-cloning threm, qubit states cannot be copied
+    * (after QEC is found) no way to make it resilient against failures in gates (fault tolerance)
+12. strategies for QEC
+    * never measure states, only measure the effect of the environments (error)
+    * orthogonalize errors using entanglement (@paper how to fight entanglement with entanglement)
+13. quantum code `[[n,k]]`: a $k-$qubit subspace of an $n-$qubit Hilbert space
+14. degenerate code and non-degenerate code
+15. operator measurement
+16. syndrome: a pattern of measurement results
+    * parity-check matrix
+17. bit-flip channel and bit-flip code
+    * codeword: $|0\rangle$ to $|000\rangle$, $|1\rangle$ to $|111\rangle$
+    * syndrome operators: $Z_1 Z_2$, $Z_2 Z_3$
+    * recovery operators: $X$
+18. independent and identically distributed channel (no memory in channel)
+19. phase flip code
+    * codeword: $|0\rangle$ to $|+++\rangle$, $|1\rangle$ to $|---\rangle$
+    * syndrome operators: $X_1 X_2$, $X_2 X_3$
+    * recovery operator: $Z$
+20. Shor's 9-qubit code
+    * codeword: $|0\rangle$ to $\frac{(|000\rangle+|111\rangle)^{\otimes 3}}{\sqrt{8}}$, $|1\rangle$ to $\frac{(|000\rangle-|111\rangle)^{\otimes 3}}{\sqrt{8}}$
+    * syndrome operators: $Z_1 Z_2$, $Z_4 Z_5$, $Z_7 Z_8$, $Z_2 Z_3$, $Z_5 Z_6$, $Z_8 Z_9$, $X_1 X_2 X_3 X_4 X_5 X_6$, $X_4 X_5 X_6 X_7 X_8 X_9$
+21. quantum error correction criteria, Manny Knill, Raymond Laflamme
+22. Kraus operator $\sum_k{E_k\rho E_k^\dagger}$, $\sum E_k^\dagger E_k=I$
+23. projective measurement
+24. phase damping and phase flip are equivalent (see exercise)
+
+week10 quantum key distribution, Quantum Cryptography
+
+1. @paper brief history of quantum cryptography, a bpersonal perspective, Gilles Brassard
+2. history
+   * RSA
+   * 1984 BB84 Charles Bennett, Brassard
+3. one-time pad
+4. Ekert-Chau-Lo entanglement based QKD protocol
+5. (lost)
+6. CSS code
+7. Ekert91
+8. conjugate code
+9. quantum money, quantum banknote
+
+week11 distributed quantum computation
+
+1. communication complexity
+   * upper bound
+2. disjointness problem
+3. distributed Deutsch-Jozsa problem
+   * oracle: lookup table
+   * classical algorithm can decide probably in `O(log(n))` time
+   * classical algorithm can decide determinately in `O(n)` time
+   * quantum algorithm can decide determinately in `O(log(n))` time
+4. (lost)
