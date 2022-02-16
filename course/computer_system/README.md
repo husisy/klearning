@@ -21,7 +21,7 @@
    * 1975 Altair8800
    * 1975 Apple I
 3. 冯诺依曼结构
-   * 运算器central arithmatical，控制器central contrl，存储器memory，输入设备input，输出设备output
+   * 运算器central arithmatical，控制器central control，存储器memory，输入设备input，输出设备output
    * 外部记录介质outside recording medium
    * 数据和程序均以二进制代码形式不加区分地存放在存储器中，存放位置由存储器的地址指定
    * 计算机在工作是能够自动地从存储器中取出指令并加以执行
