@@ -2,6 +2,17 @@
 
 [caltech-John-Preskill](http://theory.caltech.edu/~preskill/ph219/index.html#lecture)
 
+[UNLV-quantum-computing-mma](https://www.physics.unlv.edu/~bernard/MATH_book/Chap9/chap9_link.html)
+
+## topological quantum computer
+
+1. link
+   * [wiki/topological-quantum-computer](https://en.wikipedia.org/wiki/Topological_quantum_computer)
+   * [youtube/caltech/topological-quantum-computing](https://youtu.be/qj-w6ISQL5Y)
+   * Delft-course/topological-materical
+   * web-of-science review paper
+   * arxiv introduction and newest paper
+
 ## coursera00
 
 1. [coursera - The Introduction to Quantum Computing](https://www.coursera.org/learn/quantum-computing-algorithms)
@@ -105,9 +116,9 @@ TODO
 
 1. experiment with IBMQ `H-P(a)-H`
 
-## MIT-OCW
+## MIT-OCW 8.370
 
-8.370
+week1
 
 1. concept
    * unit1: circuits, reversible circuit, quantum state (vector), quantum evolution (matrix), measurement, tensor product, quantum weirdness
@@ -500,3 +511,198 @@ week11 distributed quantum computation
    * classical algorithm can decide determinately in `O(n)` time
    * quantum algorithm can decide determinately in `O(log(n))` time
 4. (lost)
+
+## MIT-OCW 8.371
+
+[website](https://web.mit.edu/8.371/www/index.html)
+
+week1
+
+Aram Harrow
+
+1. classical information: bit
+   * RAM, magnetic tape, abacus
+2. quantum information: qubit
+   * spin, photon, electron level, superconductor
+3. 8.370 content
+   * basic of quantum information
+   * quantum algorithm
+   * quantum error correction
+   * model of computation: adiabatic model, measurement-based model
+4. 8.371 content
+   * noise
+   * error correction
+   * fault tolerant quantum computing
+   * quantum complexitty theory: some very near-term quantum circuits cannot be simulated
+   * quantum algorithm: quantum walks, Hamiltonian simulation, linear system of equation
+   * quantum information theory
+5. quantum state, operation, ensemble, density matrix, observable
+6. density matrix $\rho$: $tr(\rho)=1,\rho\geq0$, positive semidefinite (PSD)
+   * hermitian
+   * non-negative eigenvalues; non-negative expectation; $\rho=A^\dagger A$
+   * no phase
+   * $\rho = \frac{1}{2}(I+a_i\sigma_i), |a|\leq 1$
+7. Bloch ball/sphere
+   * maximally mixed state
+8. operation
+   * classical
+     * deterministic: $f:{1,2,\cdots}\to{1,2,\cdots,d}$, could destroy information
+     * random: transition (stochastic) matrix, Markov process $p=pT$, $\sum_i{T_{ij}}=1$, $T_{ij}\geq 0$, could destroy information
+   * quantum
+     * deterministic: unitary matrix
+     * random: quantum operation, random unitaries
+   * quantum operation: unitary operation, random substitution of $|0\rangle\langle 0|$, projective measurement, measurement of two of three qubits, etc.
+
+| - | deterministic | random |
+| :-: | :-: | :-: |
+| classical | ${1,2,\cdots,d}$ | $p \in \mathcal{R}^d, \sum_x{p_x}=1, p_x\geq 0$ |
+| quantum | $\mid \phi \rangle\in \mathcal{C}^d,\langle \phi \mid \phi \rangle=1$ | density matrix |
+
+stochastic matrix
+
+1. alias: probability matrix, transition matrix, substitution matrix, Markov matrix
+2. kind
+   * right stochastic matrix $P1=1$, $\sum_j{P_{ij}}=1$ (mainly focus on this one)
+   * left stochastic matrix $1P=1$
+   * doubly stochastic matrix $P1=1, 1P=1$
+3. property
+   * $P_1P_2$ is still a stochastic matrix
+   * eigenvector, stationary probability vector $\pi$, $p\pi=\pi$
+   * all eigenvalues of a stochastic matrix have absolute values less than or equal to one
+   * one trival eigenvector $1$ with eigenvalue $1$
+4. left eigenvalue and right eigevalue for a square matrix is same
+
+quantum computing
+
+1. density matrix
+   * ensemble of quantum states
+   * throw away half of a pure state
+
+week2
+
+1. Schrondinger equation says physics dynamics is unitary (closed system)
+2. add/drop system: tensor product, partial trace
+3. vector space, super-operator
+4. defition-1 of quantum operation, Stinespring representation
+   * (Stinespring's dilation theorem) composition of unitaries, adding sys, partial trace
+   * isometry: preserve length
+   * isometry include: unitaries, adding sys
+   * isometry is a group
+   * any quantum operation can be written as an isometry, then partial trace
+   * partial trace can always be delayed
+   * the Church of the larger Hilbert space
+5. Kraus operator representation
+6. example
+   * unitary
+   * random unitary
+   * partial trace
+   * QC initialize operation (no mixture of unitary): $|0\rangle\langle 0|$
+   * depolarizing
+   * amplitude damping (no mixture of unitary)
+7. TPCP representation (axiomatic approach): trace perserving completely positive map
+   * linear Hermiticity perserving
+   * trace preserving
+   * positivity: $\rho\geq 0 \to N(\rho)\geq 0$
+   * completely positivity: $\rho\geq 0 \to (N\otimes \text{id})(\rho)\geq 0$
+   * example of positive but not compltely positive: transpose on part of system
+8. measurements
+   * quantum operation: quantum state to probability distribution
+   * $N(\rho)=\sum_{x=1}{p_x|x\rangle \langle x|}$
+   * $p_x=\mathrm{tr}\left[ \rho M_x \right]$
+   * $M_x\geq 0$
+   * $\sum_x{M_x}=I$
+9. generalized measurement
+   * non-demolition measurement
+   * relation between measurement and Kraus operator
+10. norms
+    * homogeneous
+    * triangle inequality
+    * seperating
+    * L1-norm: probability distribution
+    * L2-norm (Euclidean norm): pure state
+11. Schatten p-norm: `L_p(svd(A))`
+    * S1-norm: density matrix
+    * S-infinite: measurement
+    * S1-norm for PSD matrix: `trace(A)`
+12. duality: given norm `f(x)` on a vector space, can define dual norm $g(x)=\max_{f(y)\leq 1} |(x,y)|$
+    * L2-norm is dual to L2-norm
+    * L1-norm and L-infinity are dual
+    * same as Schatten norm
+13. trace norm: metric on the set of states
+    * $T(\rho,\sigma)=\frac{1}{2}S_1(\rho-\sigma)$, value between $[0,1]$
+14. Choi-Jamiołkowski state
+
+week3
+
+1. classical codes `[n,k,d]`: encoding, noise, decoding
+   * codeword: the length of codeword set is `2**k`, the length of each codeword is `n`, the minimum distance `d`
+   * `decode(x)`: the nearest codeword
+   * Hamming distance: `distance(x,y)=L_1(x,y)` for n-bit string
+   * error-correcting performance: code distance, minimum distance between all pairs of codewords
+2. classical code, n-bit repitition code
+   * decoding: take majority
+   * correct `(n-1)/2` bits flip error
+   * Chernoff bound [wiki](https://en.wikipedia.org/wiki/Chernoff_bound)
+3. classical `[n,k,d]` can correct up to `(d-1)/2` errors, and detect up to `d-1` errors
+4. finite field $F_2$ [wiki](https://en.wikipedia.org/wiki/Finite_field)
+   * $F_2^n$: mod-2 arithmetic
+5. classical linear code
+6. (lost-note)
+7. McEliece cryptosystem [wiki](https://en.wikipedia.org/wiki/McEliece_cryptosystem)
+8. the space of errors corrected is a linear space
+9. low-weight errors
+   * typical choice of error set $S={\text{errors on up to } l=\frac{d-1}{2} \text{ qubits}}$
+10. QEC condition
+11. concatenated QEC code
+
+week4 stablizer code
+
+1. pauli group
+2. stabilizer group
+3. stabilizer subspace
+4. every stabilizer cuts down the dimension by a half
+5. simplectic inner product
+6. normalizable subgroup `N(S)`: undetectable error
+7. `[[5,1,3]]` qubit code
+   * correct 1 error or 2 erasure error
+8. `[[n,k,d]]`
+   * stabler group `n-k`
+   * normalizer `N(S)`, `n+k`
+   * logical operators, `2k`
+9. trival code
+10. code transformation
+11. Clifford group: $\text{Cl}_n=\{U: UP_nU^\dag=P_n\}$ where $P_n$ is Pauli Group [wiki](https://en.wikipedia.org/wiki/Pauli_group)
+    * $P_n\subset \text{Cl}_n$
+    * $\text{Cl}_n$: $\langle X Z H S \text{SWAP} \text{CNOT} \rangle$
+    * $SXS^\dag=XZ$
+    * $T=\sqrt(S)$ not a member
+12. symplectic inner product
+13. symplectic group $M$
+14. maximum likelihood decoding
+    * NP-complete in the worst case
+15. CSS codes
+16. iterative decoding (LTPC code)
+17. Gottesman-Knill theorem, Clliford circuits
+
+week5 fault-tolerant quantum computation
+
+1. 1941 Shannon communication channel compacity: channel + noise
+2. 1956 von Neumann, gates + noise
+3. the threshold theorem: a (uniform) circuit of $N$ error-free gates can be simulated with probablity $<\epsilon$, using $O(\text{Poly}(log\frac{N}{\epsilon})N)$ gates, which fail with some probability $p$ provided $p<p_{\text{th}}$, where $p_{\text{th}}$ is independent of $N$ and $\epsilon$
+4. recursive construction
+5. classical circuits
+   * 1950 von Neumann: $p_{\text{th}}\geq 0.073$, 3-input
+   * 1991 Hajck, Weller: $p_{\text{th}}\geq 0.167$, 3-input
+   * 1998 Evans, Piinger: $p_{\text{th}}\geq 0.089$, 2-input
+   * 2008 Evans, Piinger: $p_{\text{th}}< \frac{1}{2}-\frac{1}{2\sqrt{k}}$, $k$-input
+6. fault tolerant (FT) procedure
+7. transversal gates
+8. Calderbank-Shor-Steane (CSS) code
+   * `[[7,1,3]]`
+   * logical operation: $X_L=X^{\otimes 7}$, $Z_L=Z^{\otimes 7}$, $H_L=H^{\otimes 7}$
+   * CNOT is transversal
+   * every CSS code has a transversal CNOT
+   * every code with a transversal CNOT is a CSS code
+9. 2007: no stabilizer code has a universal set of transversal gates
+   * stabilizer code is analogy to classical linear code
+10. FT estimate for QC: `1/3081=3.2e-4`
