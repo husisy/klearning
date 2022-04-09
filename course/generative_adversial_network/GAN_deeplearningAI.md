@@ -4,6 +4,8 @@
 
 [this-cat-does-not-exist](https://thiscatdoesnotexist.com/)
 
+[coursera](https://www.coursera.org/learn/apply-generative-adversarial-networks-gans#syllabus)
+
 ## week1 intro to GANs
 
 1. 记号约定：feature `X`, class `Y`
