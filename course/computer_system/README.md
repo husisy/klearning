@@ -8,6 +8,7 @@
    * book/计算机组成与设计-硬件/软件接口
    * book/computer-architecture-a-quantitative-approach, Patterson and Hennessey
    * book/modern-processor-design-fundamentals-of-super-scalar-processors, Shennon-Leposty
+   * [github/riscv-soc-book](https://github.com/cnrv/riscv-soc-book)
 
 ## coursera: computer organization
 
