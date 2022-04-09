@@ -1,7 +1,11 @@
 # Topological insulator
 
 1. link
-   * kwant [gitlab](https://gitlab.kwant-project.org/kwant/kwant) [official-site](https://kwant-project.org/)
+   * kwant [gitlab](https://gitlab.kwant-project.org/kwant/kwant) [kwant-official-site](https://kwant-project.org/)
+   * [readthedocs/topological-insulator](https://topological-insulators.readthedocs.io/en/latest/index.html)
+   * [github/topins](https://github.com/oroszl/topins)
+   * [blog/guanjihuan](https://www.guanjihuan.com/archives/18572)
+   * [scholarpedia/topological-insulators](http://www.scholarpedia.org/article/Topological_insulators)
 2. seminar
    * [quantum290](https://math290.com/)
 
