@@ -6,6 +6,8 @@
    * [github-ucore-os-lab](https://github.com/chyyuu/ucore_os_lab)
    * ucore, ucore+
    * [@book/Operating-Systems-Three-Easy-Pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+   * [ucoreOS](https://learningos.github.io/ucore_os_webdocs/)
+   * [github/learningOS](https://github.com/LearningOS)
 2. concept: 操作系统结构，中断及系统调用，内存管理，进程与线程，处理机调度，同步互斥，文件系统，IO子系统
 3. 并发，共享，虚拟，异步
 4. x86-32
