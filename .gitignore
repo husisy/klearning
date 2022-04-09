@@ -6,3 +6,4 @@
 *.synctex.gz
 tbd*/
 __pycache__/
+.vscode/
