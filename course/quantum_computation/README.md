@@ -4,6 +4,11 @@
 
 [UNLV-quantum-computing-mma](https://www.physics.unlv.edu/~bernard/MATH_book/Chap9/chap9_link.html)
 
+## QML
+
+1. link
+   * [gitlab/QML-mooc](https://gitlab.com/qosf/qml-mooc/-/tree/master)
+
 ## topological quantum computer
 
 1. link
@@ -12,6 +17,10 @@
    * Delft-course/topological-materical
    * web-of-science review paper
    * arxiv introduction and newest paper
+2. arxiv link
+   * [link0](https://arxiv.org/abs/2111.00355)
+   * [link1](https://arxiv.org/pdf/1802.06176.pdf)
+   * [link2](https://arxiv.org/abs/1705.04103)
 
 ## coursera00
 
