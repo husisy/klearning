@@ -6,6 +6,7 @@
    * EOS项目白皮书
    * [一个故事告诉你比特币的原理及运作机制](http://blog.codinglabs.org/articles/bitcoin-mechanism-make-easy.html)
    * [matering bitcoin 2nd edition](https://github.com/bitcoinbook/bitcoinbook)
+   * [github/blockchain-dark-forest-selfguard-handbook](https://github.com/slowmist/Blockchain-dark-forest-selfguard-handbook)
 2. 区块链的基本逻辑和常见概念简述
 3. 价值互联网和疯狂的ICO
 4. ICO的分类、权益和风险
