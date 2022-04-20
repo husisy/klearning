@@ -9,6 +9,7 @@
    * book/computer-architecture-a-quantitative-approach, Patterson and Hennessey
    * book/modern-processor-design-fundamentals-of-super-scalar-processors, Shennon-Leposty
    * [github/riscv-soc-book](https://github.com/cnrv/riscv-soc-book)
+   * [github/computer_worldview](https://github.com/fawdlstty/computer_worldview)
 
 ## coursera: computer organization
 
