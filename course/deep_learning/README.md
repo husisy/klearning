@@ -94,3 +94,8 @@
     * [tensorflow/doc/word2vec](https://www.tensorflow.org/tutorials/text/word2vec)
 11. SVM
     * [free-mind/SVM-kernel](https://blog.pluskid.org/archives/685)
+12. quantization
+    * [github/gemmlowp](https://github.com/google/gemmlowp)
+    * [distiller/quantization](https://intellabs.github.io/distiller/algo_quantization.html)
+13. physics
+    * [arxiv](https://arxiv.org/abs/2204.04198) modern applications of ML in quantum sciences
