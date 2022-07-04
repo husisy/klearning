@@ -61,3 +61,4 @@
 10. github-org
     * [huaiweicloudDocs](https://github.com/huaweicloudDocs)
     * [huaweicloud](https://github.com/huaweicloud)
+11. latex-math-font, A Survey of Free Math Fonts for TEX and LATEX [link](https://tug.org/pracjourn/2006-1/hartke/hartke.pdf)
