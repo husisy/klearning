@@ -32,15 +32,19 @@ def gellmann_matrix(i, j, d):
     return ret
 
 
-_all_gellman_matrix_cache = dict()
-def all_gellman_matrix(d):
+_all_gellmann_matrix_cache = dict()
+def all_gellmann_matrix(d):
     d = int(d)
     assert d>=2
-    if d in _all_gellman_matrix_cache:
-        ret = _all_gellman_matrix_cache[d]
+    if d in _all_gellmann_matrix_cache:
+        ret = _all_gellmann_matrix_cache[d]
     else:
-        ret = np.stack([gellmann_matrix(i,j,d) for i in range(d) for j in range(d)][1:])
-        _all_gellman_matrix_cache[d] = ret
+        sym_mat = [gellmann_matrix(i,j,d) for i in range(d) for j in range(i+1,d)]
+        antisym_mat = [gellmann_matrix(j,i,d) for i in range(d) for j in range(i+1,d)]
+        diag_mat = [gellmann_matrix(i,i,d) for i in range(1,d)]
+        tmp0 = [gellmann_matrix(0, 0, d)]
+        ret = np.stack(sym_mat+antisym_mat+diag_mat+tmp0, axis=0)
+        _all_gellmann_matrix_cache[d] = ret
     return ret
 
 
@@ -71,7 +75,7 @@ def gellman_matrix_structure_factor(d):
 def test_all_gellmann_matrix():
     # https://arxiv.org/abs/1705.01523
     for d in [3,4,5]:
-        all_term = all_gellman_matrix(d)
+        all_term = all_gellmann_matrix(d)
         for ind0,x in enumerate(all_term):
             for ind1,y in enumerate(all_term):
                 assert abs(np.trace(x @ y)-2*(ind0==ind1)) < 1e-7
@@ -94,7 +98,7 @@ def test_gellman_matrix_structure_factor():
         assert np.abs(tmp0-tmp1).max() < 1e-7
 
 
-def matrix_to_gellman_basis(A):
+def matrix_to_gellmann_basis(A):
     shape0 = A.shape
     N0 = shape0[-1]
     assert len(shape0)>=2 and shape0[-2]==N0
@@ -124,18 +128,13 @@ def matrix_to_gellman_basis(A):
     return ret
 
 
-def test_matrix_to_gellman_basis():
-    for d in range(2, 6):
-        np0 = np_rng.normal(size=(d,d)) + 1j*np_rng.normal(size=(d,d))
-        vec = matrix_to_gellman_basis(np0)
-        gmS = [gellmann_matrix(i,j,d) for i in range(d) for j in range(i+1,d)]
-        gmA = [gellmann_matrix(j,i,d) for i in range(d) for j in range(i+1,d)]
-        tmp0 = [gellmann_matrix(i,i,d) for i in range(d)]
-        gmD = tmp0[1:]
-        gmI = [tmp0[0]]
-        tmp0 = gmS + gmA + gmD + gmI
-        tmp1 = sum(x*y for x,y in zip(vec,tmp0))
-        assert np.abs(np0-tmp1).max() < 1e-13
+def test_matrix_to_gellmann_basis():
+    for N0 in [3,4,5]:
+        np0 = np.random.rand(N0,N0) + np.random.rand(N0,N0)*1j
+        coeff = matrix_to_gellmann_basis(np0)
+        tmp0 = all_gellmann_matrix(N0)
+        ret0 = sum(x*y for x,y in zip(coeff,tmp0))
+        assert np.abs(np0-ret0).max()<1e-7
 
 
 def gellman_basis_to_matrix(vec):
@@ -161,6 +160,6 @@ def gellman_basis_to_matrix(vec):
 def test_gellman_basis_to_matrix():
     for d in range(2, 6):
         np0 = np_rng.normal(size=(d,d)) + 1j*np_rng.normal(size=(d,d))
-        vec = matrix_to_gellman_basis(np0)
+        vec = matrix_to_gellmann_basis(np0)
         np1 = gellman_basis_to_matrix(vec)
         assert np.abs(np0-np1).max() < 1e-13
