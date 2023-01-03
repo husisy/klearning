@@ -52,3 +52,6 @@ misc
    * pre-Hilbert space：内积空间 + metric space
    * Hilbert space：内积空间 + complete metric space；一个incomplete metric space的栗子见[wiki](https://en.wikipedia.org/wiki/Inner_product_space#Hilbert_space)
    * distance function (norm): symmetric in $x$ and $y$, nonzero, triangle inequality (Cauchy-Schwarz inequality)
+7. [wiki/Schatten-norm](https://en.wikipedia.org/wiki/Schatten_norm)
+   * [wiki/trace-distance](https://en.wikipedia.org/wiki/Trace_distance)
+8. [wiki/matrix-norm](https://en.wikipedia.org/wiki/Matrix_norm#Schatten_norms)

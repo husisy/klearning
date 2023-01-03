@@ -62,3 +62,8 @@
     * [huaiweicloudDocs](https://github.com/huaweicloudDocs)
     * [huaweicloud](https://github.com/huaweicloud)
 11. latex-math-font, A Survey of Free Math Fonts for TEX and LATEX [link](https://tug.org/pracjourn/2006-1/hartke/hartke.pdf)
+
+## wiki
+
+1. [wiki/Cauchy-Schwarz-inequality](https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality)
+2. [wiki/Hilbert-Schmidt-inner-product](https://en.wikipedia.org/wiki/Hilbert%E2%80%93Schmidt_operator)
