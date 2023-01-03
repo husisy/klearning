@@ -43,6 +43,7 @@ matrix (svd)
    * 正规矩阵近似可以看做厄米矩阵和幺正矩阵的奇奇怪怪组合
    * **强调**正规矩阵对于矩阵加法不封闭
    * **强调**正规矩阵对于矩阵乘积不封闭
+   * $A=U^\dag \Lambda U=U^\dag r e^{i\theta} U=U^\dag r V$, $V=e^{i\theta}U$
 6. diagonalizable but unnormal matrix
    * 简单谐振子中的产生湮灭算符
    * 特征值分解$A=USU^{-1}$中的$U$不是幺正矩阵，即特征向量不正交
