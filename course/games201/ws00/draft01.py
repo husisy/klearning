@@ -1,15 +1,12 @@
 # https://forum.taichi.graphics/t/homework-0-discrete-fourier-transform/493
 # Follow https://homepages.inf.ed.ac.uk/rbf/HIPR2/fourier.htm
-
-import os
 import math
 import PIL.Image
 import numpy as np
 import taichi as ti
+import skimage #only for test image
 
 ti.init(arch=ti.gpu)
-
-hf_data = lambda *x: os.path.join('data', *x)
 
 size = 512
 
@@ -32,7 +29,8 @@ def fourier():
         center = size // 2
         results[k, l] = ti.log(1.0 + v.norm())
 
-image = PIL.Image.open(hf_data('example00.jpg'))
+
+image = PIL.Image.fromarray(skimage.data.astronaut())
 pixels.from_numpy(np.asarray(image.convert('L').resize([size, size]), dtype=np.float32)/255)
 
 fourier()
