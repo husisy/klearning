@@ -1,11 +1,13 @@
-# tensornetwork
+# tensor network
+
+1. resource
+   * tensors.net [link](https://www.tensors.net/)
+   * tensornetwork.org [link](https://tensornetwork.org/)
 
 ## 张量网络前沿选讲
 
 1. link
    * @paper A Practical Introduction to Tensor Networks: Matrix Product States and Projected Entangled Pair States [link](https://arxiv.org/abs/1306.2164v3)
-   * [tensors.net](https://www.tensors.net/)
-   * [tensornetwork.org](https://tensornetwork.org/)
    * [tensor-network-initiative](https://perimeterinstitute.ca/tensor-networks-initiative)
    * [youtube/European-tensor-network](https://www.youtube.com/channel/UCYCOGWQN5ZBT96b-WEBI9pQ/videos)
    * [google-blog/tensornetwork](https://ai.googleblog.com/2019/06/introducing-tensornetwork-open-source.html), [github](https://github.com/google/TensorNetwork)
