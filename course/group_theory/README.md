@@ -371,3 +371,9 @@ pass 正交性与完备性没有理解，暂且先跳过
 | $A^2$ | $1$ | $i$ | $-1$ | $-i$ |
 | $A^3$ | $1$ | $-1$ | $1$ | $-1$ |
 | $A^4$ | $1$ | $-i$ | $-1$ | $i$ |
+
+## Lie algebra
+
+1. link
+   * [github/specialunitary](https://github.com/xalhs/specialunitary)
+   * [github/SU-tools](https://github.com/hellpig/SU-tools)
