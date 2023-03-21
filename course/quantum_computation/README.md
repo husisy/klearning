@@ -4,6 +4,12 @@
 
 [UNLV-quantum-computing-mma](https://www.physics.unlv.edu/~bernard/MATH_book/Chap9/chap9_link.html)
 
+## QECC
+
+1. link
+   * [github/qtcodes](https://github.com/yaleqc/qtcodes)
+   * [qiskit-textbook](https://learn.qiskit.org/course/quantum-hardware/introduction-to-quantum-error-correction-via-the-repetition-code#introduction-32-0)
+
 ## QML
 
 1. link
