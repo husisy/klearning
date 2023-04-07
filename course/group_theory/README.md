@@ -467,3 +467,9 @@ TODO
 
 1. package
    * [github/mmgroup](https://github.com/Martin-Seysen/mmgroup) monster groups
+
+## Lie algebra
+
+1. link
+   * [github/specialunitary](https://github.com/xalhs/specialunitary)
+   * [github/SU-tools](https://github.com/hellpig/SU-tools)

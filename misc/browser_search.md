@@ -114,13 +114,14 @@
 
 资源搜索
 
-1. [bookfinder](https://www.bookfinder.com/)
-2. [booksee](https://en.booksee.org/)
-3. [b-ok.asia](https://b-ok.asia/)
-4. 网盘搜索
+1. Z-library
+2. [bookfinder](https://www.bookfinder.com/)
+3. [booksee](https://en.booksee.org/)
+4. [b-ok.asia](https://b-ok.asia/)
+5. 网盘搜索
    * [知乎-网盘搜索引擎](https://www.zhihu.com/question/38323320)
    * [小白盘](https://www.xiaobaipan.com/)
    * [盘搜搜](https://www.pansoso.com/)
-5. 文献下载
+6. 文献下载
    * [80lib](http://www.80lib.com/user/login)
    * [huayiv](http://www.huayiv.com/)

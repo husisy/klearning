@@ -1,6 +1,4 @@
-# matrix
-
-TODO 放到`course/linear_algebra`中去
+# linear algebra
 
 ```text
 matrix (svd)
@@ -9,8 +7,10 @@ matrix (svd)
 │   │   ├── unitary 幺正矩阵
 │   │   ├── special unitary
 │   │   ├── hermitian 厄米矩阵
+│   │   │   ├── orthogonal projection matrix
+│   │   │   └── oblique projection matrix
 │   │   ├── skew-hermitian 斜厄米矩阵
-│   │   └── circulant 循环矩阵
+│   │   ├── circulant 循环矩阵
 │   │   └── other
 │   └── diagonalizable but unnormal 可对角但非正规矩阵
 └── defective matrix
@@ -51,12 +51,16 @@ matrix (svd)
    * （猜想）unnormal matrix总是可以拓展高维空间编程normal matrix，pseudo-inverse?
 7. hermitian matrix: $A=A^\dagger$
    * 特征值恒实数
-8. skew-hermitian $A^\dagger=-A$
+8. projection matrix [wiki](https://en.wikipedia.org/wiki/Projection_(linear_algebra)) $PP=P$
+   * orthonormal projction matrix $P^\dagger=P$
+   * oblique projection matrix $P^\dagger\ne P$
+9. skew-hermitian $A^\dagger=-A$
    * 特征值纯虚（包含0）
    * 与hermitian matrix同构`A=iB`
-9. unitary matrix: $UU^\dagger=I$
-   * 等价定义：列向量正交归一，行向量正交归一
-   * 特征值模为1
-10. special unitary matrix $det(A)=1$
-11. TODO
+10. unitary matrix: $UU^\dagger=I$
+    * 等价定义：列向量正交归一，行向量正交归一
+    * 特征值模为1
+11. special unitary matrix $det(A)=1$
+12. TODO
     * Symplectic matrix [wiki](https://en.wikipedia.org/wiki/Symplectic_matrix)
+    * orthogonal complement [wiki](https://en.wikipedia.org/wiki/Orthogonal_complement)
