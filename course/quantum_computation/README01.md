@@ -96,3 +96,56 @@ raw idea
 
 1. quantum gradient descent
 2. H/T gate QECC
+
+## SpinQ
+
+双子座MINI (Gemini mini)
+
+1. property
+   * NMR (nuclear magnetic resonance)
+   * 2 qubits
+   * size: `200x350x250mm`
+   * weight: 14kg
+   * power: `60W`
+   * temperature: `0-30 C`
+   * dephasing time: `>20ms`
+   * 2 qubit experiments take about `25second`
+2. 查看核磁脉冲信号，拉比振荡实验，自动校准
+3. calibration
+   * confirm whether the termperature is stable
+   * increase `2 C` per `30min` is not so stable but enough for calibration and running experiment
+   * frequency calibration
+     * the "Lock Field" is turned off in first
+     * after finding the signal, click "refresh" to write the parameters to the system
+     * password `123456` to enter "Setting"
+     * Setting/Sample: change the "Filter Params" to a low value, like 2 or 5
+     * "Auto shimming", select "Fast Shimming", set "automatic shimming" "on", takes about "30min", wait for it to turn off
+     * Setting/Sample: change the "Filter Params" to original parameter, click "save"
+     * Setting/Shimming: click "save"
+   * shimming
+4. shimming
+   * when: the device has a long transportation, a big shack during movement, can't get a good reset
+5. point for calibration
+   * a stable temperature
+   * shimming when the magnet field is changed, like long transportation, big temperature change
+   * a good shimming result should be below 1.6 ppm. at least below 1.8 ppm is required
+   * change the filter before shimming and remember to save the data in "Setting"
+   * auto-calibration will calibrate 4 items, check the result for each item
+   * re-run the calibration individually for the item if we found the result is not good
+
+Triangulum (3 qubits)
+
+1. 实验时间
+   * 3 qubits: `65s` (Grover), `47s` (GHZ)
+   * 2 qubits: `64s`(Bell), `51s` (11)
+2. 材料：三氟碘乙烯`C2F3I`
+3. 建议
+   * 点击「停止」后的下一次实验结果不太可靠
+4. 误差情况 @20230210
+   * Grover-3qubits: 预期结果`111`, 实际结果`0.10,0,0.1,0.01, 0.11,0.2,0,[0.48]`
+   * Grover-2qubits: 预期结果`11`，实际结果`0.13,0.06, 0.02,[0.80]`
+   * GHZ-3qubits: 预期结果`000,111`, 实际结果`[0.37],0.04,0,0.11, 0.03,0.08,0,[0.38]`
+   * Bell-2qubits: 预期结果`00,11`，实际结果`[0.45],0.03,0.06,[0.46]`
+   * `11`-2qubits: 预期结果`11`，实际结果`0.11,0,0.03,[0.86]`
+   * `111`-3qubits: 预期结果`111`，实际结果`0.02,0.05,0,0, 0,0.03,0,[0.89]`
+   * `QFT`-2qubits: 预期结果`00,01,10,11`，实际结果`0.29, 0.2, 0.29, 0.21`
