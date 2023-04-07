@@ -1,34 +1,47 @@
 # 群论
 
-*备注*：关于群论，我暂时没有想到该如何代码验证
+*备注*：关于群论，我暂时没有想到该如何代码验证，代码验证依赖于representation theory
 
 参考资料
 
-1. 李新征-群论讲义 [link](http://faculty.pku.edu.cn/_tsf/00/0F/yEVrEjjaaEza.pdf)
-2. 蔻享/李新征-群论 [link](https://www.koushare.com/video/videodetail/7557)
-3. wiki
+1. link
+   * 李新征-群论讲义 [link](http://faculty.pku.edu.cn/_tsf/00/0F/yEVrEjjaaEza.pdf)
+   * 蔻享/李新征-群论 [link](https://www.koushare.com/video/videodetail/7557)
    * [wiki/小群列表](https://zh.wikipedia.org/wiki/%E5%B0%8F%E7%BE%A4%E5%88%97%E8%A1%A8)
    * proofwiki, [website](https://proofwiki.org/wiki/Main_Page)
-4. [youtube-link](https://www.youtube.com/playlist?list=PL22w63XsKjqxPO6pQ8wiZcIrtpTznGSre)
-5. [maki-math](https://www.maki-math.com/#/courses/21)
-6. [Clemson/MATH4120](http://www.math.clemson.edu/~macaule/classes/f22_math4120/)
-7. book
+   * [youtube-link](https://www.youtube.com/playlist?list=PL22w63XsKjqxPO6pQ8wiZcIrtpTznGSre)
+   * [maki-math](https://www.maki-math.com/#/courses/21)
+   * [Clemson/MATH4120](http://www.math.clemson.edu/~macaule/classes/f22_math4120/)
+   * [Sheaves-blog](https://sheaves.github.io/topics/)
+   * [groupprops](https://groupprops.subwiki.org/wiki/Main_Page)
+   * [youtube/HKUST/MATH5143/Eric](https://youtube.com/watch?v=fdGGPi4xpYc&feature=shares) introduction to lie algebra
+2. book
    * 《群论》 韩其智，孙洪洲，北京大学出版社 [link](https://book.douban.com/subject/3584574//)
    * 《群论讲义》 王宏利，未出版
    * 《群论及其在固体物理中的应用》 徐婉棠，喀兴林，高等教育出版社
    * 《Group Theory: Application to the Phsycics of Condensed Matter》 M. S. Dresselhaus, G. Dresselhaus, A. Jorio, Springer [link](https://www.springer.com/gp/book/9783540328971)
    * 《Group Theory for Physicists》 Zhongqi Ma（马中骐）, World Scientific
    * 《Group Theory in a Nutshell for Physicists》 Anthony Zee [link](https://press.princeton.edu/books/hardcover/9780691162690/group-theory-in-a-nutshell-for-physicists)
-8. code
+3. code
    * GTPack: A Mathematica group theory package for application in solid-state physics and photonics, [arxiv](https://arxiv.org/abs/1807.01245), [frontiersin](https://www.frontiersin.org/articles/10.3389/fphy.2018.00086/full), [website](https://gtpack.org/)
    * [github/IBL-AbstractAlgebra](https://github.com/dcernst/IBL-AbstractAlgebra)
-9. history
+   * [githhub/GAP](https://github.com/gap-system): Group Algorithm Programming
+   * [github/WignerD](https://github.com/zichunhao/WignerD)
+   * [sage/lie](https://doc.sagemath.org/html/en/reference/spkg/lie.html)
+   * [github/jaxlie](https://github.com/brentyi/jaxlie)
+4. history
    * Emmy Noether (1882-1935, 德国犹太人)：理体系的对称性与守恒量之间得关系
    * Eugene Paul Wigner（1902-1995，匈牙利人，后加入美国籍）
    * Hermann Klaus Hugo Weyl（1885-1955，德国人）
    * Linus Carl Pauling
-10. 有限群理论、转动群、双群、李群，群基础理论，群表示理论
-11. 规范场理论：连续变换下的对称性与守恒量的关系
+5. 有限群理论、转动群、双群、李群，群基础理论，群表示理论
+6. 规范场理论：连续变换下的对称性与守恒量的关系
+7. conception
+   * 自同构 Automorphism $Aut(X)$
+   * 自同态 Endomorphism $End(X)$
+   * group algebra
+   * universal enveloping algebra of Lie algebra
+   * irreducible and indecomposable
 
 集合论set
 
@@ -108,7 +121,9 @@
     * $V=\langle a,b | a^2=b^2=(ab)^2=e \rangle$
     * 四元群仅有 $V$ 和 $C_4$
 13. symmetric group $S_n$ [wiki](https://en.wikipedia.org/wiki/Symmetric_group)
-    * permutation: for any set $A$, a bijective function $\phi:A\to A$ is called a permutation of $A$
+    * 置换 permutation: for any set $A$, a bijective function $\phi:A\to A$ is called a permutation of $A$
+    * 轮换 cycle
+    * 对换 transposition
     * operation: composition of functions
     * $|S_n|=n!$
     * $S_3\simeq D_3$
@@ -116,23 +131,31 @@
     * $|\mathbb{Z}_n^\times|=|U(n)|=\phi(n)$ Euler's totient function [wiki](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
     * 特别的，若$p$是一个素数，则$|\mathbb{Z}_p^\times|=p-1$
     * $U(10)$ is cyclic and abelian, $U(12)$ is abelian but not cyclic
+15. Lorentz group
 
 层次关系
 
-1. 半群 semigroup $(G,\cdot)$ 由集合 $G$ 和二元运算 $\cdot$ 构成 [wiki](https://en.wikipedia.org/wiki/Semigroup)
+1. [wiki/list-of-algebra](https://en.wikipedia.org/wiki/List_of_algebras)
+2. 线性代数R（或称代数）：定义在数域K上的线性空间，线性空间中元素$\vec{x},\vec{y},\vec{z}$，数域上元素$a$，定义乘法
+   * 乘法封闭：$\vec{x}\vec{y} \in R$
+   * 乘法分配率：$\vec{x}(\vec{y}+\vec{z})=\vec{x}\vec{y}+\vec{x}\vec{z}$
+   * 数乘结合交换率：$a(\vec{x}\vec{y})=(a\vec{x})\vec{y}=\vec{x}(a\vec{y})$
+3. 结合代数：在线性代数的基础上定义乘法结合律$(\vec{x}\vec{y})\vec{z}=\vec{x}(\vec{y}\vec{z})$
+   * 非结合代数non-associative algebra [wiki](https://en.wikipedia.org/wiki/Non-associative_algebra)：叉乘outer product
+4. 半群 semigroup $(G,\cdot)$ 由集合 $G$ 和二元运算 $\cdot$ 构成 [wiki](https://en.wikipedia.org/wiki/Semigroup)
    * 封闭性：$\forall a,b\in G,a\cdot b\in G$
    * 结合律：$\forall a,b,c\in G, (a\cdot b)\cdot c=a\cdot (b\cdot c)$, 可归纳为最多有限次的结合律
-2. 幺半群 Monoid $(G,\cdot)$ [wiki](https://en.wikipedia.org/wiki/Monoid)
+5. 幺半群 Monoid $(G,\cdot)$ [wiki](https://en.wikipedia.org/wiki/Monoid)
    * $(G,\cdot)$为半群
    * 单位元：$\exist e\in G, \forall a\in G, e\cdot a=a\cdot e=a$
    * 注：可逆元素组成的集合形成群
-3. 群 group $(G,\cdot)$
+6. 群 group $(G,\cdot)$
    * $(G,\cdot)$为幺半群
    * 逆元：$\forall a\in G, \exist b\in G, a\cdot b=b\cdot a=e$
-4. 交换群 Abelian group $(G,\cdot)$
+7. 交换群 Abelian group $(G,\cdot)$
    * 群group
    * 交换律：$\forall a,b\in G, a\cdot b=b\cdot a$
-5. 循环群 cyclic group
+8. 循环群 cyclic group
 
 群论基础
 
@@ -142,7 +165,7 @@
    * 元素的阶 $x^{|x|}=e$
    * abelian group (commutative group), nonabelian group
    * 重排定理：$aG=G$
-   * 子群 $H<G$: 封闭，可逆
+   * 子群 $H\triangleleft G$: 封闭，可逆
    * 拉格朗日Lagrange定理：有限子群的阶必为群阶的因子
    * 群直积 $G = G_1 \otimes G_2$: $C_6\simeq C_2 \otimes C_3$
    * 生成元 generator
@@ -156,8 +179,14 @@
     * left/right coset
     * left coset of a normal subgroup is right coset
     * coset只是集合，当$H$是正规子群时$G/H$才构成群（称作商群）
-3. center of a group $Z(G)=\left\{ a\in G | ab=ba \forall b\in G \right\}$
-    * subgroup
+3. centeralizer, normalizer [wiki](https://en.wikipedia.org/wiki/Centralizer_and_normalizer) [wiki1](https://en.wikipedia.org/wiki/Center_(group_theory))
+    * centeralizer of a subset $S$ of group $G$: $C_G(S)=\left\{ g\in G:\forall s\in S,gsg^{-1}=s\right\}$
+    * center of a group $G$: $Z(G)=C_G(G)$
+    * normalizer of a subset $S$ of group $G$: $N_G(S)=\left\{ g\in G: gSg^{-1}=S \right\}$
+    * $C_G(S)\subset N_G(S)$
+    * $C_G(S)\triangleleft G$
+    * $N_G(S)\triangleleft G$
+    * normal closure of a subset $S$ of a group $G$: $\mathrm{ncl}_G(S)=\cap_{S\subset N \triangleleft G} N$
 4. 群同态 group homomorphism
    * 值域domain, 陪域codomain
    * $f: (G,\cdot)\to(G',*)$是一个群同态, 定义$ker(f)=\left\{ x\in G | f(x)=e' \right\}$, $im(f)=\left\{ f(x) : x\in G \right\}$
@@ -244,6 +273,7 @@ TODO-02 MATH4120
    * `{e,h,v,r}`
    * generator: `<h,v>`, `<h,r>`
    * abelian
+   * $V_4\cong (\mathbb{F}_2^2,+)$
 2. symmetry of a triangle `Tri`
    * `{e,r,f,r^2,rf,r^2f}`
    * generator `<r,f | rf=fr^2>`
@@ -314,24 +344,18 @@ TODO-02 MATH4120
    * 对于有限群，表示可约则完全可约
 5. 酉表示：酉变换群，酉矩阵群
    * 酉表示可约则完全可约
-6. 线性代数R（或称代数）：定义在数域K上的线性空间，对任意线性空间中元素$\vec{x},\vec{y},\vec{z}$，任意数域上元素$a$，定义乘法
-   * 乘法封闭：$\vec{x}\vec{y} \in R$
-   * 乘法分配率：$\vec{x}(\vec{y}+\vec{z})=\vec{x}\vec{y}+\vec{x}\vec{z}$
-   * 数乘结合交换率：$a(\vec{x}\vec{y})=(a\vec{x})\vec{y}=\vec{x}(a\vec{y})$
-7. 结合代数：在线性代数的基础上定义乘法结合律$(\vec{x}\vec{y})\vec{z}=\vec{x}(\vec{y}\vec{z})$
-   * 不是结合代数的例子：叉乘outer product
-8. 群空间：群G上定义加法和复数域C上的数乘运算
-9. 群代数：对群空间的“矢量”定义乘法规则（之前群的定义中只对群元定义了乘法规则，未包含群空间中的矢量）
+6. 群空间：群G上定义加法和复数域C上的数乘运算
+7. 群代数group ring：对群空间的“矢量”定义乘法规则（之前群的定义中只对群元定义了乘法规则，未包含群空间中的矢量）
     * 可以验证满足结合代数
-10. 左正则表示：抽象群G与线性变换群`{L(g_i)}`的同态映射关系（同构）
-    * 左正则表示是群表示的忠实表示
-    * 右正则表示
-11. Schur's Lemma舒尔引理1：群G在有限维向量空间$V_A$和$V_B$有不可约表示$A$和$B$，若对任意G中元素g，存在线性变换M满足$B(g)M=MA(g)$，则当M不为零时，A与B必等价
+8. 左正则表示regular representation：抽象群G与线性变换群`{L(g_i)}`的同态映射关系（同构）
+   * 左正则表示是群表示的忠实表示
+   * 右正则表示
+9. Schur's Lemma舒尔引理1：群G在有限维向量空间$V_A$和$V_B$有不可约表示$A$和$B$，若对任意G中元素g，存在线性变换M满足$B(g)M=MA(g)$，则当M不为零时，A与B必等价
     * 两个不等价不可约表示，不能通过一个非零线性变换M联系起来$MA(g)=B(g)M$
-12. 舒尔引理2：群G在有限维复空间V上的不可约表示A，对于任意G中元素g，若V上线性变换M满足$MA(g)=A(g)M$，则$M=\lambda E$（常数矩阵）
+10. 舒尔引理2：群G在有限维复空间V上的不可约表示A，对于任意G中元素g，若V上线性变换M满足$MA(g)=A(g)M$，则$M=\lambda E$（常数矩阵）
     * 任意复数域上方阵至少有一个特征值 [math-stackoverflow](https://math.stackexchange.com/q/655634)
-13. 有限群在内积空间的每一个表示都有等价的酉表示
-14. 群函数，群函数空间
+11. 有限群在内积空间的每一个表示都有等价的酉表示
+12. 群函数，群函数空间
 
 pass 正交性与完备性没有理解，暂且先跳过
 
@@ -371,3 +395,75 @@ pass 正交性与完备性没有理解，暂且先跳过
 | $A^2$ | $1$ | $i$ | $-1$ | $-i$ |
 | $A^3$ | $1$ | $-1$ | $1$ | $-1$ |
 | $A^4$ | $1$ | $-i$ | $-1$ | $i$ |
+
+## matrix Lie group and matrix Lie algebra
+
+栗子
+
+1. general linear group $GL(n;k)$ with $k=\mathbb{R},\mathbb{C}$: invertible matrix
+   * nonzero real number $\mathbb{R}^*\simeq GL(1;R)$
+   * nozero complex number $\mathbb{C}^*\simeq GL(1;C)$
+   * unit complex number $S^1\simeq U(1)$
+   * $(\mathbb{R},+)\simeq GL(1;\mathbb{R})^+$: positive determinant
+2. special linear group $SL(n;k)$ with $k=\mathbb{R},\mathbb{C}$
+   * $x\in GL(n,k), det(x)=1$
+3. unitary group $U(n)$
+   * $xx^\dagger=x^\dagger x=I_n$
+   * norm preserving over $\mathbb{C}$
+4. special unitary group $SU(n)$
+   * $x\in U(n), det(x)=1$
+5. orthogonal group $O(n)$
+   * $x\in GL(n,\mathbb{R}), xx^T=x^x=I_n$
+   * norm preserving over $\mathbb{R}$
+6. special orthogonal group $SO(n)$
+   * $x\in O(n), det(x)=1$
+7. complex orthogonal group $O(n;\mathbb{C})$
+   * $x\in GL(n,\mathbb{C}),x^Tx=xx^T=I_n$
+   * $det(x)=\pm 1$
+8. special complex orthogonal group $SO(n,\mathbb{C})$
+   * $x\in O(n,\mathbb{C}),det(x)=1$
+9. indifinite orthogonal group $O(p,q)$
+   * [wiki](https://en.wikipedia.org/wiki/Indefinite_orthogonal_group)
+   * $x\in GL(p+q,\mathbb{R}),g=diag(1,\cdots,1,-1,\cdots,-1), x^Tgx=g$
+   * Lorentz group $O(3,1)$
+10. indefinite special orthogonal group $SO(p,q)$
+    * $x\in O(p,q),det(x)=1$
+11. real symplectic group $Sp(n;\mathbb{R})$
+    * $\Omega=(i\sigma_y)\otimes I_n, x\in GL(2n,\mathbb{R}),x^T\Omega x=\Omega$
+    * $det(x)=1$
+    * TODO how to generate
+12. complex symplectic group $Sp(n;\mathbb{C})$
+    * $\Omega=(i\sigma_y)\otimes I_n, x\in GL(2n,\mathbb{C}),x^T\Omega x=\Omega$
+    * $det(x)=1$
+    * TODO how to generate
+13. compact symplectic group $Sp(n)=Sp(n;\mathbb{C}) \cap U(2n)$
+    * conjugate operator: $Pz=\bar{z}$
+    * $J=(i\sigma_y\otimes I_n)P$
+    * 等价定义 $Sp(n)=\left\{ x: x^\dagger x=xx^\dagger=I_{2n}, xJ=Jx \right\}$
+    * unitary group over the quaternions
+    * norm preserving over quaternion
+    * TODO how to generate
+14. Euclidean group $E(n)$
+    * $\left\{ (x,R):x\in\mathbb{R}^n,R\in O(n) \right\}$
+    * $\left\{ x,R\right\} y=Ry+x$
+15. Poincare group, inhomogeneous Lorentz group $P(n;1)$
+16. Heisenberg group
+    * Heisenberg-Weyl commutation relation
+    * Baker-Campbell-Hausdorff ofrmula
+
+concept
+
+1. matrix Lie group: closed subgroup of $GL(n, \mathbb{C})$
+   * a non-closed subgroup of $GL(n,\mathbb{C})$: $GL(n,\mathbb{Q})$
+   * irrational line in a torus
+2. Lie group but not matrix Lie group
+   * $G=\mathbb{R}\times\mathbb{R}\times S^1=\left\{(x,y,u):x\in\mathbb{R},y\in\mathbb{R},u\in S^1\subset \mathbb{C}\right\}$
+   * $(x_1,y_1,u_1)\cdot (x_2,y_2,u_2)=(x_1+x_2,y_1+y_2,e^{ix_1y_2}u_1u_2)$
+3. manifold
+4. quaternion algebra $\mathcal{H}$ [wiki](https://en.wikipedia.org/wiki/Quaternion): real linear combination of $I,i\sigma_z,i\sigma_y,i\sigma_x$
+5. Jordan-Chevalley decomposition [wiki](https://en.wikipedia.org/wiki/Jordan%E2%80%93Chevalley_decomposition)
+
+TODO
+
+1. package
+   * [github/mmgroup](https://github.com/Martin-Seysen/mmgroup) monster groups
