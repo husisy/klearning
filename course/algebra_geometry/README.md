@@ -6,6 +6,7 @@
    * [homepage](https://math.berkeley.edu/~molsson/256.html)
    * [youtube-video](https://www.youtube.com/playlist?list=PL8yHsr3EFj53j51FG6wCbQKjBgpjKa5PX)
    * [nlab](https://ncatlab.org/nlab/show/HomePage)
+   * [github/IBL-abstract-algebra](https://github.com/dcernst/IBL-AbstractAlgebra)
 
 chapter 1
 
