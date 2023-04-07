@@ -6,6 +6,7 @@
    * [github/topins](https://github.com/oroszl/topins)
    * [blog/guanjihuan](https://www.guanjihuan.com/archives/18572)
    * [scholarpedia/topological-insulators](http://www.scholarpedia.org/article/Topological_insulators)
+   * [github/pyqula](https://github.com/joselado/pyqula)
 2. seminar
    * [quantum290](https://math290.com/)
 
