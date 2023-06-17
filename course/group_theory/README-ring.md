@@ -157,3 +157,6 @@ TODO-00
    * $(F,+,\cdot)$为除环
    * $\cdot$ 可交换
 2. 有限域finite field, 又称作伽罗瓦域Galois field
+3. characteristic
+   * zero: the subfield of complex number, p-adic fields
+   * prime number $p$: finite field $\mathrm{GF}(p^n)$

@@ -15,6 +15,7 @@
    * [Sheaves-blog](https://sheaves.github.io/topics/)
    * [groupprops](https://groupprops.subwiki.org/wiki/Main_Page)
    * [youtube/HKUST/MATH5143/Eric](https://youtube.com/watch?v=fdGGPi4xpYc&feature=shares) introduction to lie algebra
+   * small finite-group [website](https://people.maths.bris.ac.uk/~matyd/GroupNames/index.html)
 2. book
    * 《群论》 韩其智，孙洪洲，北京大学出版社 [link](https://book.douban.com/subject/3584574//)
    * 《群论讲义》 王宏利，未出版
