@@ -68,6 +68,13 @@
 1. [wiki/Cauchy-Schwarz-inequality](https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality)
 2. [wiki/Hilbert-Schmidt-inner-product](https://en.wikipedia.org/wiki/Hilbert%E2%80%93Schmidt_operator)
 
+## sci-journal
+
+1. subject classification system
+   * ACM computing classification system [link](https://dl.acm.org/ccs)
+   * APS physics subject headings (PhySH) [link](https://physh.org/browse)
+   * AMS mathematica subject classification [link](https://mathscinet.ams.org/mathscinet/msc/msc2020.html)
+
 ## chatgpt fee
 
 写在开头：强列建议使用quora/poe，这个省心；除非你需要使用chatgpt api key，额加油
