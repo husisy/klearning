@@ -23,3 +23,10 @@ chapter 2 complex number
    * complex conjugate
 3. complex algebra
 4. complex infinite series
+
+Chapter 8 Ordinary Differential Equations
+
+1. Laplace transform
+   * def: $F(s)=\mathcal{L}[f(t)](s)=\int_0^\infty f(t)e^{-ts}dt$
+2. inverse Laplace transform, Mellin's inverse formula, Bromwich integral, the Fourier-Mellin integrall
+   * def: $f(t)=\mathcal{L}^{-1}[F(s)](t)=\frac{1}{2\pi i}\lim_{T\to\infty}\int_{\gamma-iT}^{\gamma +iT}e^{st}F(s)ds$ where $\Re(s)=\gamma$ in the complex plane such that $\gamma$ is great than the real part of all singularityes of $F(s)$ and $F(s)$ is bounded on the line.
