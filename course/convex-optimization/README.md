@@ -9,6 +9,9 @@ Differentiable Convex Optimization Layers [arxiv](https://arxiv.org/abs/1910.124
 1. notation
    * $\sup$: supremum
    * $\inf$: infimum
+2. link
+   * Carathéodory's theorem [wiki-link](https://en.wikipedia.org/wiki/Carath%C3%A9odory%27s_theorem_(convex_hull))
+   * Estimating the probability that a given vector is in the convex hull of a random sample [doi-link](https://doi.org/10.1007/s00440-022-01186-1)
 
 $\sup$ and
 
