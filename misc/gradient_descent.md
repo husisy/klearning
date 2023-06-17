@@ -1,4 +1,4 @@
-# zcnote
+# Gradient Descent
 
 梯度反向传播求解优化问题
 
@@ -33,3 +33,4 @@
    * Adam/SGD: 存在random batch
 7. 存在凸优化容易而非线性优化困难的问题
 8. 凸优化可以和梯度优化结合：cvxpylayer
+9. min-max, max-min
