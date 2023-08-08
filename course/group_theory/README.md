@@ -133,6 +133,10 @@
     * 特别的，若$p$是一个素数，则$|\mathbb{Z}_p^\times|=p-1$
     * $U(10)$ is cyclic and abelian, $U(12)$ is abelian but not cyclic
 15. Lorentz group
+16. extra special group [wiki-link](https://en.wikipedia.org/wiki/Extra_special_group)
+    * Pauli group is an extra special group of $p=2$
+17. Heisenberg group [wiki-link](https://en.wikipedia.org/wiki/Heisenberg_group)
+    * Pauli group is isomorphic to the Heisenberg group over a finite field [stackexchange-link](https://quantumcomputing.stackexchange.com/q/26351)
 
 层次关系
 
