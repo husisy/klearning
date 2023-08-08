@@ -1,5 +1,16 @@
 # quantum money
 
+1. link
+   * [github/openmind/pysyft](https://github.com/OpenMined/PySyft)
+   * [github/facebookresearch/crypten](https://github.com/facebookresearch/CrypTen)
+   * a decade of lattice cryptography [doi-link](https://doi.org/10.1561/0400000074)
+   * An Intensive Introduction to Cryptography [gitbook-link](https://intensecrypto.org/public/index.html)
+   * [zhihu/稀有气体](https://www.zhihu.com/column/c_1190932930565013504)
+   * fundamental cryptography with python [github-link](https://github.com/cgossi/fundamental_cryptography_with_python) [youtube-link](https://youtu.be/miSXR-Op2l4)
+   * the idea behind lattice based cryptography [medium-link](https://medium.com/nerd-for-tech/the-idea-behind-lattice-based-cryptography-5e623fa2532b)
+   * [github/pqclean](https://github.com/pqclean/pqclean/)
+   * [github-link](https://github.com/rust-cc/awesome-cryptography-rust) awesome cryptography rust
+
 ## cryptography
 
 misc
