@@ -33,6 +33,8 @@ Pauli Group
    * [wiki/pauli-group](https://en.wikipedia.org/wiki/Pauli_group)
    * [github/qiskit-tutorial/clifford-group](https://github.com/qiskit-community/qiskit-community-tutorials/blob/master/terra/qis_adv/Clifford_Group.ipynb)
    * [wiki/clifford-gates](https://en.wikipedia.org/wiki/Clifford_gates)
+   * the canonical name of Clifford group: Involutions on the the Barnes-Wall lattices and their fixed point sublattices [arxiv-link](https://arxiv.org/abs/math/0511084)
+   * the canonical name of Pauli group: extra special group with $p=2$ [wiki-link](https://en.wikipedia.org/wiki/Extra_special_group) the Heisenberg group over a finite field [stackexchange-link](https://quantumcomputing.stackexchange.com/q/26351)
 2. basic knowledge
    * Pauli group $P_n=\left\{ e^{i\theta\pi/2}\sigma_{j_1}\otimes \cdots\sigma_{j_n} : \theta,j_k\in\mathbb{F}_4 \right\}$
    * $P_1=\left\{\pm I, \pm iI, \pm X, \pm iX, \pm Y, \pm iY, \pm Z, \pm iZ\right\}=\langle X,Y,Z\rangle$
@@ -74,3 +76,35 @@ TODO
 no idea
 
 1. [github/clifford](https://github.com/pygae/clifford) clifford algebra
+
+## optimal control
+
+1. link
+   * [qutip-overview-optimal-control](https://nbviewer.jupyter.org/github/qutip/qutip-notebooks/blob/master/examples/optimal-control-overview.ipynb)
+   * Chopped random basis quantum optimization [doi-link](https://doi.org/10.1103/PhysRevA.84.022326)
+   * Introduction to Quantum Control and Dynamics [google-book-link](https://books.google.com.hk/books?id=n6A4EAAAQBAJ&lpg=PP1&ots=m1ZDH0NMxP&dq=Introduction%20to%20Quantum%20Control%20and%20Dynamics&lr&pg=PP1#v=onepage&q=Introduction%20to%20Quantum%20Control%20and%20Dynamics&f=false)
+   * (GRAPE) Optimal control of coupled spin dynamics: design of NMR pulse sequences by gradient ascent algorithms [doi-link](https://doi.org/10.1016/j.jmr.2004.11.004). escape from local minima
+   * dressing the chopped-random-basis optimization: A bandwidth-limited access to the trap-free landscape [doi-link](https://doi.org/10.1103/PhysRevA.92.062343)
+   * Robust procedures for converting among Lindblad, Kraus and matrix representations of quantum dynamical semigroups [doi-link](https://doi.org/10.1063/1.1518555)
+   * The Theory of Quantum Information, John Watrous [link](https://cs.uwaterloo.ca/~watrous/TQI/)
+2. keyword
+   * time-independent dynamics generator (drift dynamics generator, drift Hamiltonian)
+   * controlllability, quantum optimal control
+   * Lie Algebra Rank Criterion
+   * gate synthesis
+3. GRadient Ascent Pulse Engineering (GRAPE)
+   * piecewise constant approximation
+   * Broyden-Fletcher-Goldfarb-Shanno Algorithm (BFGS), L-BFGS-B
+   * Frechet derivative method
+4. Chopped RAndom Basis (CRAB) algorithm
+   * the dimension of a quantum optimal control problem is a polynomial function of the dimension of the manifold of the time-polynomial reachable states, when allowing for a finite control precision and evolution time
+5. Kraus, Liouville supermatrix and Choi matrix formalisms
+   * Liouvillian superoperator
+   * Hinton diagram
+6. Choi matrix
+   * ancilla-assisted process tomography (AAPT)
+7. Kraus representation
+8. Stinespring representation
+9. quantum maps
+   * positive quantum map
+   * completely positive quantum map
