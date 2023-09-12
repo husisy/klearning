@@ -1,9 +1,12 @@
 # misc
 
-设计class
-
-1. 相比设计function，需要大量考虑用户的使用场景
-2. 坚决反对刚开始写代码时便大量使用class，功能迭代需要大面积修改代码
+1. abbreviation
+   * `s.t.`: subject to, such that, so that
+2. complexity
+   * $O$: upper bound
+   * $\Omega$: lower bound
+   * $\Theta$: tight bound
+   * $\tilde{O}$: big-O ignores logarithmic factors $\tilde{O}(h(n)) \approx O(h(n)\log^k(h(n)))$ Bachmann–Landau notations [wiki-link](https://en.wikipedia.org/w/index.php?title=Big_O_notation) [stackexchange-link](https://cs.stackexchange.com/a/63265)
 
 ## 键盘符号
 
@@ -11,8 +14,8 @@
 
 | symbol | pronunciation |
 | :-: | :-: |
-| `~` | tlide |
-| `!` | exclamation mark/ exclamationpoint |
+| `~` | tilde |
+| `!` | exclamation mark/ exclamation point |
 | `#` | number sign / pound sign / hash / sharp |
 | `$` | dollar / peso sign |
 | `%` | percent sign |
@@ -62,6 +65,7 @@
     * [huaiweicloudDocs](https://github.com/huaweicloudDocs)
     * [huaweicloud](https://github.com/huaweicloud)
 11. latex-math-font, A Survey of Free Math Fonts for TEX and LATEX [link](https://tug.org/pracjourn/2006-1/hartke/hartke.pdf)
+12. 提问的智慧 [github/simplified-CN](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)
 
 ## wiki
 
