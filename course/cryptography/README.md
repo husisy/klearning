@@ -4,6 +4,8 @@ coursera course is recorded on 2012-06
 
 如何在一个月内入门密码学 [zhihu-link](https://www.zhihu.com/question/36289177)
 
+RSA: a simple and easy-to-read implementation (python recipe) [link](https://code.activestate.com/recipes/578838-rsa-a-simple-and-easy-to-read-implementation/)
+
 ## coursera/cryptography
 
 1. link
