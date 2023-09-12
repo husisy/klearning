@@ -3,6 +3,7 @@
 1. link
    * [阮一峰 互联网协议入门一](http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html)
    * [阮一峰 互联网协议入门二](http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html)
+   * [howhttps-works](https://howhttps.works/)
 2. 五层模型
    * 应用层application layer
    * 传输层transport layer
@@ -30,3 +31,24 @@
 8. 用户上网设置
    * 静态IP地址：本机的IP地址，子网掩码，网关的IP地址，DNS的ip地址
    * 动态ip地址：DHCP协议（建立在UDP协议之上）
+
+## mail server
+
+1. link
+   * amazon simple mail service [link](https://aws.amazon.com/ses/)
+   * spam haus project [link](https://check.spamhaus.org/)
+   * gmail custom domain service
+   * [github/postal](https://github.com/postalserver/postal)
+
+## cloudflare
+
+1. link
+   * [documentation](https://developers.cloudflare.com/)
+   * [test-ipv6](https://test-ipv6.com/) `curl https://api64.ipify.org`
+   * using caddy with cloudflare [blog-link](https://samjmck.com/en/blog/using-caddy-with-cloudflare/)
+2. concept
+   * proxied DNS record, unproxied DNS record, cloudflare anycast IP
+   * WAF: web application firewall
+   * SSL encryption mode: full, full(strict), off (not recommended), flexible (not recommended)
+3. misc
+   * no ssh through proxy
