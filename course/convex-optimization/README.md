@@ -12,204 +12,265 @@ Differentiable Convex Optimization Layers [arxiv](https://arxiv.org/abs/1910.124
 2. link
    * Carathéodory's theorem [wiki-link](https://en.wikipedia.org/wiki/Carath%C3%A9odory%27s_theorem_(convex_hull))
    * Estimating the probability that a given vector is in the convex hull of a random sample [doi-link](https://doi.org/10.1007/s00440-022-01186-1)
+   * Farkas's lamma [wiki-link](https://en.wikipedia.org/wiki/Farkas%27_lemma)
 
 $\sup$ and
 
+## optimization problem
+
+[wiki-link](https://en.wikipedia.org/wiki/Second-order_cone_programming)
+
+abbreviation
+
+1. SDP: semidefinite programming, positive semi-definite
+2. SOCP: second-order cone programming
+3. ILP: integer linear programming
+4. LMI: linear matrix inequality
+5. LSE: log-sum-exp, real-soft-max, multivariable softplus [wiki-link](https://en.wikipedia.org/wiki/LogSumExp)
+
+```text
+optimization
+├─ convex programming
+│  └─ semi-definite programming
+│     └─ quadratic programming
+│        └─ linear programming
+└── nonconvex
+
+nonlinear optimization
+integer linear programming
+```
+
+least square programming
+
+$$\min_x\; ||Ax-b||_2^2$$
+
+$$A\in \mathbb{R}^{k\times n}, x\in\mathbb{R}^n, b\in\mathbb{R}^k$$
+
+1. analytical solution $(A^T A)^{-1}A^T b$
+2. computation time: $O(n^2k)$, less if structured
+3. variant: including weights, adding regularization terms
+
+linear programming
+
+$$\max_x\; a\cdot x$$
+
+$$s.t.\; Bx=b,Cx\leq c$$
+
+$$a\in\mathbb{R}^k,x\in\mathbb{R}^k,B\in\mathbb{R}^{m\times k},b\in\mathbb{R}^m,C\in\mathbb{R}^{n\times k},c\in\mathbb{R}^n$$
+
+1. no analytical formula for solution
+2. reliable and efficient algorithm and software
+3. computation time: $O(n^2m)$ if $m\geq n$, less with structure
+4. a few standard tricks used to convert problems into linear programs
+
+convex programming [wiki-link](https://en.wikipedia.org/wiki/Convex_optimization)
+
+$$\min_x\; f(x)$$
+
+$$s.t. g_i(x)\leq 0, i=1,\cdots, m$$
+
+$$s.t. h_i(x)= 0, i=1,\cdots, n$$
+
+$$x\in\mathbb{R}^k$$
+
+1. $f,g_i$ are convex functions, $h_i$ are affine functions
+2. no analytical solution
+3. reliable and efficient algorithm
+4. computation time (roughly): $max{k^3,k^2m,F}$, $F$ is cost of evaluating $f,g,h$ and their first and second derivatives
+5. difficult to recognize a convex optimization problem
+6. many tricks for transforming problems into convex form
+7. many problems can be solved via convex optimization
+
+set basic concept
+
+1. interior $\mathrm{int}\;S$
+   * [wiki-link](https://en.wikipedia.org/wiki/Interior_(topology))
+   * the union of all open sets of $X$ contained in $S$
+   * the complement of the closure of the complement of $S$
+2. closure $\mathrm{cl}\; S$
+   * [wiki-link](https://en.wikipedia.org/wiki/Closure_(topology))
+   * the smallest closed set containing $S$
+3. boundary
+   * [wiki-link](https://en.wikipedia.org/wiki/Boundary_(topology))
+   * $\partial S=\mathrm{cl}\;S\setminus\mathrm{int}\;S$
+
+convex basic concept
+
+1. convex set
+   * $x=\theta x_1 + (1-\theta) x_2, 0\leq \theta\leq 1$
+   * convex hull
+2. affine set
+   * $x=\theta x_1 + (1-\theta) x_2, \theta\in \mathbb{R}$
+   * $\{x : Ax=b \}$
+   * relative interior [wiki-link](https://en.wikipedia.org/wiki/Relative_interior)
+   * affine hull $\mathrm{aff} S$
+   * affine function: $f(x)=Ax+b$
+3. convex example
+   * line
+   * line segment
+   * ray
+   * hyperplane $\{x:a\cdot x=b\}$
+   * halfspace $\{x:a\cdot x\leq b\}$
+   * norm ball $\{ x : ||x-x_c||\leq r \}$
+   * Euclidean ball $B(x_c,r)=\{ x | \; ||x-x_c||_2\leq r \}= \{ x_c+ru | \; ||u||_2\leq 1 \}$
+   * ellipsoid
+     * $\{ x : (x-x_c)^TP^{-1}(x-x_c) \leq 1,P\succ 0 \}$
+     * $\{ x_c + Au : ||u||_2\leq 1,A\in\mathrm{GL}(n) \}$
+   * polyhedra
+     * $\{x:Ax\leq b, Cx=d$, $A\in \mathbb{R}^{m\times n}, C\in \mathbb{R}^{p\times n}\}$
+     * $\{\theta_1v_1+\cdots+\theta_nv_n:\theta_i\geq 0,\theta_1+\theta_2+\cdots+\theta_k=1,k\leq n\}$
+     * the size of the second description (convex hull) can be exponential in dimension
+   * polytope
+     * bounded polyhedra
+     * $\{\theta_1v_1+\cdots+\theta_nv_n:\theta_i\geq 0,\theta_1+\theta_2+\cdots+\theta_n=1\}$
+   * $k$-simplex [wiki-link](https://en.wikipedia.org/wiki/Simplex)
+     * convex hull of $k+1$ affinely-independent points
+     * unit simplex $\{x:\sum_{i=1}^n x_i\leq 1,x_i\geq 0\}$
+     * probability simplex $\{x:\sum_{i=1}^n x_i= 1,x_i\geq 0\}$
+     * $0$-simplex: point
+     * $1$-simplex: line segment
+     * $2$-simplex: triangle
+4. perspective function $\mathbb{R}^n\times \mathbb{R}_{++}\to\mathbb{R}^n:f(x,t)=x/t$
+5. convexity preserving operation
+   * (infinite) intersection
+   * affine function: image and preimage
+     * hyperbolic cone $\{ x | x^TPx \leq (c^Tx)^2; c^Tx \geq 0\}$ with $P\in S^n_+$
+     * LMI $\{ x : x_1A_1+\cdots x_mA_m \preccurlyeq B \}$ with $A_i,B \in S^n$
+   * perspective function: image and preimage
+   * linear fractional function $f(x)=\frac{Ax+b}{cx+d},cx+d>0$: image and preimage
+6. every closed convex set is the intersection of halfspaces
+7. supporting hyperplane
+
+cone
+
+1. cone: $a\geq 0,b\geq 0,x\in A,y\in A\rightarrow ax+by\in A$
+2. proper cone
+   * convex cone
+   * closed cone
+   * solid cone (has nonempty interior) $\mathrm{int}\;C\ne\emptyset$
+   * pointed cone (has no line) $C\cap (-C)=\{0\}$
+3. cone hull of a set
+4. norm cone $\{ (x,t) |\; ||x||\leq t \}$
+   * second order cone, Lorentz cone, ice-cream cone, quadratic cone
+5. definite cone
+   * (subspace, not a cone) symmetric matrix $S^n=\{x\in\mathbb{R}^{n\times n}:x=x^T\}$
+   * positive semidefinite cone $S^n_+=\{ X\in S^n | X\succcurlyeq 0 \}$
+   * positive definite cone $S^n_{++}=\{ X\in S^n | X\succ 0 \}$
+6. partial order on a proper cone $K$
+   * $x\preceq_K y\leftrightarrow y-x\in K$
+   * $x\prec_K y\leftrightarrow y-x\in \mathrm{int}\;K$
+   * example
+     * nonnegative orthant, componentwise order
+     * positive semidefinite cone, Loewner order [wiki-link](https://en.wikipedia.org/wiki/Loewner_order)
+     * nonnegative polynomial cone
+   * minimum element $S\subseteq x+K$
+   * minimal element $S\cap (x-K)=\{x\}$
+7. dual cone
+   * $K^*=\{y : \forall x\in K,\langle y, x\rangle \geq 0\}$
+   * property
+     * $K^*$ is convex, closed
+     * $K_1\subseteq K_2\rightarrow K_2^*\subseteq K_1^*$
+     * if $K$ is solid, then $K^*$ is pointed
+     * if $\mathrm{cl}\; K$ is pointed, then $K^*$ is solid
+     * $K^{**}=\mathrm{conv\;cl}\; K$
+     * if $K$ is proper, then $K^*$ is proper
+   * example
+     * $K=\mathbb{R}_+^n=K^*$
+     * $K=S_+^n=K^*$, matrix inner product $\langle y, x\rangle=\mathrm{Tr}[xy^T]$
+     * $K=\{(x,t) : ||x||_2\leq t\}=K^*$, self-dual
+     * $K=\{(x,t) : ||x||_1\leq t\}$, $K^*=\{(x,t) : ||x||_\infty\leq t\}$
+8. dual generalized inequality
+   * $x\preceq_K y$ if and only if $\forall \lambda \succeq_{K^*}0,\langle \lambda,x\rangle\leq \langle \lambda,y\rangle$
+   * $x\prec_K y$ if and only if $\forall \lambda \succeq_{K^*}0,\lambda\ne 0,\langle \lambda,x\rangle< \langle \lambda,y\rangle$
+9. minimum and minimal
+   * minimum w.r.t. $\preceq_K$: $x$ is minimum element of $S$ iff for all $\lambda \succ_{K^*} 0$, $x$ is the unique minimizer of $\lambda^Tz$ over $S$
+   * minimal
+     * if $x$ minimizes $\lambda^Tz$ over $S$ for some $\lambda\succ_{K^*} 0$, then $x$ is minimal w.r.t. $\preceq_K$
+     * if x is a minimal element of a convex set $S$ w.r.t. $\preccurlyeq_K$, then there exists a nonzero $\lambda\succeq_{K^*}0$ such that $x$ minimizes $\lambda^Tz$ over $S$
+
 ## chap0 introduction
 
-1. (math) optimization
-   * `s.t.` subject to
-   * optimization variables
-   * objective function
-   * constraint functions
-   * optimal solution
-2. example
-   * portofolio optimization
-   * device sizing in electronic circuits
-   * data fitting
-3. optimization problem
-   * general: different, computation time, not always finding the solution
-   * exception (easy to solve): least-square problems, linear programming, convex optimization
-4. least squares
-   * $\min ||Ax-b||_2^2$
-   * $A\in \mathbb{R}^{k\times n}$
-   * analytical solution $(A^T A)^{-1}A^T b$
-   * computation time: $O(n^2k)$, less if structured
-   * a few standard techniques increase flexibility: including weights, adding regularization terms
-5. linear programming
-   * $\min c^T x$
-   * $s.t. a_i^T x\leq b_i, i=1,\cdots,m$
-   * no analytical formula for solution
-   * reliable and efficient algorithm and software
-   * computation time: $O(n^2m)$ if $m\geq n$, less with structure
-   * a few standard tricks used to convert problems into linear programs
-6. convex optimization
-   * $\min f_0(x)$
-   * $s.t. f_i(x)\leq b_i, i=1,\cdots, m$
-   * $f_0,f_i$ are convex functions $f(\alpha x + \beta y)\leq \alpha f(x) +\beta f(y), \alpha+\beta=1,\alpha\geq 0, \beta \geq 0$
-   * special case: least  squares, linear programs
-   * no analytical solution
-   * reliable and efficient algorithm
-   * computation time (roughly): $max{n^3,n^2m,F}$, $F$ is cost of evaluating $f_i$ and their first and second derivatives
-   * difficult to recognize a convex optimization problem
-   * many tricks for transforming problems into convex form
-   * surprisingly many problems can be solved via convex optimization
-7. hints
+1. concept
+   * optimization variables, objective function, constraint, optimal solution
+   * optimization problem: least-square problems, linear programming, convex optimization, SDP, SOCP
+   * convex optimization, local optimization, global optimization
+   * closure
+   * relative boundary
+2. insight
    * the correct thing to estimate is not the co-variance. The correct parameter to estimate is the inverse co-variance
    * the correct thing to estimate is not the mean of a bunch of vectors. It's the co-variance inverse times the mean
-8. nonlinear optimization: local optimization methods
-   * find a point that minimizes $f_0$ among feasible points near it
-   * fast
-   * requre initial guess
-   * no information about distance to global optimum
-9. nonlinear optimization: global optimization methods
-   * worst-case complxity grows exponentially with problem size
-10. integer linear programming (ILP)
-11. algorithm history
-    * 1947: simplex algorithm for linear programming (Dantzig)
-    * 1960s: early interior-points methods (Fiacco, McCormick, Dikin)
-    * 1970s: ellipsoid method and other subgradient methods
-    * 1980s: polynomial-time interior-point methods for linear programming (Karmerkar 1984)
-    * late 1980s-now: polynomial-time interior-point methods for nonlinear convex optimization (Nesterov, Nemirovski, 1994)
-12. application history
-    * before 1990: mostly in operations research
-    * since 1990: in engineering (control, signal processing, communications, circuit design), semidefinite and second-order cone programming ,rebust optimization
-
-## chap1 convex sets
-
-1. affine set
-   * $x=\theta x_1 + (1-\theta) x_2, \theta\in \mathbb{R}$
-   * example: $\{x | Ax=b \}$
-   * every affine set can be expressed as solution set of system of linear equations
-2. convex set
-   * $x=\theta x_1 + (1-\theta) x_2, 0\leq \theta\leq 1$
-3. convex combination
-   * convex combination $x=\theta_1 x_1 + \theta_2 x_2 + \cdots + \theta_k x_k, \theta_1+\cdots +\theta_k=1,\theta_i\geq 0$
-   * convex hull $\mathrm{conv} S$: set of all convex combinations of points in $S$
-4. convex cone
-   * conic (nonnegative) combination: $x=\theta_1 x_1 + \theta_2 x_2, \theta_1\geq 0, \theta_2\geq 0$
-   * convex cone: set that contains all conic combinations of points in the set
-5. hyperplane and halfspace
-   * hyperplane $\{ x | a^Tx=b \}, a\ne 0$, affine and convex
-   * halfspace $\{ x | a^Tx\leq b \}, a\ne 0$, convex
-   * $a$ is the normal vector
-6. (Euclidean) ball with center $x_c$ and radius $r$: $B(x_c,r)=\{ x | \; ||x-x_c||_2\leq r \}= \{ x_c+ru | \; ||u||_2\leq 1 \}$
-7. ellipsoid
-   * $\{ x | (x-x_c)^TP^{-1}(x-x_c) \leq 1 \}$, unique representation
-   * symmetric positive definite $P\in S^n_{++}$
-   * $\{ x_c + Au | \; ||u||_2\leq 1 \}$ with $A$ square and nonsingular, non-unique
-8. norm: $|| \cdot ||$ satisfy
-   * $|| x|| \geq 0$; $||x||=0$ if and only if $x=0$
-   * $|$tx$|=|t|\; ||x||$ for $t\in \mathbb{R}$
-   * $||x+y||\leq ||x|| + || y||$
-9. norm ball with center $x_c$ and radius $r$
-   * $\{ x | \; ||x-x_c||\leq r \}$
-   * convex
-10. norm cone
-    * $\{ (x,t) |\; ||x||\leq t \}$
-    * convex
-11. polyhedra
-    * solution set of finitely many linear inequalities and equalities $Ax\preccurlyeq b; Cx=d$, $A\in \mathbb{R}^{m\times n}, C\in \mathbb{R}^{p\times n}$
-    * intersection of finite number of halfspaces and hyperplanes
-    * $\preccurlyeq$ componentwise inequality
-12. positive semidefinite cone
-    * $S^n$: set of symmetric $n\times n$ matrices
-    * $S^n_+=\{ X\in S^n | X\succcurlyeq 0 \}$: positive semidefinite $n\times n$ matrices
-    * $S^n_{++}=\{ X\in S^n | X\succ 0 \}$: positive definite $n\times n$ matrices
-13. simple convex sets
-    * hyperplane
-    * halfspace
-    * norm ball
-    * etc.
-14. operations that preserve convexity
-    * intersection
-    * affine function
-    * perspective function $P(x,t)=x/t,$ $\mathrm{dom} P=\{(x,t) | t>0\}$, both forward and reverse mapping
-    * linear-fractional function $f(x)=\frac{Ax+b}{c^Tx+d}$ $\mathrm{dom} f={x | c^Tx+d>0}$
-15. affine function
-    * $f(x)=Ax+b,A\in\mathbb{R}^{m\times n}, b\in \mathbb{R}^m$, both forward mapping and reverse mapping
-    * scaling, translation, projection
-    * solution set of linear matrix inequality $\{ x | x_1A_1+\cdots x_mA_m \preccurlyeq B \}$ with $A_i,B \in S^p$
-    * hyperbolic cone $\{ x | x^TPx \leq (c^Tx)^2; c^Tx \geq 0\}$ with $P\in S^n_+$
-16. a convex cone $K\subseteq \mathbb{R}^n$ is a proper cone if
-    * closed: contains its boundary
-    * solid: nonempty interior (a ray is not solid)
-    * pointed: contains no line (line is not pointed)
-17. generalized inequalities defined by a proper cone $K$
-    * $x\preccurlyeq_K y \Leftrightarrow y-x\in K$
-    * $x\prec_K y \Leftrightarrow y-x \in \mathrm{int} K$
-    * example: componentwise inequality $K=\mathbb{R}_+^n$
-    * example: matrix inequality $K=S_+^n$
-    * partial ordering, incomparable
-    * $x\in S$ is the **minimum** element of $S$ with respect to $\preccurlyeq_K$ if $y\in S \Rightarrow x\preccurlyeq_K y$
-    * $x\in S$ is a **minimal** element of $S$ with respect to $\preccurlyeq_K$ if $y\in S, y\preccurlyeq_K x \Rightarrow y=x$
-18. separating hyperplane theorem
-    * if $C$ and $D$ are disjoint convex sets, the there exists $a\ne 0, b$ such that $a^Tx\leq b$ for $x\in C$ and $a^Tx\geq b$ for $x\in D$
-    * strict separation requires additional assumptions: e.g. $C$ is closed, $D$ is singleton
-19. supporting hyperplane theorem
-    * supporting hyperplane: to set $C$ at boundary point $x_0$: $\{x | a^Tx=a^Tx_0\}$ where $a\ne 0$ and $a^Tx\leq a^T x_0$ for all $x\in C$
-    * supporting hyperplane theorem: if $C$ is convex, then there exists a supporting hyperplane at every boundary point of $C$
-20. dual cone of a cone $K$
-    * $K^*=\{y | y^T x \geq 0 \forall x\in K\}$
-    * example: $K=\mathbb{R}_+^n=K^*$: self-dual
-    * example: $K=S_+^n=K^*$, the inner product of two matrices is defined as $tr(XY)$, self-dual
-    * example: $K=\{(x,t) | \; ||x||_2\leq t\}=K^*$, self-dual
-    * example: $K=\{(x,t) | \; ||x||_1\leq t\}$, $K^*=\{(x,t) | \; ||x||_\infty\leq t\}$
-    * dual cones of proper cones are proper. the generalized inequalities $y\succcurlyeq_{K^*}0 \Leftrightarrow y^Tx\geq 0 \forall x\succcurlyeq_K 0$
-21. minimum and minimal elements via dual inequalities
-    * minimum element w.r.t. $\preccurlyeq_K$: $x$ is minimum element of $S$ iff for all $\lambda \succ_{K^*} 0$, $x$ is the unique minimizer of $\lambda^Tz$ over $S$
-    * minimal element w.r.t. $\preccurlyeq_K$: if $x$ minimizes $\lambda^Tz$ over $S$ for some $\lambda\succ_{K^*} 0$, then $x$ is minimal
-    * minimal element w.r.t. $\preccurlyeq_K$: if x is a minimal element of a convex set $S$, then there exists a nonzero $\lambda\succcurlyeq_{K^*}0$ such that $x$ minimizes $\lambda^Tz$ over $S$
-22. Pareto optimal
+3. algorithm history
+   * 1947: simplex algorithm for linear programming (Dantzig)
+   * 1960s: early interior-points methods (Fiacco, McCormick, Dikin)
+   * 1970s: ellipsoid method and other subgradient methods
+   * 1980s: polynomial-time interior-point methods for linear programming (Karmerkar 1984)
+   * late 1980s-now: polynomial-time interior-point methods for nonlinear convex optimization (Nesterov, Nemirovski, 1994)
+4. application history
+   * before 1990: mostly in operations research
+   * since 1990: in engineering (control, signal processing, communications, circuit design), semidefinite and second-order cone programming ,rebust optimization
+5. separating hyperplane theorem [wiki-link](https://en.wikipedia.org/wiki/Hyperplane_separation_theorem)
+   * strict seperation
+6. supporting hyperplane theorem [wiki-link](https://en.wikipedia.org/wiki/Supporting_hyperplane)
+7. theorem of alternatives
+   * Farkas lemma [wiki-link](https://en.wikipedia.org/wiki/Farkas%27_lemma)
+   * strict linear inequalities (eq-2.17)
+   * strict linear generalized inequalities (eq-2.21)
+8. Pareto optimal
 
 ## chap2 convex function
 
 1. convex function
-   * $f: R^n\to R$ is convex if $\mathrm{dom} f$ is a convex set and $f(\theta x+(1-\theta) y)\leq \theta f(x) + (1-\theta) f(y)$ for all $x,y \in \mathrm{dom} f, 0\leq \theta\leq 1$
-   * chord
-   * $f$ is concave if $-f$ is convex
-   * strictly convex defintiion: ....
-2. convex example
-   * affine $ax+b$
-   * exponential $e^{ax}$
-   * powers $x^\alpha$ on $R_{++}$, $\alpha\geq 1$ or $\alpha \leq 0$
-   * powers of absolute vlaue $|x|^p$ for $p\geq 1$
-   * negative entropy $x \log(x)$ on $R_{++}$
-   * all norm: spectral (maximum singular value) norm (for matrix)
-   * quadratic-over-linear $f(x,y)=x^2/y$ for $y>0$
-   * log-sum-exp $f(x)=\log(\sum_{k=1}^n e^{x_k})$
-   * geometric mean $f(x)=(\prod_k^n{x_k})^{1/n}$ on $R^n_{++}$
-3. concave
-   * affine $ax+b$
-   * powers $x^\alpha$ on $R_{++}$ for $0\leq \alpha \leq 1$
-   * logarithm $\log(x)$ on $R_{++}$
-   * $\log(\mathrm{Det}(X))$ for $X\in S^n_{++}$
-4. extended-value extension
-5. first-order condition
-   * differentiable $f$ with convex domain is convex iff $f(y)\geq f(x) + (y-x)^T\nabla f(x)$ for all $x,y\in \mathrm{dom}f$
-   * first-order approximation of $f$ is global underestimator
-6. second-order condition: $f$ is convex if and only if $\nabla^2f(x)\succcurlyeq 0 \forall x\in \mathrm{dom} f$
-7. $\alpha$-sublevel set of $f: \mathbb{R}^n\to\mathbb{R}$
-   * $C_\alpha={x\in \mathrm{dom}f | f(x)\leq \alpha}$
-   * sublevel sets of convex functions are convex (converse is false, non-convex function can have convex sublevel set)
-8. Epigraph of $f: \mathbb{R}^n\to\mathbb{R}$
-   * $\mathrm{epi} f=\{(x,t)\in\mathbb{R}^{n+1} | x\in \mathrm{dom} f, f(x)\leq t\}$
+   * (Jensen's inequality) $f(\alpha x + \beta y)\leq \alpha f(x) +\beta f(y), \alpha+\beta=1,\alpha\geq 0, \beta \geq 0$
+   * continuous in relatively interior of domain
+   * extended-value extension $\tilde{f}$
+   * first order condition $f(y)\geq f(x) + (y-x)^T\nabla f(x)$
+   * second-order condition $\nabla^2f(x)\succeq 0$
+   * convex domain
+   * strictly convex, concave, strictly concave
+2. convex function example
+   * indicator function of a set $I_C(x)=0$ if $x\in C$, otherwise $\infty$
+   * (convex and concave) affine function $f(x)=Ax+b$
+   * exponential $f(x)=e^{ax}$
+   * $f(x)=x^\alpha, x\in\mathbb{R}_{++},\alpha\in (-\infty,0]\cup [1,\infty)$
+   * $f(x)=-x^\alpha, x\in\mathbb{R}_{++},\alpha\in [0,1]$
+   * $f(x)=|x|^p$， $p\geq 1$
+   * $f(x)=-\log(x),x\in\mathbb{R}_{++}$
+   * negative entropy $f(x)=x \log(x),x\in\mathbb{R}_{++}$
+   * norm: spectral norm (maximum singular value)
+   * maximum $f(x)=\max\{x_1,x_2,\cdots,x_n\},x\in\mathbb{R}^n$
+   * quadratic-over-linear $f(x,y)=x^2/y, x\in\mathbb{R}, y\in\mathbb{R}_{++}$
+   * log-sum-exp $f(x)=\log(\sum_i e^{x_i}),x\in\mathbb{R}^n$
+   * geometric mean $f(x)=-(\prod_k^n{x_k})^{1/n}, x\in R^n_{++}$
+   * $f(x)=-\log(\mathrm{Det}(X))$ for $X\in S^n_{++}$
+   * $f(x,Y)=x^TY^{-1}x:\mathbb{R}^n\times S_{++}^n\to\mathbb{R}$
+   * matrix fractional function $f(x,Y)=x^TY^{-1}x:\mathbb{R}^n\times \mathbb{S}^n_{++}\to\mathbb{R}$
+   * support function of a set $C$: $S_C(x)=\sup \{x\cdot y:y\in C\}$
+3. $\alpha$-sublevel set of function $f$
+   * $C_\alpha=\{x\in \mathrm{dom}f : f(x)\leq \alpha\}$
+   * if $f$ is convex function, then $C_\alpha$ is a convex set
+4. function graph $f:\mathbb{R}^n\to \mathbb{R}$
+   * graph $\{(x,f(x))\in\mathbb{R}^{n+1} : x\in \mathrm{dom} f\}$
+   * epigraph: $\mathrm{epi} f=\{(x,t)\in\mathbb{R}^{n+1} : x\in \mathrm{dom} f, f(x)\leq t\}$
+   * hypograph: $\mathrm{hypo} f=\{(x,t)\in\mathbb{R}^{n+1} : x\in \mathrm{dom} f, f(x)\geq t\}$
    * $f$ is convex iff $\mathrm{epi} f$ is a convex set
-9. Jensen's inequality: random variables and expectation
-10. operations that preserve convexity
-    * nonnegative weighted sum
-    * composition with affine function
-    * pointwise maximum and supremum
-    * composition: convex nondecreasing function of a convex function is convex, convex nonincreasing function of a concave function is a convex function
-    * minimization
-    * perspective
-11. Schur complement
-12. conjugate function
-    * dual, conjugate, adjoint, transpose
-    * $f^*(y)=\sup_{x\in \mathrm{dom}f} (y^Tx-f(x))$
-    * $f^*$ is convex, even if $f$ is not
-    * example: $f(x)=-\log(x)$, $f^*(y)=-1-\log(-y)$ for $y<0$ otherwise $\infty$
-    * example: $f(x)=x^TQx/2$ with $Q\in S_{++}^n$, $f^*(y)=y^TQ^{-1}y/2$
+5. Jensen's inequality extension: random variables and expectation $f(\mathbf{E} x)\leq \mathbf{E}f(x)$
+   * arithmetic-geometric mean inequality $2\sqrt{ab}\leq (a+b)$
+   * Holder's inequality [wiki-link](https://en.wikipedia.org/wiki/H%C3%B6lder%27s_inequality)
+6. operations that preserve convexity
+   * nonnegative weighted sum $g(x)=\sum_i w_if_i(x),w_i>0$
+   * composition with affine function $g(x)=f(Ax+b)$
+   * pointwise maximum and supremum $g(x)=\max\{f_1(x),f_2(x),\cdots,f_m(x)\}$
+   * $g(x)=\inf_{y\in C} f(x,y)$, $C$ is a convex set, $f(x,y)$ is convex in $(x,y)$, $\mathrm{dom}\;g$ has some constraint
+   * perspective
+   * composition $h:\mathbb{R}^k\to\mathbb{R}$, $g:\mathbb{R}^n\to\mathbb{R}^k$, $f(x)=h\circ g(x)=h(g(x))$
+     * $k=1,f''(x)=h''(g(x))g'(x)^2+h'(x)g''(x)$
+7. Schur complement
+8. conjugate function
+   * dual, conjugate, adjoint, transpose
+   * $f^*(y)=\sup_{x\in \mathrm{dom}f} (y^Tx-f(x))$
+   * $f^*$ is convex, even if $f$ is not
+   * example: $f(x)=-\log(x)$, $f^*(y)=-1-\log(-y)$ for $y<0$ otherwise $\infty$
+   * example: $f(x)=x^TQx/2$ with $Q\in S_{++}^n$, $f^*(y)=y^TQ^{-1}y/2$
 
 quasi-
 
