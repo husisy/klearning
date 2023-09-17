@@ -64,3 +64,10 @@ matrix (svd)
 12. TODO
     * Symplectic matrix [wiki](https://en.wikipedia.org/wiki/Symplectic_matrix)
     * orthogonal complement [wiki](https://en.wikipedia.org/wiki/Orthogonal_complement)
+
+## misc
+
+1. matrix
+   * range, image, column space, rank
+   * row space
+   * support: $supp(A)=\{x|Ax\ne 0\}$
