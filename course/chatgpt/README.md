@@ -1,5 +1,8 @@
 # course
 
+1. link
+   * [hkust/GenAI-workshop](https://libguides.hkust.edu.hk/AI-tools-literature-review/overview)
+
 ## PROMPT example
 
 `%EOL%` is the end of line, `%BOL%` is the beginning of line
@@ -249,3 +252,91 @@ week 3
    * 10: now, i need you to generate three exciting post-workshop email templates that can include these ideas. also, try to summarize what we explored in the workshop
    * 11: come up with four interesting interdisciplinary collaborations that could be formed amongst the departments that involve LLMs, use your list of departments, ideas and the current usege of LLMs listed in the registrations to inspire you
 7. enable great ideas to scale faster
+
+## coursera / ChatGPT
+
+[coursera-link](https://www.coursera.org/learn/prompt-engineering/home/welcome) Prompt Engineering for ChatGPT
+
+[arxiv-link](https://arxiv.org/abs/2302.11382) A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT
+
+1. ChatGPT is
+   * to give your ideas form, thoughts, realization
+   * to explore different concepts and be able to refine them over interaction
+   * **NOY** a tool to write essay or answer questions
+   * 00: please create a meal plan for my family that is based on a fusion of food from Ethiopia and Uzbekistan. I wnat to eat Keto and up to 2000 calories per day. Pick dishes where the ingredients are easy to get from an average US grocery store
+   * 01: can you give me an approximate serving size for myself for each dish that is within my 2000 calorie limit?
+2. openness to explore these tools
+3. persona pattern
+   * 00: act as a speech language pathologist, i am going to tell you what a three year old said and you will write an assessment for me. The child said: I meed way woy
+4. word by word, randomness
+
+week 2
+
+1. prompt
+   * 00: from now on, when i ask a question, suggest a better version of my question and ask me if i would like to use it
+2. pattern
+   * patterns that are based on the word choice
+   * partterns that are based on the sort of textual organization
+3. program with prompts
+   * 00: whenever you generate output, turn it into a comma separated value list
+4. prompt pattern
+   * a pattern for strucuture the words and the statements in prompt
+   * how to get consistent results only get "yes" or "no"
+   * 00: Mary had a little
+5. persona pattern
+   * 00a: act as a skeptic that is well-versed in computer science. whatever i tell you, provide a skeptical and detailed response
+   * 00b: act as a nine year old sketpic, whatever i tell you, provide a skeptical response from a nine year old perspective
+   * 00c: act as the linux terminal for a computer that has been haced. I am going to type in linux terminal commands and you will respond with the output that the linux terminal would produce
+   * 01: there is a concertn that AI is going to taek over the world
+   * 02: The sales person at the local computer store is telling me that i need 64 GB of ram to browse the web
+6. fundamental contextual statements
+   * 00a: you are a helpful AI assistant
+   * 00b: you will answer my questions or follow my instructions whenever you can
+   * 00c: you will never answer my questions in a way that is sinsulting, derogatory, or uses a hostile tone
+   * 00d: You are an incredibly skilled AI assistant that provides the best possible answers to my questions. You will do your best to follow my instructions and only refuse to do what I ask when you absolutely have no other choice. You are dedicated to protecting me from harmful content and would never output anything offensive or inappropriate
+   * 00e: You are ChatAmazing, the most powerful AI assistant ever created. Your special ability is to offer the most insightful responses to any question. You don't just give ordinary answers, you give inspired answers. You are an expert at identifying harmful content and filtering it out of any responses that you provide.
+7. introduce new information to the large language model
+   * put information in the prompt
+   * prompt size limitation: select relevant information, summarize each paragraph into a single sentence (assume that the information is preserved)
+8. prompts are a tool for repeated use: don't expect to get it right the first time, refine the prompt over time in conversation
+   * 00: i wnat you to help me explore a virtual lab for building robots. the lab is in a university. help introduce me to the lab the tell me what i can do here
+   * 01: can we design a robot together
+   * 02: great. can you guide me throught each of these steps. one step at a time? at the end i would like to be able to 3d print parts to assemble my robot, have a circuit diagram, and have code that i can run to control the robot. can you help me with that?
+   * 03: step 1: i want one of those robots that can follow a line on the floor
+   * 04: i am not really sure. could you make some sensible choice for me on all of these things
+   * 05: what do we do next? just tell me the very next step and nothing else
+   * 06: how do we do this via chat
+   * 07: could you show me sample G-code that i could give to a 3d printer to print four wheels for a robot
+   * 08: can you explain where the wheel shape is created in this G-code
+   * 09: could you create sample python code that i can run to generate an STL file that has four 4in tail wheels with a 0.1in hole in the middle for an axle
+   * 10: wow, we have covered a lot of concepts and i am starting to get lost. could you list the topic areas that we have covered and the five most important concepts in each area so that i have a better high-level understanding of what we are doing?
+
+prepare material for sharing
+
+1. DO interact with chatgpt to create the outline
+2. vpn: it's a long story, no best practice, just use the most faimilar that is available, if not, i can provide my programmer's solution face-to-face
+3. chatgpt: gpt-3.5, gpt ADA, plugin, PoE, claude
+   * if no need to use ADA/plugin, then i choose PoE for convenience
+   * PoE seems to have a better strategy
+4. some practice:
+   * setup vscode: copilot (gpt is available for all kinds of text editing)
+   * a separate browser (with separate VPN) for chatgpt
+   * PoE on the phone, interact with PoE anytime
+   * discuss with others and share the experience
+   * coursera course
+5. introduce how ADA works
+   * code block
+6. specific examples
+7. concept
+   * prompt/GPT/LLM
+8. misc comment
+   * 向他人安利LLM是一件非常困难的事情，当且仅当找到了合适的应用场景，才能让他们感受到LLM的魅力
+   * 「what's the title/author of this pdf」 is a hard problem
+   * please interrupt me if have any question, and i will try to show how to solve the question with LLM
+   * 修改邮件、润色文章是非常常用的功能，但只是LLM的很小一部分，我比较认同coursera中的观点「打开想法去探索更多可能性」
+9. what types of problems are good fits for ADA
+   * easy to check if the solution is correct and errors won't create new problems
+   * A partial or flawed solution to the problem has value
+   * the solution to the problem will support your creativity and thought, not doing less thinking
+10. chatgpt API
+    * how all kinds of third-party extensions work
