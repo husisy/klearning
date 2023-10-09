@@ -122,3 +122,25 @@ openai/chatgpt
    * 注册depay账号并开通master卡
    * 欧易平台转账至depay卡
    * openai绑定depay卡并订阅
+
+## server
+
+1. link
+   * [cpubenchmark.net](https://www.cpubenchmark.net/)
+2. intel processor names and numbers, e.g. `intel core i7-13700K` (usually)
+   * [link](https://www.intel.com/content/www/us/en/processors/processor-numbers.html)
+   * brand: `core`酷睿, `xeon`至强, `pentium`奔腾, `celeron`赛扬, `processor`（是的，这是一个brand）, `atom`凌动, ~~`Itanium`安腾~~
+   * brand modifier: `i3`, `i5`, `i7`, `i9` (not applicable to `Pentium` and `Celeron`)
+   * generation indicator: `13`, `12`
+   * SKU numeric digits: `700`
+   * product line suffix: `K`, `U` designed for power-efficient laptops or 2 in 1s, `XE` for "extreme edition"
+   * `p-core` for heavy-duty work, `e-core` for ultra-efficent work
+3. intel xeon, e.g. `intel xeon platinum 8180M`, `intel xeon gold 5120T`
+   * [link](https://www.intel.com/content/www/us/en/products/docs/processors/processor-numbers-data-center.html)
+   * SKU level: platinum `8`, gold `6/5`, silver `4`, bronze `3`
+   * processor generation: `1`, `2`, `3`, `4`
+   * processr SKU `80`, `20`
+   * integration and optimization: fabric `F`, high tcase extended reliability `T`
+   * memory capacity: no suffix (768 GB per socket), `M` (1.5TB per socket)
+4. AMD processor names and numbers TODO
+5. nvidia model names and numbers TODO
