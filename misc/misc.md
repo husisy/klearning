@@ -36,7 +36,9 @@
 | `-` | hyphen，用于连接两个单词或一个单词分开的字母 |
 | `_` | underscore / understrike / lowline |
 | ``` ` ``` | grave accent / backquote / backtick |
-| `|` | vertical bar / polo / pipe |
+| &#124; | vertical bar / polo / pipe |
+
+1. [wiki/newline](https://en.wikipedia.org/wiki/Newline) 换行符模式：`CRLF`(win), `LF`(*nix), `CR` (mac)
 
 ## misc-website
 
