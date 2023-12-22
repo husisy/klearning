@@ -29,6 +29,7 @@ matrix (svd)
    * genral linear group $\mathrm{GL}(n,\mathbb{F})$ [wiki](https://en.wikipedia.org/wiki/General_linear_group)
    * singular value decomposition
    * polar decomposition
+   * [mit-mooc-link](https://ocw.mit.edu/courses/18-s096-matrix-calculus-for-machine-learning-and-beyond-january-iap-2023/) Matrix Calculus For Machine Learning And Beyond
 2. invertible matrix: $det(A)\ne 0$
    * `min(svd)=0`
 3. 可逆矩阵和可对角化没有包含或者被包含关系
