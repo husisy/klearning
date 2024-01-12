@@ -1,3 +1,0 @@
-# Coherent Potential Approximation
-
-todo
