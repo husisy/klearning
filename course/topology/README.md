@@ -41,7 +41,7 @@ example
 5. trivial topology $\{\emptyset,X\}$ (coarsest topology)
 6. discrete space, let $T$ be the power set $\mathcal{P}(X)$ (finest topology)
 7. metric topology $(X,d)$, let $T$ be collection of open sets in the usual sense
-   * (def) open set $U$: $\forall x\in U,\exists r>0,B(x,r)\subseteq U$, where $B(x,r)=\{y\in X:d(x,y)<r\}$
+   * open set $U$: $\forall x\in U,\exists r>0,B(x,r)\subseteq U$, where $B(x,r)=\{y\in X:d(x,y)<r\}$
 8. $\mathbb{R}P^n$: set of 1-dimensional subspace in $\mathbb{R}^{n+1}$
    * equivalence relation $[x]=\{c x:c\in\mathbb{R}\}$ for all $x\in\mathbb{R}^{n+1}\setminus\{0\}$
    * quotient of n-Sphere by relation $x\sim y$ if $x=\pm y$
@@ -109,6 +109,8 @@ basic concept
      * boundary is closed
    * derived set $A'$: set of all limit points in $A$
      * derived set is closed
+   * subspace topology $(A,T_A)$: $T_S=\{A\cap U: U\in T \}$
+     * $X=\mathbb{R}, A=[0,1)$, then $[0,\frac{1}{2})$ is open in $A$, but not open in $\mathbb{R}$
    * $p\in\mathrm{int}(A)$: exists $U\in T$ such that $p\in U\subseteq A$
    * $p\in\partial A$: for all open set $p\in U\in T$, $U\cap A\ne \emptyset$ contains points in $A$ and points in $X\setminus A$
    * $p$ is a limit point of $A$: for all open set $p\in U\in T$, $(U\setminus\{p\})\cap A\ne \emptyset$
@@ -127,10 +129,19 @@ basic concept
      * iff the pre-image of every closed set is closed
      * iff every point of $x\in X_1$ has a open set $x\in U_1$ (exists $U_1$) such that $f(x)\in f(U_1)\in T_2$
      * example: constant map, identity map, domain restriction $f|_U$, composition $f\circ g$
-8. homeomorphism $X\cong Y$
+8. space $(X,T_X)$, $(Y,T_Y)$, continuous map $f:X\to Y$
+   * open map (image of open set is open): for all open set $U\in T_X$, $f(U)\in T_Y$
+     * example, continuous but not open map: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=0$
+   * closed map (image of closed set is closed): for every closed set $A:A^c\in T_X$, $f(A)^c\in T_Y$
+     * contiuous but not closed map: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^2$ (neither open nor closed)
+   * if $f$ is continuous bijective, then the following is equivalent
+     * $f$ is a homeomorphism
+     * $f$ is open
+     * $f$ is closed
+9. homeomorphism $X\cong Y$
    * def: a continuous map $f:X\to Y$ is a homeomorphism if there is a continuous map $g:Y\to X$ such that $g\circ f=\mathrm{id}_X$ and $f\circ g=\mathrm{id}_Y$
-   * counter-example, bijective, but both $f$ and $g$ non-continuous: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=x$ is $x$ is rational, $f(x)=x+1$ if $x$ is irrational
-   * counter-example, continuous $f$ has inverse, but $g$ non-continuous
+   * example, bijective, but both $f$ and $g$ non-continuous: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=x$ is $x$ is rational, $f(x)=x+1$ if $x$ is irrational
+   * example, continuous $f$ has inverse, but $g$ non-continuous
      * [stackexchange-link](https://math.stackexchange.com/a/68811)
      * $[0,1]\cup(2,3]\to [0,2]$
      * every bijective map $X\to K$ with $X$ non-compact and $K$ compact cannot have a continuous inverse
@@ -142,27 +153,15 @@ basic concept
 
 video05-
 
-1. subspace topology: given topological space $X$ and a subset $S\subset X$, we say $U$ is open in $S$ iff $U=S\cap V$ for some open set $V\in X$
-   * example: $X=\mathbb{R}, S=[0,1)$, then $U=[0,\frac{1}{2})$ is open in $S$
-2. open map
-   * def: a continuous map $f:X\to Y$ is an open map if for every open set $U\in X$, $f(U)$ is open in $Y$
-   * counter-example, continuous but not open map: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=0$
-3. closed map
-   * def: a continuous map $f:X\to Y$ is a closed map if for every closed set $A\in X$, $f(A)$ is closed in $Y$
-   * counter-example, contiuous but not closed map: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^2$ (neither open nor closed)
-4. suppose $f:X\to Y$ is a continuous bijective map, then the following is equivalent
-   * $f$ is a homeomorphism
-   * $f$ is open
-   * $f$ is closed
-5. local homeomorphism
+1. local homeomorphism
    * def: a map $f:X\to Y$ is a local homeomorphism if each point $x\in X$ has a neighborhood $U$ such that $f(U)$ is open in $Y$ and $f|_U:U\to f(U)$ is a homeomorphism
    * counter example, not equivalence relation: $\mathbb{S}^2$ is locally homeomorphic to $\mathbb{R}^2$, there is no local homeomorphism from $\mathbb{S}^2\to\mathbb{R}^2$ [wiki-link](https://en.wikipedia.org/wiki/Local_homeomorphism)
    * counter example, local homeomorphism vs homeomorphism: $f:\mathbb{S}^1\to\mathbb{S}^1$, $f(z)=z^3$
    * proposition: a bijective local homeomorphism is a homeomorphism
-6. Hausdorff space (counter example) $Z=\{1,2,3\}, T=\{\emptyset,\{1\},\{1,2\},\{1,2,3\}\}$
+2. Hausdorff space (counter example) $Z=\{1,2,3\}, T=\{\emptyset,\{1\},\{1,2\},\{1,2,3\}\}$
    * $\{1\}$ is not closed
    * constant sequence $(2,2,\cdots)$ has $2$ and $3$ as limit
-7. Hausdorff space
+3. Hausdorff space
    * def: a topological space $X$ is Hausdorff if for every pair of distinct points $x,y\in X$, there are disjoint open sets $U,V\in X$ such that $x\in U$ and $y\in V$ (disjoint neighborhoods)
    * example
      * all metric space (spaces that aren't Hausdorff aren't going to be metrizable)
@@ -171,14 +170,14 @@ video05-
    * prop: in Hausdorff spaces, convergent sequences have unique limits
    * prop: suppose $X$ is Hausdorff and $A\subseteq X$. If $p\in X$ is a limit point of $A$, then every neighborhood of $p$ contains infinitely many points of $A$
      * comment: finite subset cannot have limit point, so $A$ must be infinite
-8. basis $\mathcal{B}$: a collection of subsets of a topological space $X$
+4. basis $\mathcal{B}$: a collection of subsets of a topological space $X$
    * def: every $B\in\mathcal{B}$ is open, every open subset of $X$ is the union of elements in $\mathcal{B}$
    * example
      * open balls form a basis for metric space $(\mathcal{M},d)$: $\mathcal{B}=\{B(x,r):x\in\mathcal{M},r>0\}$ (metric space is defined in this way)
      * the collection of all singletons is a basis for the discrete topology on any set
    * (basis criterion) subset $U\subseteq X$ is open iff for each $p\in U$, there is $B\in\mathcal{B}$ with $p\in B \subseteq U$
    * (continuity criterion) a map $f:X\to Y$ is continuous iff $f^{-1}(B)$ is open for each $B\in\mathcal{B}$ (basis for $Y$)
-9. unique topology: let $X$ be a set and $\mathcal{B}$ a collection of subsets of $X$. Then $\mathcal{B}$ is a basis for a unique topology on $X$ iff
+5. unique topology: let $X$ be a set and $\mathcal{B}$ a collection of subsets of $X$. Then $\mathcal{B}$ is a basis for a unique topology on $X$ iff
    * $\cup_{B\in\mathcal{B}}B=X$
    * for each $B_1,B_2\in\mathcal{B}$ and each $p\in B_1\cap B_2$, there is $B_3\in\mathcal{B}$ with $p\in B_3\subseteq B_1\cap B_2$
 
