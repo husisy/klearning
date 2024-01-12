@@ -19,7 +19,7 @@
 1. 购买VPS服务器
    * amazon web service (aws)
      * 选择aws lightsail, `3.5USD/month`，首月免费
-     * 由于aws不面向中国大陆个人提供服务，需要绑定境外手机号方可注册（自行找同学借手机号注册）。服务器连接稳定性好，大多数ip可以访问谷歌学术
+     * 由于aws不面向中国大陆个人提供服务，需要绑定境外手机号方可注册。服务器连接稳定性好，大多数ip可以访问谷歌学术
    * vultr [link](https://www.vultr.com/)
      * 选择New York，`3.5USD/month`，按日计费
      * 大多数ip不可访问谷歌学术
@@ -28,6 +28,7 @@
    * `ssh username@ip`: 其中`username`替换为**你**的用户名，`ip`替换为**你**的ip，这些信息可以在你购买服务器的页面找到
    * （可选）建议使用公钥私钥的方式登录，可以省去登录密码的麻烦，[阮一峰/ssh原理与应用](https://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html)
    * （可选）出于安全考虑，建议禁用密码登录 [askubuntu/how-to-disable-password](https://askubuntu.com/questions/435615/disable-password-authentication-in-ssh)
+   * TODO `ssh -D 2333`
 3. 在服务器上安装`proxy.py` [github/proxy.py](https://github.com/abhinavsingh/proxy.py)，操作系统ubuntu-20.04大概的命令如下
    * `sudo apt update`
    * `sudo apt upgrade`
@@ -61,8 +62,4 @@ shadowsocks软件提供socks5-proxy [github/shadowsocks](https://github.com/shad
 
 ## VPS-v2ray
 
-v2ray的社区支持人员相比shadowsocs更多，也许是未来的趋势 [github/v2ray-step-by-step](https://github.com/v2fly/v2ray-step-by-step) 待补充
-
-## 结尾
-
-1. 安全和便捷是对立的：以上步骤是繁琐的，安全程度大概会稍微高一些吧
+v2ray的社区相比shadowsocs更多，也许是未来的趋势 [github/v2ray-step-by-step](https://github.com/v2fly/v2ray-step-by-step) 待补充

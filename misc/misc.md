@@ -81,50 +81,6 @@
    * APS physics subject headings (PhySH) [link](https://physh.org/browse)
    * AMS mathematica subject classification [link](https://mathscinet.ams.org/mathscinet/msc/msc2020.html)
 
-## chatgpt fee
-
-写在开头：强列建议使用quora/poe，这个省心；除非你需要使用chatgpt api key，额加油
-
-quora/poe
-
-1. poe [link](https://poe.com/)
-   * poe暂时只提供ios/web服务，仅支持ios/macOS-silicon端付费 @20230324
-   * poe免费版包含chatgpt，付费版包含gpt4
-   * poe不对大陆提供服务，poe对HK提供服务
-2. 开销估计
-   * `1600HKD/year`
-   * 苹果手机/macOS-silicon
-3. 流程概述
-   * （中国大陆）购买VPN服务
-   * （免费版）打开poe网页即可
-   * （付费版）ios端点击订阅（需要非大陆信用卡）
-
-openai/chatgpt
-
-1. link
-   * 稀土掘金/sms-activate一款好用的短信验证码接收工具 [link](https://juejin.cn/post/7211437215335727164)
-   * 稀土掘金/国内开通chatgpt-plus保姆级教程 [link](https://juejin.cn/post/7201806164392656953#heading-4)
-   * sms-activate [link](https://sms-activate.org/)
-   * 欧易交易平台 [link](https://www.okx.com/cn)
-   * depay数字货币master卡 [link](https://www.depay.one/zh-cn/index.html)
-   * USDT
-2. 开销预估：约 `35USD/month`
-   * sms-activate 短信验证码 大约`10RMB` 仅首次
-   * vultr-US-NewJearsy服务器 `3.5USD/month`
-   * 欧易交易USDT手续费 `1USDT/transaction`
-   * depay开卡费 `10USDT` 仅首次
-   * depay月费 `0.5USDT/month`
-   * depay充值手续费率 `1.3%`
-   * openai plus订阅费 `20USD/month`
-   * openai api key：按需
-3. 流程概述，详见上链接
-   * sms-activate接收短信注册openai账号
-   * 购买服务器vultr-US-NJ用作VPN，已测试AWS-JP-Tokyo, AWS-US-Ohio被openai封禁
-   * 注册欧易平台账号用于充值depay，并购买USDT
-   * 注册depay账号并开通master卡
-   * 欧易平台转账至depay卡
-   * openai绑定depay卡并订阅
-
 ## server
 
 1. link
