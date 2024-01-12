@@ -1,19 +1,71 @@
 # lie group and lie algebra
 
-1. theorem: let $G$ be a topologically closed subgroup of $GL(n,\mathbb{R})$, define $g=\{X\in gl(n,\mathbb{R}): e^{tX}\in G \forall t\in \mathbb{R}\}$
-   * $g$ is a vector space
-   * if $x,y\in g$, then $[x,y]\in g$
-   * $g$ is parallel to $G$ at $e$
-   * $\mathrm{exp}: g\to G$ is locally invertible
-2. (most) Lie group: topologically closed subgroup of $GL(n,\mathbb{R})$
-   * Lie group but not topologically closed subgroup of $GL(n,\mathbb{R})$
-   * topological closure
-   * matrix Lie group
-3. concept
-   * [wiki-link](https://en.wikipedia.org/wiki/Weierstrass_M-test) Weierstrass M-test
-   * matrix norm
-   * smooth homomorphism, Lie algebra homomorphism
-4. [stackexchange-link](https://math.stackexchange.com/a/1592257) if $G$ is a real finite-dimensional Lie group with Lie algebra $\mathfrak{g}$, then the following are equivalent
+[wiki-link](https://en.wikipedia.org/wiki/Weierstrass_M-test) Weierstrass M-test
+
+example
+
+1. general linear Lie group (invertible matrix) $GL(n,\mathbb{R})$, $GL(n,\mathbb{C})$
+   * general linear Lie algebra $gl(n,\mathbb{R})$, $gl(n,\mathbb{C})$
+   * matrix exp, matrix logarithm, well-defined around a neighborhood of $0\in gl(n,\mathbb{K})$ and $I\in GL(n,\mathbb{K})$
+2. $U(1)=\{e^{i\theta}:\theta\in[0,2\pi)\}$
+3. NOT Lie group $H$: let (2-torus) $T^2=\{diag(e^{2\pi i\theta _0},e^{2\pi i \theta _1}):\theta_0,\theta_1\in\mathbb{R}\}$
+   * $H=\{diag(e^{2\pi i\theta},e^{2\pi i a \theta}):\theta\in\mathbb{R}\}$ for some irrational number $a\in(\mathbb{R}\setminus\mathbb{Q})$
+   * $H$ is not a Lie group in subspace topology, for that $H$ is not a topologically closed (not locally path-connected)
+   * $H$ can be a Lie group under different topology
+   * [wiki-link](https://en.wikipedia.org/wiki/Closed-subgroup_theorem) [wiki-link1](https://en.wikipedia.org/wiki/Lie_group#Non-example)
+4. NOT Lie group $GL(n,\mathbb{Q})$
+   * might be algebraic group
+5. Lie group but not matrix Lie group
+   * universal cover group of $SL(2,\mathbb{R})$ [wiki-link](https://en.wikipedia.org/wiki/SL2(R)#Topology_and_universal_cover)
+   * metaplectic group [wiki-link](https://en.wikipedia.org/wiki/Metaplectic_group)
+6. orthogonal group $O(n)=\{x\in\mathbb{R}^{n\times n}:xx^T=I\}$
+   * $o(n)=\{x\in\mathbb{R}^{n\times n}:x+x^T=0\}$
+7. $SL(n,\mathbb{K})=\{x\in\mathbb{K}^{n\times n}: \mathrm{det}(x)=1\}$
+   * $sl(n,\mathbb{K})=\{x\in\mathbb{K}^{n\times n}:\mathrm{Tr}(x)=1\}$
+
+preliminary
+
+1. [wiki-link](https://en.wikipedia.org/wiki/Inverse_function_theorem) inverse function theorem
+
+[youtube-link/JonathanEvans](https://youtu.be/kN-LZvrKJck?si=pfEjCoyQxPSuBwFI)
+
+1. matrix exponential $exp(A)=\sum_{n=0}^{\infty}\frac{A^n}/n!$
+   * $exp(-i\theta Y)=\cos(\theta)I-iY\sin(\theta)$
+   * absolutely convergence
+     * can reorder terms
+   * uniformly convergence along with all its partial derivatives on any bounded set of matrix
+     * can differentiate
+     * differentiation op can be exchanged with the sum op
+   * $\frac{d}{dt}(exp(tA))=A exp(tA)$
+   * if $AB=BA$, then $exp(A+B)=exp(A)exp(B)$
+     * [wiki-link](https://en.wikipedia.org/wiki/Cauchy_product) Cauchy product formula
+     * $(exp(A))^{-1}=exp(-A)$
+   * locally invertible $exp(A): \mathbb{R}^{n^2}\to\mathbb{R}^{n^2}$, $d_A(exp(A))|_{A=I}$ is a $n^2\times n^2$ identity matrix (invertible)
+2. matrix logarithm $log(I+A)=\sum_{n=1}^\infty\frac{-(-1)^n}{n}A^n$
+3. Baker-Campbell-Hausdorff formula
+   * commutator $[A,B]=AB-BA$
+   * $\log(e^Ae^B)=A+B + \frac{1}{2}[A,B] + \frac{1}{12}[A,[A,B]] - \frac{1}{12}[B,[A,B]]+\cdots$
+   * only involve $A,B,[A,B]$
+4. Lie group
+   * def: smooth manifold required (TODO)
+5. matrix Lie group $G$:
+   * def: topologically closed subgroup of $GL(n,\mathbb{R})$
+   * let $g=\{X\in gl(n,\mathbb{R}): e^{tX}\in G, t\in \mathbb{R}\}$ (not definition of Lie algebra)
+     * $g$ is a vector space
+     * if $x,y\in g$, then $[x,y]\in g$
+     * $g$ is tangent space to $G$ at identity
+     * $\mathrm{exp}: g\to G$ is locally invertible
+6. lie algebra: vector space $\mathfrak{g}$ with a bilinear map $[\cdot,\cdot]:\mathfrak{g}\times \mathfrak{g}\to \mathfrak{g}$
+   * def:
+     * anti-symmetry: $[x,x]=0$, forall $x\in\mathfrak{g}$
+       * imply $[x,y]=-[y,x]$
+     * Jocabi identity: $[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$, forall $x,y,z\in \mathfrak{g}$
+   * lie subalgebra
+   * theorem: any finite dimensional lie algebra over $\mathbb{K}$ is a Lie subalgebra of $gl(n,\mathbb{K})$ for some $n$
+
+pass
+
+1. [stackexchange-link](https://math.stackexchange.com/a/1592257) if $G$ is a real finite-dimensional Lie group with Lie algebra $\mathfrak{g}$, then the following are equivalent
    * exp is injective
    * exp is bijective
    * exp is a real analytic diffeomorphism
@@ -89,3 +141,26 @@ pass
     * $\dim([L,L])=1, [L,L]\subset Z(L)$, then $L=\mathrm{span}\{x,y,z\},[x,y]=z$
       * Heisenberg Lie algebra
 17. given a Lie algebra $L$ and an ideal $I\subset L$, then $L/I$ is abelian iff $[L,L]\subset I$
+
+## youtube couse
+
+algrabraic geometry theory
+
+1. affine variety
+
+notation
+
+1. field $\mathbb{K}$
+
+example
+
+1. associative algebra $A$ with commutator $[x,y]=xy-yx$
+2. general linear Lie algebra $\mathfrak{gl}_n(\mathbb{K})$: associative algebra $A=M_n(\mathbb{K})$: n-by-n matrix with matrix multiplication
+
+introduction to Lie theory [youtube-link](https://youtu.be/mPccJXKtz_8?si=qWRipw_nsxP7yv9L)
+
+1. finite-dimensional semisimple Lie-algebra $\mathbb{K}$-algebra for some field $\mathbb{K}$
+3. associative algebra $A$
+   * derivation: $D_x:A\to A, a\mapsto [x,a]$, $[x,yz]=[x,y]z+y[x,z]$
+4. derivation of Lie algebra
+5. algebraic groups
