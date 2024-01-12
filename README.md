@@ -12,6 +12,7 @@ seminar之类的笔记暂不打算纳入 `klearning`，因为其有显著依赖�
    * **禁止**将课程讲义、视频等版权归属原作者的内容添加至git管理中，但**务必**在文档中添加访问链接
 2. 树状tree文件系统也许未必是最适合这一需求的，也许tag-based filesystem更适合
 3. 任何一个领域深入展开都会无比庞大，所以上面涉及的模块都很有可能需要将其中的子模块单独拧出到一个独立的仓库管理
+4. **暂时不接受**pull requests（没考虑清楚）@20240112
 
 TODO
 
@@ -19,3 +20,18 @@ TODO
 2. [ ] 流程图如何整合，processon还是用python代码写 [mermaid](https://mermaid.js.org/)
 3. [ ] [github/pywonderland](https://github.com/neozhaoliang/pywonderland)
 4. [ ] en/README.md
+
+## License
+
+我照搬了wikipedia的License（我懒），如果该仓库内容存在侵权行为，请联系我删除
+
+Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
