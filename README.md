@@ -18,3 +18,4 @@ TODO
 1. [ ] axmath还是lyx，前者一定没法做git管理，那修改记录就没法查看，后者使用还不熟练
 2. [ ] 流程图如何整合，processon还是用python代码写 [mermaid](https://mermaid.js.org/)
 3. [ ] [github/pywonderland](https://github.com/neozhaoliang/pywonderland)
+4. [ ] en/README.md
