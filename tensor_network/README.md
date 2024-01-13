@@ -14,13 +14,7 @@
    * [arxiv-link0](http://arxiv.org/abs/1407.6552), [arxiv-link1](http://arxiv.org/abs/1603.03039), [arxiv-link2](http://arxiv.org/abs/1008.3477), [arxiv-link3](http://arxiv.org/abs/1812.04011), [arxiv-link4](http://arxiv.org/abs/2011.12127)
    * [bilibili/首都师范大学-冉仕举-张量网络基础介绍](https://www.bilibili.com/video/BV17z411i7yM)
    * [前沿关注](http://quattro.phys.sci.kobe-u.ac.jp/dmrg/condmat.html)
-2. course
-   * 周二、周四 `17:05-18:40`
-   * zoomID: `3885289728`
-   * password: `BIMSA`
-   * Venue: Room 1110
-   * @wechat-group
-3. outline
+2. outline
    * 传统张量网络基础
    * 张量网络新领域应用
    * 专题选讲（经典综述，重要方法，新进展）
