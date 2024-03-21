@@ -74,3 +74,4 @@ chapter 1
 5. standard open set
 6. ring homomorphism
 7. affine algebra
+8. affine variety
