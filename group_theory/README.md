@@ -1,8 +1,4 @@
-# 群论
-
-*备注*：关于群论，我暂时没有想到该如何代码验证，代码验证依赖于representation theory
-
-参考资料
+# group theory
 
 1. link
    * 李新征-群论讲义 [link](http://faculty.pku.edu.cn/_tsf/00/0F/yEVrEjjaaEza.pdf)
@@ -16,6 +12,7 @@
    * [groupprops](https://groupprops.subwiki.org/wiki/Main_Page)
    * [youtube/HKUST/MATH5143/Eric](https://youtube.com/watch?v=fdGGPi4xpYc&feature=shares) introduction to lie algebra
    * small finite-group [website](https://people.maths.bris.ac.uk/~matyd/GroupNames/index.html)
+   * [youtube-link](https://youtube.com/playlist?list=PLwV-9DG53NDxU337smpTwm6sef4x-SCLv&si=P4FQDjwrwcRQjBBW) visual group theory
 2. book
    * 《群论》 韩其智，孙洪洲，北京大学出版社 [link](https://book.douban.com/subject/3584574//)
    * 《群论讲义》 王宏利，未出版
@@ -30,186 +27,135 @@
    * [github/WignerD](https://github.com/zichunhao/WignerD)
    * [sage/lie](https://doc.sagemath.org/html/en/reference/spkg/lie.html)
    * [github/jaxlie](https://github.com/brentyi/jaxlie)
+   * [github/mmgroup](https://github.com/Martin-Seysen/mmgroup) monster groups
 4. history
    * Emmy Noether (1882-1935, 德国犹太人)：理体系的对称性与守恒量之间得关系
    * Eugene Paul Wigner（1902-1995，匈牙利人，后加入美国籍）
    * Hermann Klaus Hugo Weyl（1885-1955，德国人）
    * Linus Carl Pauling
-5. 有限群理论、转动群、双群、李群，群基础理论，群表示理论
-6. 规范场理论：连续变换下的对称性与守恒量的关系
-7. conception
+5. concept
    * 自同构 Automorphism $Aut(X)$
    * 自同态 Endomorphism $End(X)$
    * group algebra
    * universal enveloping algebra of Lie algebra
    * irreducible and indecomposable
+6. extension
+   * 有限群理论
+   * 转动群
+   * 双群
+   * 李群
+   * 群基础理论
+   * 群表示理论
 
-集合论set
+举栗子
 
-1. link [youtube-link](https://www.youtube.com/playlist?list=PL22w63XsKjqxPO6pQ8wiZcIrtpTznGSre)
-2. 栗子
-   * $\mathbb{N}_0=\left\{0,1,2,\cdots\right\}$
-   * natural number $\mathbb{N}_1=\left\{1,2,3,\cdots\right\}$
-   * integer $\mathbb{Z}=\left\{0,\pm 1, \pm 2,\cdots\right\}$
-   * rational number $\mathbb{Q}=\left\{ \frac{m}{n} | m,n\in\mathbb{Z},n\ne 0 \right\}$
-   * real number $\mathbb{R}=\left\{ \pm x_1x_2x_3\cdots x_n.y_1y_2y_3\cdots | 0\leq x_i,y_i\leq 9 \right\}$
-   * complex number $\mathbb{C}=\left\{ a+i | a,b\in\mathbb{R},i^2=-1 \right\}$
-   * $2\mathbb{Z}=\left\{ 2n | n\in\mathbb{Z} \right\}$
-   * $\mathbb{R}^+=\left\{ x\in\mathbb{R} | x>0 \right\}$
-   * $\mathbb{R}^{\ge}=\left\{ x\in\mathbb{R} | x\ge 0 \right\}$
-   * $\mathbb{Z}^{\ge}=\left\{ x\in\mathbb{Z} | x\ge 0 \right\}$
-   * $\mathbb{Z}^{*}=\left\{ x\in\mathbb{Z} | x\ne 0 \right\}$
-   * $U(n)=(\mathbb{Z}/n\mathbb{Z})^\times=\mathbb{Z}_n^\times=\left\{ k+n\mathbb{Z} : 1\leq k\leq n-1, \mathrm{gcd}(k,n)=1 \right\}$ [wiki](https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n)
-   * $\emptyset$
-3. operation
-   * subset, improper subset (self), proper subset
-   * union
-   * intersection, disjoint (no intersection)
-   * Cartesian product
-   * cardinality
-4. function example $f:\mathbb{R}\to\mathbb{R}, f(x)=x^2$
-   * domain $\mathbb{R}$, range $\mathbb{R}$, image $\mathbb{R}^\ge$
-   * domain $\mathbb{R}$, codomain $\mathbb{R}$, range $\mathbb{R}^\ge$
-   * domain $\mathbb{R}$, range $\mathbb{R}^\ge$
-   * domain $\mathbb{R}$, codomain $\mathbb{R}$, image $\mathbb{R}^\ge$
-5. function
-   * definition: set of ordered pair
-   * injective 单射的 $\forall x_1\ne x_2, f(x_1) \ne f(x_2)$
-   * surjective 满射的
-   * composition of function $(g\circ f )(x)=g(f(x))$
-   * identity function $i(x)$
-   * invertible function $f^{-1}$: bijective = injective + surjective, same cardinality
-6. partition
-   * one cell (class) in the partition
-   * the union of all cells is the set $S$
-   * any two cells are disjoint
-7. relation $\mathfrak{R}$ on a nonempty set $S$ is a subset of $S\times S$
-   * $\left\{ (x,y) | y=2x+1 \right\}$ over set $\mathbb{R}$
-   * $\left\{(x,y) | x<y\right\}$ over $\mathbb{R}$
-8. equivalence relation $\sim$ on a nonempty set $S$ is a relation on set $S$ that
-   * (reflexive) $\forall a \in S, a\sim a$
-   * (symmetric) $\forall a,b\in S$, if $a\sim b$, then $b\sim a$
-   * (transitive) $\forall a,b,c\in S$, if $a\sim b,b\sim c$, then $a\sim c$
-   * example: $\left\{ (m,n) | m-n=0 \bmod 3 \right\}$ over $\mathbb{Z}$
-9. equivalence class: let $\sim$ be an equivalence relation defined on a nonempty set $S$. if $x\in S$, then the equivalence class of $x$ is denoted by $[x]$ where $[x]=\left\{ y\in S | y\sim x \right\}$ (partition)
-10. principal of mathematical induction
-    * well-ordering principal: every nonempty set of positive integers has a least element
-11. the division algorithm: if $a$ is any integer and $b$ is any positive integer, then there exist unique integers $q$ and $r$ with $0\leq r<b$, such that $a=qb+r$
-    * $327=54*6+3$, quotient, remainder
-
-数论基础 `@number_theory`
-
-群论举栗子
-
-1. $(k,+)$ for $k$ being $\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C},n\mathbb{Z},\mathbb{Z}/n\mathbb{Z}$
+1. $(k,+)$ for $k$ being $\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C},n\mathbb{Z},\mathbb{Z}/n\mathbb{Z}$ or finite field $\mathbb{F}_p^q$
 2. $(\mathbb{N}_1,\cdot)$ 幺半群
 3. $(k,\cdot)$ for $k$ being $\mathbb{Q}^\times,\mathbb{Q}^+,\mathbb{R}^\times,\mathbb{R}^+,\mathbb{C}^\times,\mathbb{C}^+$
 4. matrix group $(k^{m\times n},+)$ for $k$ being $\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}$
-5. general linear group $(GL(n,k),+)$ for $k$ being $\mathbb{Q},\mathbb{R},\mathbb{C}$ [wiki](https://en.wikipedia.org/wiki/General_linear_group)
-   * $(GL(n,\mathbb{R}),\cdot)\to (\mathbb{R}^\times,\cdot)$ is a group homomorphism
-6. special linear group $(SL(n,k),\cdot)$ for $k$ being $\mathbb{Q},\mathbb{R},\mathbb{C}$ [wiki](https://en.wikipedia.org/wiki/Special_linear_group)
-7. orthogonal group $O(V)$ preserves a non-generate quadratic form on a vector space $V$ [wiki](https://en.wikipedia.org/wiki/Orthogonal_group)
-8. unitary group $U(V)$ [wiki](https://en.wikipedia.org/wiki/Unitary_group)
-9. symplectic group $Sp(V)$ [wiki](https://en.wikipedia.org/wiki/Symplectic_group)
-10. cyclic group $C_n=\left\{ x^a : a\in \mathbb{Z} \right\}$ [wiki](https://en.wikipedia.org/wiki/Cyclic_group)
-    * $C_n\simeq (\mathbb{Z}/n\mathbb{Z},+)$
-    * $\mathbb{Z}/n\mathbb{Z}=\langle 1\rangle=\langle n-1\rangle$, e.g. $\mathbb{Z}/6\mathbb{Z}=\langle 1\rangle=\langle 5\rangle$
-    * $\mathbb{Z}=\langle -1 \rangle=\langle 1 \rangle$
-11. 二面体群 Dihedral group $D_{n}$ [wiki](https://en.wikipedia.org/wiki/Dihedral_group)
-    * $|D_n|=2n$
-    * $Z(D_4)=\left\{ e, r^2 \right\}$
-12. Klein four-group [wiki](https://en.wikipedia.org/wiki/Klein_four-group)
-    * $V=\langle a,b | a^2=b^2=(ab)^2=e \rangle$
-    * 四元群仅有 $V$ 和 $C_4$
-13. symmetric group $S_n$ [wiki](https://en.wikipedia.org/wiki/Symmetric_group)
-    * 置换 permutation: for any set $A$, a bijective function $\phi:A\to A$ is called a permutation of $A$
-    * 轮换 cycle
-    * 对换 transposition
-    * operation: composition of functions
-    * $|S_n|=n!$
-    * $S_3\simeq D_3$
-14. multiplicative group of integers modulo $n$, units modulo $U(n)=((\mathbb{Z}/n\mathbb{Z})^\times, \cdot)$ [wiki](https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n)
+5. Lie group
+   * general linear group $(GL(n,k),+)$ for $k$ being $\mathbb{Q},\mathbb{R},\mathbb{C}$ [wiki](https://en.wikipedia.org/wiki/General_linear_group)
+   * special linear group $(SL(n,k),\cdot)$ for $k$ being $\mathbb{Q},\mathbb{R},\mathbb{C}$ [wiki](https://en.wikipedia.org/wiki/Special_linear_group)
+   * orthogonal group [wiki](https://en.wikipedia.org/wiki/Orthogonal_group)
+   * unitary group [wiki](https://en.wikipedia.org/wiki/Unitary_group)
+   * symplectic group $Sp(V)$ [wiki](https://en.wikipedia.org/wiki/Symplectic_group)
+6. cyclic group $C_n=\left\{ x^a : a\in \mathbb{Z} \right\}$ [wiki](https://en.wikipedia.org/wiki/Cyclic_group)
+   * $C_n\cong (\mathbb{Z}/n\mathbb{Z},+)$
+   * $\mathbb{Z}/n\mathbb{Z}=\langle 1\rangle=\langle n-1\rangle$, e.g. $\mathbb{Z}/6\mathbb{Z}=\langle 1\rangle=\langle 5\rangle$
+   * $\mathbb{Z}=\langle -1 \rangle=\langle 1 \rangle$
+7. 二面体群 Dihedral group $D_{n}$ [wiki](https://en.wikipedia.org/wiki/Dihedral_group)
+   * $|D_n|=2n$
+   * $Z(D_4)=\left\{ e, r^2 \right\}$
+8. Klein four-group [wiki](https://en.wikipedia.org/wiki/Klein_four-group)
+   * $V=\langle a,b | a^2=b^2=(ab)^2=e \rangle$
+   * 四元群仅有 $V$ 和 $C_4$
+9. symmetric group $S_n$ [wiki](https://en.wikipedia.org/wiki/Symmetric_group)
+   * 置换 permutation: for any set $A$, a bijective function $\phi:A\to A$ is called a permutation of $A$
+   * 轮换 cycle
+   * 对换 transposition
+   * operation: composition of functions
+   * $|S_n|=n!$
+   * $S_3\cong D_3$
+10. multiplicative group of integers modulo $n$, units modulo $U(n)=((\mathbb{Z}/n\mathbb{Z})^\times, \cdot)$ [wiki](https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n)
     * $|\mathbb{Z}_n^\times|=|U(n)|=\phi(n)$ Euler's totient function [wiki](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
     * 特别的，若$p$是一个素数，则$|\mathbb{Z}_p^\times|=p-1$
     * $U(10)$ is cyclic and abelian, $U(12)$ is abelian but not cyclic
-15. Lorentz group
-16. extra special group [wiki-link](https://en.wikipedia.org/wiki/Extra_special_group)
+11. Lorentz group
+12. extra special group [wiki-link](https://en.wikipedia.org/wiki/Extra_special_group)
     * Pauli group is an extra special group of $p=2$
-17. Heisenberg group [wiki-link](https://en.wikipedia.org/wiki/Heisenberg_group)
+13. Heisenberg group [wiki-link](https://en.wikipedia.org/wiki/Heisenberg_group)
     * Pauli group is isomorphic to the Heisenberg group over a finite field [stackexchange-link](https://quantumcomputing.stackexchange.com/q/26351)
 
-层次关系
+notation
 
-1. [wiki/list-of-algebra](https://en.wikipedia.org/wiki/List_of_algebras)
-2. 线性代数R（或称代数）：定义在数域K上的线性空间，线性空间中元素$\vec{x},\vec{y},\vec{z}$，数域上元素$a$，定义乘法
-   * 乘法封闭：$\vec{x}\vec{y} \in R$
-   * 乘法分配率：$\vec{x}(\vec{y}+\vec{z})=\vec{x}\vec{y}+\vec{x}\vec{z}$
-   * 数乘结合交换率：$a(\vec{x}\vec{y})=(a\vec{x})\vec{y}=\vec{x}(a\vec{y})$
-3. 结合代数：在线性代数的基础上定义乘法结合律$(\vec{x}\vec{y})\vec{z}=\vec{x}(\vec{y}\vec{z})$
-   * 非结合代数non-associative algebra [wiki](https://en.wikipedia.org/wiki/Non-associative_algebra)：叉乘outer product
-4. 半群 semigroup $(G,\cdot)$ 由集合 $G$ 和二元运算 $\cdot$ 构成 [wiki](https://en.wikipedia.org/wiki/Semigroup)
-   * 封闭性：$\forall a,b\in G,a\cdot b\in G$
-   * 结合律：$\forall a,b,c\in G, (a\cdot b)\cdot c=a\cdot (b\cdot c)$, 可归纳为最多有限次的结合律
-5. 幺半群 Monoid $(G,\cdot)$ [wiki](https://en.wikipedia.org/wiki/Monoid)
-   * $(G,\cdot)$为半群
-   * 单位元：$\exist e\in G, \forall a\in G, e\cdot a=a\cdot e=a$
-   * 注：可逆元素组成的集合形成群
-6. 群 group $(G,\cdot)$
-   * $(G,\cdot)$为幺半群
-   * 逆元：$\forall a\in G, \exist b\in G, a\cdot b=b\cdot a=e$
-7. 交换群 Abelian group $(G,\cdot)$
-   * 群group
-   * 交换律：$\forall a,b\in G, a\cdot b=b\cdot a$
-8. 循环群 cyclic group
+1. isomorphic $\cong$: bijection
+2. homomorphism $\simeq$
+3. homotopic $\sim$
+4. order
+   * group order $|G|$
+   * element order $|x|$: the smallest positive integer s.t. $x^{|x|}=e$
+5. [wiki-link/subgroup](https://en.wikipedia.org/wiki/Subgroup) [wiki-link/coset](https://en.wikipedia.org/wiki/Coset) subgroup $H<G$
+   * left coset $gH$, equivalence relation $a\sim_L b$ iff $a^{-1}b\in H$
+   * right coset $Hg$, equivalence relation $a\sim_R b$ iff $ab^{-1}\in H$
+   * index $[G:H]=\frac{|G|}{|H|}$
+6. [wiki](https://en.wikipedia.org/wiki/Normal_subgroup) normal subgroup $H\triangleleft G$
+   * def: $\forall g\in G, gH=Hg$
+   * quotient group $G/H$
+7. generator group $\langle x \rangle$
+   * one element $\langle x \rangle=\left\{ x^n, n\in \mathbb{Z} \right\}$
+   * subset $\langle S \rangle=\cap \left\{ H< G: S\subseteq H \right\}$
+8. [wiki-link](https://en.wikipedia.org/wiki/Centralizer_and_normalizer) centeralizer, normalizer, center
+   * centeralizer of a subset $S$ of group $G$: $C_G(S)=\left\{ g\in G:\forall s\in S,gsg^{-1}=s\right\}$
+   * normalizer of a subset $S$ of group $G$: $N_G(S)=\left\{ g\in G: gSg^{-1}=S \right\}$
+   * $C_G(S)\subset N_G(S)$
+   * $C_G(S)\triangleleft G$
+   * $N_G(S)\triangleleft G$
+   * [wiki-link](https://en.wikipedia.org/wiki/Center_(group_theory)) center of a group $G$: $Z(G)=C_G(G)$
+   * normal closure of a subset $S$ of a group $G$: $\mathrm{ncl}_G(S)=\cap \left\{ N \triangleleft G: S\subseteq N \right\}$
+9. product
+    * [wiki-link](https://en.wikipedia.org/wiki/Direct_product_of_groups) direct product $G_1\times G_2=\left\{ (g_1,g_2):g_1\in G_1,g_2\in G_2 \right\}$
+      * $C_6\cong C_2 \times C_3$
+    * [wiki-link](https://en.wikipedia.org/wiki/Free_product) free product $G_1*G_2$
+10. group homomorphism $f: (G,\cdot)\to(G',*)$
+    * $\ker(f)=\left\{ x\in G : f(x)=e' \right\}$
+    * $\mathrm{Im}(f)=\left\{ f(x) : x\in G \right\}$
+    * $\ker(f)\triangleleft G$
+    * $\mathrm{Im}(f)<G'$
+    * example
+      * $(GL(n,\mathbb{R}),\cdot)\to (\mathbb{R}^\times,\cdot)$ with $f(A)=\det(A)$
+11. [wiki-link](https://en.wikipedia.org/wiki/Conjugacy_class) conjugate, conjugacy class
+    * $a\sim b$ iff $\exist g\in G, b=gag^{-1}$
+    * class $[a]=\left\{ gag^{-1} : g\in G \right\}$
+    * class number $|[a]|=[G:C_G(a)]$
+    * if $a\sim b$, then $|a|=|b|$
+    * subset $S\subseteq G$: $[S]=\left\{ gSg^{-1} : g\in G \right\}$
+    * subgroup $H< G$: $[H]=\left\{ gHg^{-1} : g\in G \right\}$, two conjugate subgroups are isormorphic (reverse is not true)
+
+theorem
+
+1. [wiki-link](https://en.wikipedia.org/wiki/Lagrange%27s_theorem_(group_theory)) Lagrange theorem: $H<G$, then $|H|$ divides $|G|$
+   * $|G|=|H|\cdot [G:H]$
+2. [wiki-link](https://en.wikipedia.org/wiki/Cayley%27s_theorem) Cayley's theorem: every group is isomorphic to a subgroup of a symmetric group
+   * 重排定理: $gG=G$, left-multiplication by $g$ is a permutation of $G$
+3. [wiki-link](https://en.wikipedia.org/wiki/Isomorphism_theorems) fundamental isomorphism theorem
+   * first: let $f:G\to H$ be a homomorphism, then $G/\ker(f)\cong \mathrm{Im}(f)$
+4. [wiki-link](https://en.wikipedia.org/wiki/Wilson%27s_theorem) 威尔逊定理 Wilson's theorem: 若$p$是一个奇素数（除了2以外的素数），则 $(p-1)!\equiv -1 \bmod p$
+5. misc
+   * finite group $G$ of even order, must has an element with order 2
 
 群论基础
 
-1. 概念
-   * 群的阶order $|G|$
-   * 有限群、无限群
-   * 元素的阶 $x^{|x|}=e$
+1. concept
+   * group: binary operation, associativity, identity, inverse
+   * group order, finite group, infinite group, element order
    * abelian group (commutative group), nonabelian group
-   * 重排定理：$aG=G$
-   * 子群 $H\triangleleft G$: 封闭，可逆
-   * 拉格朗日Lagrange定理：有限子群的阶必为群阶的因子
-   * 群直积 $G = G_1 \otimes G_2$: $C_6\simeq C_2 \otimes C_3$
+   * subgroup: 封闭，可逆
    * 生成元 generator
-   * 循环子群 cyclic subgroup：有集合生成的子群
-   * 正规子群 normal subgroup: $H<G,\forall a\in G, gH=Hg$
-2. 陪集 coset, a subgroup $H$ of group $G$, $G/H$
-    * def: $a\sim_L b$ iff $a^{-1}b\in H$
-    * def: $a\sim_R b$ iff $ab^{-1}\in H$
-    * equivalence relation
-    * partition $[a]=\left\{ ah | h\in H \right\}$
-    * left/right coset
-    * left coset of a normal subgroup is right coset
-    * coset只是集合，当$H$是正规子群时$G/H$才构成群（称作商群）
-3. centeralizer, normalizer [wiki](https://en.wikipedia.org/wiki/Centralizer_and_normalizer) [wiki1](https://en.wikipedia.org/wiki/Center_(group_theory))
-    * centeralizer of a subset $S$ of group $G$: $C_G(S)=\left\{ g\in G:\forall s\in S,gsg^{-1}=s\right\}$
-    * center of a group $G$: $Z(G)=C_G(G)$
-    * normalizer of a subset $S$ of group $G$: $N_G(S)=\left\{ g\in G: gSg^{-1}=S \right\}$
-    * $C_G(S)\subset N_G(S)$
-    * $C_G(S)\triangleleft G$
-    * $N_G(S)\triangleleft G$
-    * normal closure of a subset $S$ of a group $G$: $\mathrm{ncl}_G(S)=\cap_{S\subset N \triangleleft G} N$
-4. 群同态 group homomorphism
-   * 值域domain, 陪域codomain
-   * $f: (G,\cdot)\to(G',*)$是一个群同态, 定义$ker(f)=\left\{ x\in G | f(x)=e' \right\}$, $im(f)=\left\{ f(x) : x\in G \right\}$
-   * 核是正规子群 $ker(f)\triangleleft G$, 像是子群 $im(f)<G'$
-   * 群同态是单同态iff核是平凡的
-   * 从群$G$中任取$x$, 则$f:(\mathbb{Z},+)\to (G,\cdot)$定义为$f(n)=x^n$是一个群同态
-   * 元素生成的群 $\langle x \rangle=\left\{ x^n, n\in \mathbb{Z} \right\}$
-   * 集合生成的群 $\langle S \rangle=\cap \left\{ H\subset G: H\supset S, H<G \right\}$
-5. 群同构第一定理
-   * 陪集coset $H<G, \left\{ gH : g\in G \right\}$ [wiki](https://en.wikipedia.org/wiki/Coset)
-   * 正规子群normal subgroup [wiki](https://en.wikipedia.org/wiki/Normal_subgroup)
-   * 正规化子 normalizer $H<G,N(H)=\left\{ g\in G | gHg^{-1}=H \right\}$
-6. 群同构第二定理、群同构第三定理
+   * 循环子群 cyclic subgroup
 
 TODO-00
 
-1. let $G$ be a finite group of even order. show that $G$ has an element $a\ne e$ such that $a^2=e$
-2. 群作用 $\phi: G\to \mathrm{Perm}(S)$是一个群同态
+1. 群作用 $\phi: G\to \mathrm{Perm}(S)$是一个群同态
    * 例子：左乘，共轭作用
    * 左乘作用大部分元素不是群同态
    * 共轭作用每个元素都是同构（自同构）
@@ -218,61 +164,36 @@ TODO-00
    * 稳定化子 $\mathrm{Stab}(s)=\left\{ x\in G : xs=s \right\}$
    * 群作用每个元素对应集合$S$上的一个划分
    * 稳定化子是子群，一般不是正规子群
-3. 群作用对于集合而言，类似于modulo对于环，类似于线性空间对于域
-4. 拉格朗日定理：每个有限群的子群的阶整除这个群的阶
-5. 费马小定理 Fermat's little theorem: 令$p$是一个素数，而$p\nmid a$, 则 $a^{p-1}\equiv 1 \bmod p$，等价的，$a^p\equiv a \bmod p$ [wiki](https://en.wikipedia.org/wiki/Fermat%27s_little_theorem)
-6. 欧拉定理 Euler's theorem: 令 $n\in \mathbb{N}_2$，而$gcd(a,n)=1$，则 $a^{\phi(n)}\equiv 1 \bmod n$ [wiki](https://en.wikipedia.org/wiki/Euler%27s_theorem)
+2. 群作用对于集合而言，类似于modulo对于环，类似于线性空间对于域
+3. 费马小定理 Fermat's little theorem: 令$p$是一个素数，而$p\nmid a$, 则 $a^{p-1}\equiv 1 \bmod p$，等价的，$a^p\equiv a \bmod p$ [wiki](https://en.wikipedia.org/wiki/Fermat%27s_little_theorem)
+4. 欧拉定理 Euler's theorem: 令 $n\in \mathbb{N}_2$，而$gcd(a,n)=1$，则 $a^{\phi(n)}\equiv 1 \bmod n$ [wiki](https://en.wikipedia.org/wiki/Euler%27s_theorem)
     * 当$n$是素数，则退化为费马小定理
-7. 威尔逊定理 Wilson's theorem: 若$p$是一个奇素数（除了2以外的素数），则 $(p-1)!\equiv -1 \bmod p$ [wiki](https://en.wikipedia.org/wiki/Wilson%27s_theorem)
 
 TODO-01
 
-1. 共轭：给定群中的两个元素`f,h`，如果存在元素`g`，使得`gfg^(-1)=h`，则称`f,h`共轭，记作`f~h`
-   * 相互性：`f~h`则`h~f`
-   * 传递性：`f~h,h~i`则`f~i`
-2. 类：群G中所有相互共轭的元素形成的集合
-   * 构造方法：给定元素`a`，遍历所有元素`b`，构造集合`{bab^(-1)`
-   * 单元元自身构成一类
-   * Abel群每个元素构成一类
-   * 共轭元素的阶相等
-   * 有限群的每个类中元素的个数都是群阶的因子
-   * 类**不是**群：这个集合没有单位元
-3. 共轭子群：G的两个子群H和K，若存在元素g使得`K=gHg^(-1)`，则称H和K为共轭子群
-   * 两个共轭子群里必有同类的元素
-   * 传递性
-   * 共轭子群类
-4. 同构：群G和群F存在一一映射
-   * 一一映射/双射：单射且满射
-   * 空间反演群和二阶循环群同构，和二阶置换群同构
-   * 给定群的两个共轭子群同构
-5. 同态：群G到群F存在满射`h`，称作G与F同态，记作$G\sim F$。即任意元素f，存在元素g使得`f=h(g)`
-6. 同态核：设G与F同态，那么G中与F的单位元对应的所有元素的集合称作同态核H
-   * 同态核定理：同态核H一定是G的不变子群，商群G/H与F同构
-   * D3群核二阶循环群同态，同态核是`{e,d,f}`
-7. 自同构映射：群G到自身的同构映射v
+1. 自同构映射：群G到自身的同构映射v
    * 自同构群：由群G的自同构映射的集合构成的群，记作`A(G)`；不唯一
    * 三阶循环群的自同构群与二阶循环群同构
-8. 内自同构映射：选定群G中元素u，定义映射为`f(g)=ugu^(-1)`
+2. 内自同构映射：选定群G中元素u，定义映射为`f(g)=ugu^(-1)`
    * 内自同构群：由内自同构映射构成的群
    * 内自同构群是自同构群的不变子群
    * Abel群的内自同构群仅包含恒等变换
-9. 变换/置换：非空集合X，值域为自身的一一映射f
+3. 变换/置换：非空集合X，值域为自身的一一映射f
    * 定义在集合上的“自同构映射”
    * 完全对称群$S_x$：由所有置换组成的群，即n阶置换群$S_n$
    * 对称/变换群：完全对称群的子群
-   * 凯莱定义Cayley：群G同构于其完全对称群$S_G$的一个子群
-10. 等价性：集合X上的一个对称群G，集合X中元素`x,y`，若存在群G中元素`g`使得`g(x)=y`，则称x与y等价，记作`x~y`
+4. 等价性：集合X上的一个对称群G，集合X中元素`x,y`，若存在群G中元素`g`使得`g(x)=y`，则称x与y等价，记作`x~y`
     * 轨道：集合X上的一个对称群G，集合X中元素x的所有等价元素的集合，称为x的G轨道
     * 不变子集：集合X上的一个对称群G，集合X的子集Y，对Y中任意元素y，y的G轨道包含于Y，则称Y为群G在X上的不变子集
     * X中每个G轨道的集合都是不变子集
     * X中的任意子集Y，总能找到G的子群H，使得Y是群H在X上的不变子集，大不了H只包含恒等变换
     * 迷向子群isotropy subgroup：集合X上的一个变换群G，X中元素x，G的子群H保持x不变，则称H是G对x的迷向子群
-11. 半直积$G = G_1 \otimes_s G_2$
+5. 半直积$G = G_1 \otimes_s G_2$
     * 半直积群
     * `G1`是`G`的不变子群
     * D3群具备以`G1={e,d,f}, G2={e,a}`为因子形成的半直积结构
 
-TODO-02 MATH4120
+MATH4120 [website](https://www.math.clemson.edu/~macaule/classes/f22_math4120/)
 
 1. Klein 4-group $V_4$
    * `{e,h,v,r}`
@@ -400,81 +321,3 @@ pass 正交性与完备性没有理解，暂且先跳过
 | $A^2$ | $1$ | $i$ | $-1$ | $-i$ |
 | $A^3$ | $1$ | $-1$ | $1$ | $-1$ |
 | $A^4$ | $1$ | $-i$ | $-1$ | $i$ |
-
-## matrix Lie group and matrix Lie algebra
-
-栗子
-
-1. general linear group $GL(n;k)$ with $k=\mathbb{R},\mathbb{C}$: invertible matrix
-   * nonzero real number $\mathbb{R}^*\simeq GL(1;R)$
-   * nozero complex number $\mathbb{C}^*\simeq GL(1;C)$
-   * unit complex number $S^1\simeq U(1)$
-   * $(\mathbb{R},+)\simeq GL(1;\mathbb{R})^+$: positive determinant
-2. special linear group $SL(n;k)$ with $k=\mathbb{R},\mathbb{C}$
-   * $x\in GL(n,k), det(x)=1$
-3. unitary group $U(n)$
-   * $xx^\dagger=x^\dagger x=I_n$
-   * norm preserving over $\mathbb{C}$
-4. special unitary group $SU(n)$
-   * $x\in U(n), det(x)=1$
-5. orthogonal group $O(n)$
-   * $x\in GL(n,\mathbb{R}), xx^T=x^x=I_n$
-   * norm preserving over $\mathbb{R}$
-6. special orthogonal group $SO(n)$
-   * $x\in O(n), det(x)=1$
-7. complex orthogonal group $O(n;\mathbb{C})$
-   * $x\in GL(n,\mathbb{C}),x^Tx=xx^T=I_n$
-   * $det(x)=\pm 1$
-8. special complex orthogonal group $SO(n,\mathbb{C})$
-   * $x\in O(n,\mathbb{C}),det(x)=1$
-9. indifinite orthogonal group $O(p,q)$
-   * [wiki](https://en.wikipedia.org/wiki/Indefinite_orthogonal_group)
-   * $x\in GL(p+q,\mathbb{R}),g=diag(1,\cdots,1,-1,\cdots,-1), x^Tgx=g$
-   * Lorentz group $O(3,1)$
-10. indefinite special orthogonal group $SO(p,q)$
-    * $x\in O(p,q),det(x)=1$
-11. real symplectic group $Sp(n;\mathbb{R})$
-    * $\Omega=(i\sigma_y)\otimes I_n, x\in GL(2n,\mathbb{R}),x^T\Omega x=\Omega$
-    * $det(x)=1$
-    * TODO how to generate
-12. complex symplectic group $Sp(n;\mathbb{C})$
-    * $\Omega=(i\sigma_y)\otimes I_n, x\in GL(2n,\mathbb{C}),x^T\Omega x=\Omega$
-    * $det(x)=1$
-    * TODO how to generate
-13. compact symplectic group $Sp(n)=Sp(n;\mathbb{C}) \cap U(2n)$
-    * conjugate operator: $Pz=\bar{z}$
-    * $J=(i\sigma_y\otimes I_n)P$
-    * 等价定义 $Sp(n)=\left\{ x: x^\dagger x=xx^\dagger=I_{2n}, xJ=Jx \right\}$
-    * unitary group over the quaternions
-    * norm preserving over quaternion
-    * TODO how to generate
-14. Euclidean group $E(n)$
-    * $\left\{ (x,R):x\in\mathbb{R}^n,R\in O(n) \right\}$
-    * $\left\{ x,R\right\} y=Ry+x$
-15. Poincare group, inhomogeneous Lorentz group $P(n;1)$
-16. Heisenberg group
-    * Heisenberg-Weyl commutation relation
-    * Baker-Campbell-Hausdorff ofrmula
-
-concept
-
-1. matrix Lie group: closed subgroup of $GL(n, \mathbb{C})$
-   * a non-closed subgroup of $GL(n,\mathbb{C})$: $GL(n,\mathbb{Q})$
-   * irrational line in a torus
-2. Lie group but not matrix Lie group
-   * $G=\mathbb{R}\times\mathbb{R}\times S^1=\left\{(x,y,u):x\in\mathbb{R},y\in\mathbb{R},u\in S^1\subset \mathbb{C}\right\}$
-   * $(x_1,y_1,u_1)\cdot (x_2,y_2,u_2)=(x_1+x_2,y_1+y_2,e^{ix_1y_2}u_1u_2)$
-3. manifold
-4. quaternion algebra $\mathcal{H}$ [wiki](https://en.wikipedia.org/wiki/Quaternion): real linear combination of $I,i\sigma_z,i\sigma_y,i\sigma_x$
-5. Jordan-Chevalley decomposition [wiki](https://en.wikipedia.org/wiki/Jordan%E2%80%93Chevalley_decomposition)
-
-TODO
-
-1. package
-   * [github/mmgroup](https://github.com/Martin-Seysen/mmgroup) monster groups
-
-## Lie algebra
-
-1. link
-   * [github/specialunitary](https://github.com/xalhs/specialunitary)
-   * [github/SU-tools](https://github.com/hellpig/SU-tools)
