@@ -23,3 +23,7 @@
     * congruence modulo $n$: $a\equiv b ~mod~ n$
     * $14 ~mod~ 3 \equiv 2$, 14 mod 3 is congruent to 2
 11. integers modulo n: addition, multiplication
+12. [wiki-link](https://en.wikipedia.org/wiki/Integer_partition) integer partition
+13. 费马小定理 Fermat's little theorem: 令$p$是一个素数，而$p\nmid a$, 则 $a^{p-1}\equiv 1 \bmod p$，等价的，$a^p\equiv a \bmod p$ [wiki](https://en.wikipedia.org/wiki/Fermat%27s_little_theorem)
+14. 欧拉定理 Euler's theorem: 令 $n\in \mathbb{N}_2$，而$gcd(a,n)=1$，则 $a^{\phi(n)}\equiv 1 \bmod n$ [wiki](https://en.wikipedia.org/wiki/Euler%27s_theorem)
+    * 当$n$是素数，则退化为费马小定理

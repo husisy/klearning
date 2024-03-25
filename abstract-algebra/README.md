@@ -5,8 +5,10 @@ notation
 1. isomorphic $\cong$
 2. homomorphism $\simeq$
 3. homotopic $\sim$
+4. embedding $\hookrightarrow$
+5. [wiki-link](https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols) Glossary of mathematical symbols
 
-层次关系
+Hierarchical structure: group, ring, field, vector space, module, algebra
 
 1. [wiki/list-of-algebra](https://en.wikipedia.org/wiki/List_of_algebras)
 2. 线性代数R（或称代数）：定义在数域K上的线性空间，线性空间中元素$\vec{x},\vec{y},\vec{z}$，数域上元素$a$，定义乘法
@@ -45,7 +47,7 @@ notation
 9. $\mathbb{R}^{\ge}=\left\{ x\in\mathbb{R} | x\ge 0 \right\}$
 10. $\mathbb{Z}^{\ge}=\left\{ x\in\mathbb{Z} | x\ge 0 \right\}$
 11. $\mathbb{Z}^{*}=\left\{ x\in\mathbb{Z} | x\ne 0 \right\}$
-12. $U(n)=(\mathbb{Z}/n\mathbb{Z})^\times=\mathbb{Z}_n^\times=\left\{ k+n\mathbb{Z} : 1\leq k\leq n-1, \mathrm{gcd}(k,n)=1 \right\}$ [wiki](https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n)
+12. [wiki-link](https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n) $U(n)=(\mathbb{Z}/n\mathbb{Z})^\times=\mathbb{Z}_n^\times=\left\{ k : 1\leq k\leq n-1, \mathrm{gcd}(k,n)=1 \right\}$
 13. $\emptyset$
 
 concept
@@ -86,3 +88,11 @@ concept
    * well-ordering principal: every nonempty set of positive integers has a least element
 10. the division algorithm: if $a$ is any integer and $b$ is any positive integer, then there exist unique integers $q$ and $r$ with $0\leq r<b$, such that $a=qb+r$
     * $327=54*6+3$, quotient, remainder
+11. [wiki-link](https://en.wikipedia.org/wiki/Set-builder_notation) set builder notation
+    * $\{x: \Phi(x)\}$: set of all $x$ such that predicate $\Phi(x)$ is true
+    * vertical bar $|$ or colon $:$
+
+## abstract algebra
+
+1. link
+   * [youtube-link](https://youtube.com/playlist?list=PL22w63XsKjqxPO6pQ8wiZcIrtpTznGSre&si=CG3uRkzxdtorDbDv) abstract algebra, integral domains
