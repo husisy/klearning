@@ -5,8 +5,9 @@ notation
 1. isomorphic $\cong$
 2. homomorphism $\simeq$
 3. homotopic $\sim$
-4. embedding $\hookrightarrow$
-5. [wiki-link](https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols) Glossary of mathematical symbols
+4. [wiki-link](https://en.wikipedia.org/wiki/Embedding) embedding $\hookrightarrow$
+5. [wiki-link](https://en.wikipedia.org/wiki/Divisor) $a\mid b$, $a\nmid b$: $a$ (not) divides $b$, e.g. $3\mid 6$, $3\nmid 5$
+6. [wiki-link](https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols) Glossary of mathematical symbols
 
 Hierarchical structure: group, ring, field, vector space, module, algebra
 
