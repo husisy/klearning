@@ -33,6 +33,8 @@ pass
 
 1. link
    * @book Algebraic topology, Allen Hatcher
+   * [youtube-link](https://youtube.com/playlist?list=PLuFcVFHMIfhJSSX-tlv8XxiAZSAbhv1DA&si=uaI8GGDsKUbCVc1P) VisualMath, What is...algebraic topology?
+   * [youtube-link](https://youtube.com/playlist?list=PLOROtRhtegr7DmeMyFxfKxsljAVsAn_X4&si=1tM-4PvxcNC9YyP8) Anthony Bosman, Algebraic topology
 2. cell complex (CW complex, closure finiteness week topology complex)
    * 0-skeleton $X^0$: a finite set of points
    * 1-skeleton $X^1$: a finite set of line segments $D^1$, attaching map $\varphi:\partial D^1 \to X^0$
