@@ -6,19 +6,19 @@
 
 栗子
 
-1. general linear group $GL(n;k)$ with $k=\mathbb{R},\mathbb{C}$: invertible matrix
+1. [wiki-link](https://en.wikipedia.org/wiki/General_linear_group) general linear group $GL(n;k)$ with $k=\mathbb{R},\mathbb{C}$: invertible matrix
    * nonzero real number $\mathbb{R}^*\simeq GL(1;R)$
    * nozero complex number $\mathbb{C}^*\simeq GL(1;C)$
    * unit complex number $S^1\simeq U(1)$
    * $(\mathbb{R},+)\simeq GL(1;\mathbb{R})^+$: positive determinant
-2. special linear group $SL(n;k)$ with $k=\mathbb{R},\mathbb{C}$
+2. [wiki-link](https://en.wikipedia.org/wiki/Special_linear_group) special linear group $SL(n;k)$ with $k=\mathbb{R},\mathbb{C}$
    * $x\in GL(n,k), det(x)=1$
-3. unitary group $U(n)$
+3. [wiki-link](https://en.wikipedia.org/wiki/Unitary_group) unitary group $U(n)$
    * $xx^\dagger=x^\dagger x=I_n$
    * norm preserving over $\mathbb{C}$
 4. special unitary group $SU(n)$
    * $x\in U(n), det(x)=1$
-5. orthogonal group $O(n)$
+5. [wiki-link](https://en.wikipedia.org/wiki/Orthogonal_group) orthogonal group $O(n)$
    * $x\in GL(n,\mathbb{R}), xx^T=x^x=I_n$
    * norm preserving over $\mathbb{R}$
 6. special orthogonal group $SO(n)$
@@ -28,8 +28,7 @@
    * $det(x)=\pm 1$
 8. special complex orthogonal group $SO(n,\mathbb{C})$
    * $x\in O(n,\mathbb{C}),det(x)=1$
-9. indifinite orthogonal group $O(p,q)$
-   * [wiki](https://en.wikipedia.org/wiki/Indefinite_orthogonal_group)
+9. [wiki-link](https://en.wikipedia.org/wiki/Indefinite_orthogonal_group) indefinite orthogonal group $O(p,q)$
    * $x\in GL(p+q,\mathbb{R}),g=diag(1,\cdots,1,-1,\cdots,-1), x^Tgx=g$
    * Lorentz group $O(3,1)$
 10. indefinite special orthogonal group $SO(p,q)$
@@ -42,18 +41,19 @@
     * $\Omega=(i\sigma_y)\otimes I_n, x\in GL(2n,\mathbb{C}),x^T\Omega x=\Omega$
     * $det(x)=1$
     * TODO how to generate
-13. compact symplectic group $Sp(n)=Sp(n;\mathbb{C}) \cap U(2n)$
+13. [wiki-link](https://en.wikipedia.org/wiki/Symplectic_group) compact symplectic group $Sp(n)=Sp(n;\mathbb{C}) \cap U(2n)$
     * conjugate operator: $Pz=\bar{z}$
     * $J=(i\sigma_y\otimes I_n)P$
     * 等价定义 $Sp(n)=\left\{ x: x^\dagger x=xx^\dagger=I_{2n}, xJ=Jx \right\}$
     * unitary group over the quaternions
     * norm preserving over quaternion
     * TODO how to generate
-14. Euclidean group $E(n)$
+14. [wiki-link](https://en.wikipedia.org/wiki/Euclidean_group) Euclidean group $E(n)$
     * $\left\{ (x,R):x\in\mathbb{R}^n,R\in O(n) \right\}$
     * $\left\{ x,R\right\} y=Ry+x$
-15. Poincare group, inhomogeneous Lorentz group $P(n;1)$
-16. Heisenberg group
+15. [wiki-link](https://en.wikipedia.org/wiki/Poincar%C3%A9_group) Poincare group, inhomogeneous Lorentz group $P(n;1)$
+16. [wiki-link](https://en.wikipedia.org/wiki/Lorentz_group) Lorentz group
+17. [wiki-link](https://en.wikipedia.org/wiki/Heisenberg_group) Heisenberg group
     * Heisenberg-Weyl commutation relation
     * Baker-Campbell-Hausdorff ofrmula
 
