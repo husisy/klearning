@@ -1,8 +1,35 @@
-# Excel Beauty of Data
+# Scientific Visualization
 
-[excel数据之美](https://book.douban.com/subject/26883742/)
+## pre-course Adobe illustrator tutorial
 
-## 第一章、琐碎事项
+[youtube-link](https://youtu.be/r9gaPGQ1EG0)
+
+[exercise-file-download](https://bringyourownlaptop.com/youtube/illustrator-essentials-for-beginners)
+
+1. AI good at: illustration, drawing, logo design, branding, flyers, poster, stationary, sticker, icon, fashion, patent making
+2. workspace
+   * essentials
+   * classic
+3. software layout
+   * toolbar
+   * control panel
+4. basic tools
+   * artboard: page
+   * selection tool: V
+   * direct selection tool: A
+   * move artboard: space bar
+   * isolation mode: double click
+5. silhouette 轮廓
+
+## Making Scientific Figures with Illustrator
+
+[youtube-link](https://youtube.com/playlist?list=PLRCLlYmhDNMyTLhQCtlPryR_6odf6tBBF)
+
+## Excel Beauty of Data
+
+[book-link](https://book.douban.com/subject/26883742/) excel数据之美
+
+第一章、琐碎事项
 
 1. 配色
 2. 加框（注意力集中、tick向内）、没框（过渡无障碍、tick向外）
@@ -13,12 +40,12 @@
    * ggplot2 elegant graphics for data analysis
    * R Graphics cookbook
 
-## 配色
+配色
 
 1. tableau 10 medium: (96,157,202) (255,150,65) (56,194,93) (255,91,78) (184,135,195) (182,115,101) (254,144,194) (164,160,155) (210,204,90)
 2. R ggplot2 set3: (255,108,145) (188,157,0) (0,187,87) (0,184,229) (205,121,255) 主要网格线(255,255,255) 次要网格线(242,242,242)
 
-## 科学图表的基本元素
+科学图表的基本元素
 
 1. chart area
 2. grid line: 主要/次要 水平/垂直 网格线
@@ -32,14 +59,14 @@
 10. trend line
 11. increase/drop line
 
-## 字体
+字体
 
 1. 标题使用无衬线字体(Sans serif)
 2. 正文使用衬线字体(Serif)
 3. 修饰性字体(Ornamental)
 4. 图表请使用衬线字体，数字和字母一般选用Times New Roman，汉字一般选用宋体
 
-## 案例
+案例
 
 1. 坐标轴调整：轴线条，轴范围，主要单位，次要单位
 2. 坐标轴tick、label，字体times new roman，字号
@@ -47,7 +74,7 @@
 4. 绘图区，背景色(229,229,229)，边框，网格线(255,255,255)，主轴次要网格线(242,242,242)，网格线宽度
 5. 数据标签，点类型，大小，颜色，线宽，颜色，透明度
 
-## 图表类型
+图表类型
 
 1. 散点图和气泡图：分类比较
 2. 柱状图、条形图、直方图、排列图（帕累托图）、瀑布图、漏斗图
@@ -57,14 +84,14 @@
 6. 箱型图、树状图、其他
 7. 地图系列图
 
-## 密度散点图
+密度散点图
 
 scatter + MarkerFaceAlpha
 
-## 滑珠散点图（可以用来替代表格）
+滑珠散点图（可以用来替代表格）
 
 可以画
 
-## 双纵坐标轴
+双纵坐标轴
 
 一个自变量，两个因变量
