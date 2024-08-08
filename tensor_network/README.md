@@ -142,3 +142,64 @@ TODO
     * 表达能力理论分析
 
 TODO, page98 为什么说PEPS对应CRF呢？
+
+## 张量网络Python编程
+
+terminoligy
+
+1. tensor
+   * order n tensor
+   * n-way tensor
+   * n-dimensional array
+
+chapter 1
+
+1. link
+   * [doi-link](https://doi.org/10.1007/978-3-030-34489-4) tensor network contraction ShijuRan
+   * [bilibili-link](https://www.bilibili.com/video/BV1AP4y1R75h/)
+2. concept
+   * index
+   * order
+   * scalar
+   * vectorization
+   * Canonical polyadic decomposition (CPD)
+   * singular value decomposition
+3. python programming trick
+   * indexing
+   * slice
+   * [numpy-link](https://numpy.org/doc/stable/user/basics.indexing.html)
+   * Ex: how to create order $n$ identity tensor
+4. diagram representation
+5. matrix product state $\sum_{\left\{ a_{*}\right\} }I_{a_{0}a_{N}}\prod_{n\in[N]}A_{a_{n}s_{n}a_{n+1}}^{(n)}$
+6. tensor norm
+   * L-p norm
+   * Frobenius norm
+7. best rank one approximation of tensor
+   * alternating least squares method: local minimum, stationary point, non-increasing at each step
+8. [wiki-link](https://en.wikipedia.org/wiki/Tucker_decomposition) Tucker decomposition
+   * core tensor: $G_{[n]}G_{[n]}^\dagger=\mathrm{diag}(g_0,g_1,\cdots)$ with $g_0\geq g_1\geq\cdots$
+   * [wiki-link](https://en.wikipedia.org/wiki/Higher-order_singular_value_decomposition) higher-order singular value decomposition
+   * Tucker rank for each leg
+   * Higher Order Orthogonal Iteration (HOOI)
+9. canonical polyadic decomposition
+
+chapter 2
+
+1. Hilbert space
+2. superposition
+   * basis dependent
+   * coherence: defined in resource theory
+3. thermal state
+4. projective measurement
+5. global phase factor, guage degrees of freedom
+6. reduced density matrix and quantum entanglement
+7. quantum fourier transformation
+
+chapter 3 variational quantum circuit
+
+1. reference
+   * [doi-link](https://doi.org/10.1103/PhysRevA.104.042601) Automatically differentiable quantum circuit for many-qubit state preparation
+2. latent gate
+   * negative logarithm of fidelity
+   * update layer by layer
+   * Matrix Product State (MPS) ansatz: 48 qubits, 5 layer, bond dimension 64
