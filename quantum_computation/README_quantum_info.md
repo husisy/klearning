@@ -108,3 +108,9 @@ no idea
 9. quantum maps
    * positive quantum map
    * completely positive quantum map
+
+## QECC
+
+1. link
+   * [github-link](https://github.com/errorcorrectionzoo) [website](https://errorcorrectionzoo.org/) error correction zoo
+   * [github-link](https://github.com/Infleqtion/qLDPC) qLDPC
